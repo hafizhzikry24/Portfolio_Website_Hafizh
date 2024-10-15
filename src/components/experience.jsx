@@ -52,9 +52,9 @@ export default function Experience() {
       }`}
       id="experience"
     >
-      <div className="container px-5 py-10 mx-auto text-center sm:py-28 relative">
+      <div className="container px-5 py-12 mx-auto text-center sm:py-28 relative">
         <div className="mb-20">
-          <h1 className="sm:text-4xl text-3xl font-extrabold text-gray-900 mb-4 animate__animated animate__fadeIn">
+          <h1 className="sm:text-4xl text-3xl font-extrabold text-gray-900 mb-4 mt-2 animate__animated animate__fadeIn">
             Experience
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 animate__animated animate__fadeIn animate__delay-1s">

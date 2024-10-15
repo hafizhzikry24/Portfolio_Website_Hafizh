@@ -72,7 +72,7 @@ export default function Projects() {
       title: "Network Engineer",
       category: "Internship",
       description:
-        "NETWORK DESIGN AND RECONFIGURATION LABORATORY 2 STATE VOCATIONAL SCHOOL 53 JAKARTA.",
+        "Network Design And Reconfiguration Laboratory 2 State Vocational School 53 JAKARTA.",
       link: "#",
     },
     {
@@ -88,7 +88,7 @@ export default function Projects() {
       title: "FOODY",
       category: "Final Project PWA",
       description:
-        "Created PWA App recipe food with Next.js and Tailwind CSS.",
+        "Created a PWA App recipe food using Next.js, Tailwind CSS, and Firebase for real-time updates.",
       link: "https://foody-culinary.vercel.app/",
     },
     {
@@ -113,11 +113,11 @@ export default function Projects() {
 
   return (
     <section
-      className="text-gray-600 body-font bg-gradient-to-r from-slate-100 via-slate-200 to-gray-200 py-28 sm:py-10"
+      className="text-gray-600 body-font bg-gradient-to-r from-slate-100 via-slate-200 to-gray-200 py-24 sm:py-16"
       id="projects"
     >
-      <div className="container px-5 py-2 mx-auto min-h-screen">
-        <div className="text-center mb-5">
+      <div className="container px-5 mx-auto">
+        <div className="text-center mb-5 mt-6">
           <h1 className="text-3xl font-extrabold text-gray-900 mb-4 animate__animated animate__fadeIn">
             My Projects
           </h1>

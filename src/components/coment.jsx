@@ -83,15 +83,15 @@ function Comment() {
     return (
         <section
             ref={contentRef}
-            className={`text-gray-600 body-font relative bg-gradient-to-r from-gray-100 via-gray-200 py-6 sm:py-12 transition-all duration-1000 ease-in-out transform ${
+            className={`text-gray-600 body-font relative bg-gradient-to-r from-gray-100 via-gray-200 py-6 sm:py-4 transition-all duration-1000 ease-in-out transform ${
                 isContentVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
             }`}
         >
             <div className="container px-10 py-2 sm:py-5 mx-auto w-full sm:w-1/2">
-                <div className="flex flex-col text-center w-full mb-12">
-                    <h1 className="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900">Feedback</h1>
+                <div className="flex flex-col text-center w-full mb-4">
+                    <h1 className="sm:text-3xl text-3xl font-bold title-font mb-4 text-gray-900">Feedback</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
                         Feel free to share your comments or feedback for my portfolio.
                     </p>
@@ -144,7 +144,7 @@ function Comment() {
                     </div>
                 </div>
             </div>
-            <div className="container px-7 mx-auto w-full py-8 sm:py-10">
+            <div className="container px-7 mx-auto w-full py-8 sm:py-8">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">Comments</h3>
                 <div className="overflow-x-auto">
                     <div className="flex space-x-4">
@@ -152,7 +152,7 @@ function Comment() {
                             feedbackList.map((feedback, index) => (
                                 <div
                                     key={index}
-                                    className="w-72 sm:w-1/3 p-4 border-l-8 border-indigo-500 bg-gray-50 rounded-lg shadow-md flex-shrink-0 transition-all duration-300 ease-in-out transform hover:scale-90 hover:bg-gray-100"
+                                    className="w-80 sm:w-1/3 p-4 border-l-8 border-indigo-500 bg-gray-50 rounded-lg shadow-md flex-shrink-0 transition-all duration-300 ease-in-out transform hover:scale-90 hover:bg-gray-100"
                                 >
                                     <h4 className="text-lg font-semibold text-gray-900">{feedback.name}</h4>
                                     <p className="mt-2 text-gray-700">{feedback.messages}</p>

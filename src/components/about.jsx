@@ -63,7 +63,7 @@ const About = () => {
                   src={icon}
                   title={icon.split("/").pop().split(".")[0]}
                   alt=""
-                  className="transition-transform duration-1000 ease-in-out hover:scale-105 hover:rotate-3 flx flex-1" 
+                  className="transition-transform duration-1000 ease-in-out hover:scale-105 hover:rotate-3 flx flex-1 animate-pulse" 
                 />
               ))}
             </div>

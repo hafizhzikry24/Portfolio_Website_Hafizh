@@ -167,9 +167,6 @@ function Content() {
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-            <a href="mailto:hafizhcool24@gmail.com" >
-              <BiLogoGmail className="w-6 h-6 text-gray-300 hover:text-purple-400 transition-transform transform hover:scale-110"/>
-            </a>
             <a
               href="https://github.com/hafizhzikry24/"
               target="_blank"
