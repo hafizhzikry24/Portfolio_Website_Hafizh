@@ -103,7 +103,7 @@ const About = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-100% / 3));
+            transform: translateX(calc(-100% * 2 / 3));
           }
         }
 
