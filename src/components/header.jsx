@@ -55,14 +55,6 @@ const Header = () => {
             Intro
           </Link>
           <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            className="hover:text-purple-400 text-purple-300 cursor-pointer transition-colors font-bold duration-300 font-header"
-          >
-            About
-          </Link>
-          <Link
             to="experience"
             smooth={true}
             duration={500}

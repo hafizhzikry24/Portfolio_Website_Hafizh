@@ -1,6 +1,5 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import design from "../assets/profile.png";
 import js from "../assets/js.png";
 import reactImg from "../assets/react.png";
 import css from "../assets/css.png";
@@ -12,68 +11,119 @@ import github from "../assets/github.png";
 import laravel from "../assets/laravel.png";
 
 const About = () => {
-  const { ref: cardRef, inView: isCardVisible } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
 
+  const logos = [js, css, html, reactImg, github, tailwind, laravel, figma, cisco2];
+
   return (
     <section
-      className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-24 sm:py-28"
-      id="about"
+      ref={ref}
+      className={`text-gray-700 body-font overflow-hidden bg-white py-5 sm:py-14 transition-all duration-1000 ease-in-out ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          ref={cardRef}
-          className={`flex flex-col justify-center items-center w-full h-full bg-white p-8 rounded-2xl shadow-xl text-gray-800 transition-all duration-1000 ease-in-out transform ${
-            isCardVisible
-              ? "opacity-100 translate-y-0 hover:scale-105"
-              : "opacity-0 translate-y-10"
-          }`}
-        >
-          <div className="text-center mb-12">
-            <p className="text-4xl font-extrabold text-purple-600 inline border-b-4 border-purple-400 mb-4">
-              About Me
-            </p>
-          </div>
-          <div className="flex flex-col md:flex-row gap-6 items-center transition-all duration-1000 ease-in-out">
-            <div className="flex-1 text-center md:text-justify">
-              <p className="text-md md:text-xl mb-4 text-justify">
-                I am eager to build a career in IT, focusing on both backend and frontend development. I thrive on creating efficient backend systems and crafting engaging front-end interfaces. I am committed to mastering the latest technologies and best practices to deliver high-quality, comprehensive solutions.
-              </p>
-            </div>
-            <div className="flex-1 text-center md:text-left hidden md:block">
+      <div className="container mx-auto lg:px-8">
+        <div className="text-center mb-2 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline-block mb-2">
+            My Skills
+          </h2>
+          <div className="w-24 h-1 bg-purple-600 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <div className="logo-slider">
+          <div className="logos-slide">
+            {[...logos, ...logos, ...logos].map((icon, index) => (
               <img
-                src={design}
-                alt="Design"
-                className="w-96 mx-auto mb-4 rounded-lg shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110 transform hover:rotate-3"
+                key={index}
+                src={icon}
+                title={icon.split("/").pop().split(".")[0]}
+                alt=""
+                className="logo"
               />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-md md:text-xl text-justify">
-                Creative software developer and network engineer with over 3+ years of experience as a freelancer. Proficient in Laravel, Tailwind CSS, ReactJS, APIs, and Cisco.
-              </p>
-            </div>
-          </div>
-          <div className="relative overflow-hidden w-full mt-10 md:mt-10 ">
-            <div className="grid grid-cols-3 gap-5 sm:mx-auto px-6 justify-center md:grid-cols-9 animate-fadeInUp mx-4">
-              {[js, css, html, reactImg, github, tailwind, laravel, figma, cisco2].map((icon, index) => (
-                <img
-                  key={index}
-                  src={icon}
-                  title={icon.split("/").pop().split(".")[0]}
-                  alt=""
-                  className="transition-transform duration-1000 ease-in-out hover:scale-105 hover:rotate-3 flx flex-1 animate-pulse" 
-                />
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .logo-slider {
+          position: relative;
+          overflow: hidden;
+          padding: 30px 0;
+          background: white;
+          margin-top: 10px;
+        }
+
+        .logo-slider::before,
+        .logo-slider::after {
+          position: absolute;
+          top: 0;
+          width: 250px;
+          height: 100%;
+          content: "";
+          z-index: 2;
+        }
+
+        .logo-slider::before {
+          left: 0;
+          background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+        }
+
+        .logo-slider::after {
+          right: 0;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+        }
+
+        .logos-slide {
+          display: inline-flex;
+          animation: 55s slide infinite linear;
+        }
+
+        .logos-slide img {
+          height: 60px;
+          margin: 0 50px;
+          transition: all 0.3s ease;
+        }
+
+        .logos-slide img:hover {
+          transform: scale(1.1) rotate(6deg);
+        }
+
+        @media (hover: hover) {
+          .logo-slider:hover .logos-slide {
+            animation-play-state: paused;
+          }
+        }
+
+        @keyframes slide {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+
+        @media (max-width: 768px) {
+          .logo-slider::before,
+          .logo-slider::after {
+            width: 75px;
+          }
+
+          .logos-slide {
+            animation: 60s slide infinite linear;
+          }
+
+           .logos-slide img {
+            margin: 0 20px;
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
 export default About;
-
-
