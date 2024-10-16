@@ -38,7 +38,7 @@ export default function Experience() {
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: direction === "left" ? -450 : 450,
+        left: direction === "left" ? -scrollContainerRef.current.offsetWidth : scrollContainerRef.current.offsetWidth,
         behavior: "smooth",
       });
     }
@@ -63,7 +63,7 @@ export default function Experience() {
 
         {/* Left Scroll Icon */}
         <button
-          className="absolute z-10 left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 mx-2"
+          className="absolute z-10 left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 mx-1"
           onClick={() => handleScroll("left")}
         >
           <FiChevronLeft size={24} />
@@ -71,13 +71,13 @@ export default function Experience() {
 
         {/* Right Scroll Icon */}
         <button
-          className="absolute z-10 right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 mx-2"
+          className="absolute z-10 right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 mx-1"
           onClick={() => handleScroll("right")}
         >
           <FiChevronRight size={24} />
         </button>
 
-        <div className="overflow-x-auto" ref={scrollContainerRef}>
+        <div className="overflow-x-auto snap-x" ref={scrollContainerRef}>
           <div className="flex space-x-24 pb-4">
             {[
               {
@@ -107,7 +107,7 @@ export default function Experience() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-slate-50  to-gray-100  experience-card min-w-full p-10 text-justify sm:p-20  rounded-lg shadow-md hover:shadow-lg transition-all duration-500 ease-in-out transform opacity-0 hover:scale-90 animate__animated animate__fadeIn"
+                className="snap-start bg-gradient-to-r from-slate-50  to-gray-100  experience-card min-w-full p-10 text-justify sm:p-20  rounded-lg shadow-md hover:shadow-lg transition-all duration-500 ease-in-out transform opacity-0 animate__animated animate__fadeIn"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-700 text-lg font-bold mr-4">

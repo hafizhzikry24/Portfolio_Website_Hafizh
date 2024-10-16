@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import porto from "../assets/SPCPLCPMK.png";
+
 import foody from "../assets/12.png";
 import kkn from "../assets/13.png";
 import bercak from "../assets/Bercak.png";
@@ -130,9 +131,9 @@ export default function Projects() {
         
 
         {/* Desktop View */}
-        <div className="hidden md:flex flex-wrap -m-4 text-justify">
+        <div className="snap-x hidden md:flex flex-wrap -m-4 text-justify">
           {projects.map((project, index) => (
-            <div className="lg:w-1/3 sm:w-1/2 p-4 mb-4 sm:mb-0" key={index}>
+            <div className="snap-start lg:w-1/3 sm:w-1/2 p-4 mb-4 sm:mb-0" key={index}>
               <ProjectCard project={project} />
             </div>
           ))}
