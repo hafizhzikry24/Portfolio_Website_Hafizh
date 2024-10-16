@@ -21,12 +21,12 @@ const About = () => {
   return (
     <section
       ref={ref}
-      className={`text-gray-700 body-font overflow-hidden bg-white py-5 sm:py-14 transition-all duration-1000 ease-in-out ${
+      className={`text-gray-700 body-font overflow-hidden bg-white py-14 sm:py-14 transition-all duration-1000 ease-in-out ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       <div className="container mx-auto lg:px-8">
-        <div className="text-center mb-2 sm:mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline-block mb-2">
             My Skills
           </h2>
@@ -118,7 +118,7 @@ const About = () => {
           }
 
            .logos-slide img {
-            margin: 0 20px;
+            margin: 10px 20px;
           }
         }
       `}</style>
