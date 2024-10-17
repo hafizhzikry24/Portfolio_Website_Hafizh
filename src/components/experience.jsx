@@ -92,7 +92,7 @@ export default function Experience() {
         isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`} id="experience"
     >
-      <div className="container px-5 py-14 mx-auto text-center sm:py-28 relative">
+      <div className="container px-5 py-14 mx-auto text-center sm:py-4 relative">
         <div className="mb-16">
           <h1 className="sm:text-4xl text-2xl font-extrabold text-gray-900 mb-4 mt-14 animate__animated animate__fadeIn">
             {language === 'en' ? 'Experience' : 'Pengalaman'}
