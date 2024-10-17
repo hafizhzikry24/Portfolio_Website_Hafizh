@@ -88,7 +88,7 @@ export default function Experience() {
   return (
     <section
       ref={contentRef}
-      className={`text-gray-600 body-font bg-gradient-to-r from-gray-50 via-gray-100 py-3 sm:py-4 transition-all duration-1000 ease-in-out transform ${
+      className={`text-gray-600 body-font bg-gradient-to-r from-gray-50 via-gray-100 py-12 sm:py-4 transition-all duration-1000 ease-in-out transform ${
         isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`} id="experience"
     >
