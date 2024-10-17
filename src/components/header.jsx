@@ -59,7 +59,7 @@ const Header = () => {
 
         {/* Mobile navigation */}
         <nav
-          className={`${isMobileMenuOpen ? 'mx-auto max-h-60 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-700 ease-in-out md:max-h-full md:opacity-100 md:flex md:ml-auto mb-3 mt-2 space-x-6 sm:space-x-16 text-sm sm:text-lg`}
+          className={`${isMobileMenuOpen ? 'mx-auto max-h-60 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-700 ease-in-out md:max-h-full md:opacity-100 md:flex md:ml-auto mb-3 mt-2 space-x-6 md:space-x-5 sm:space-x-16 text-sm sm:text-lg`}
           style={{ transition: 'max-height 0.7s ease-in-out, opacity 1.5s ease-in-out' }}
         >
           <Link
