@@ -42,7 +42,7 @@ const About = () => {
 
   return (
     <section
-      className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-20 sm:py-16"
+      className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-16 sm:py-16"
       id="about"
     >
       <div
@@ -51,8 +51,8 @@ const About = () => {
           isCardVisible ? "animate-fadeInUp" : "" // Apply animation when in view
         }`}
       >
-      <div className="text-center mb-8 sm:mb-16">
-        <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400 ">
+      <div className="text-center mb-8 sm:mb-16 transition-transform transform hover:scale-110 hover:rotate-6">
+        <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400  ">
           {language === 'en' ? 'My Skills' : 'Skill Saya'}
         </p>
       </div>
@@ -73,7 +73,7 @@ const About = () => {
             src={icon}
             title={icon.split("/").pop().split(".")[0]}
             alt=""
-            className="w-12 h-12 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
           />
         ))}
       </Slider>

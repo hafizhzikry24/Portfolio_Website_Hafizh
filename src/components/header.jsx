@@ -59,22 +59,22 @@ const Header = () => {
 
         {/* Mobile navigation */}
         <nav
-          className={`${isMobileMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-700 ease-in-out md:max-h-full md:opacity-100 md:flex md:ml-auto mb-3 mt-2 space-x-4 sm:space-x-7 text-md sm:text-lg`}
+          className={`${isMobileMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-700 ease-in-out md:max-h-full md:opacity-100 md:flex md:ml-auto mb-3 mt-2 space-x-7 sm:space-x-16 text-md sm:text-lg`}
           style={{ transition: 'max-height 0.7s ease-in-out, opacity 1.5s ease-in-out' }}
         >
           <Link
             to="content"
             smooth={true}
             duration={500}
-            className="hover:text-purple-400 text-purple-300 cursor-pointer transition-colors font-bold duration-300 font-header"
+            className="hover:text-purple-400 text-purple-300 ml-2 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-110"
           >
-            {language === 'en' ? 'Intro' : 'Perkenalan'}
+            {language === 'en' ? 'Intro' : 'Kenalan?'}
           </Link>
           <Link
             to="experience"
             smooth={true}
             duration={500}
-            className="hover:text-purple-400 text-purple-300 cursor-pointer transition-colors font-bold duration-300 font-header"
+            className="hover:text-purple-400 text-purple-300 cursor-pointer  font-bold duration-300 font-mono transition-transform transform hover:scale-110"
           >
             {language === 'en' ? 'Experience' : 'Pengalaman'}
           </Link>
@@ -82,7 +82,7 @@ const Header = () => {
             to="projects"
             smooth={true}
             duration={500}
-            className="hover:text-purple-400 text-purple-300 cursor-pointer transition-colors font-bold duration-300 font-header"
+            className="hover:text-purple-400 text-purple-300 cursor-pointer  font-bold duration-300 font-mono transition-transform transform hover:scale-110"
           >
             {language === 'en' ? 'Projects' : 'Proyek'}
           </Link>
@@ -90,7 +90,7 @@ const Header = () => {
             to="contact"
             smooth={true}
             duration={500}
-            className="hover:text-purple-400 text-purple-300 cursor-pointer transition-colors font-bold duration-300 font-header"
+            className="hover:text-purple-400 text-purple-300 cursor-pointer  font-bold duration-300 font-mono transition-transform transform hover:scale-110"
           >
             {language === 'en' ? 'Contact' : 'Kontak'}
           </Link>

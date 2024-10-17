@@ -18,7 +18,7 @@ const ProjectCard = ({ project }) => {
   return (
     <div
       ref={ref}
-      className={`p-4 transition-transform transform ${
+      className={`p-2 sm:p-4 transition-transform transform ${
         inView ? "opacity-100 translate-y-0 scale-105 shadow-lg" : "opacity-0 translate-y-10"
       } duration-700 ease-in-out`}
     >
@@ -132,7 +132,7 @@ export default function Projects() {
     >
       <div className="container px-5 mx-auto">
         <div className="text-center mb-5 mt-6">
-          <h1 className="text-3xl font-extrabold text-gray-900 mb-4 animate__animated animate__fadeIn">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 animate__animated animate__fadeIn">
             {language === 'en' ? 'My Projects' : 'Proyek Saya'}
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 animate__animated animate__fadeIn animate__delay-1s">
@@ -146,18 +146,18 @@ export default function Projects() {
         
 
         {/* Desktop View */}
-        <div className="snap-x hidden md:flex flex-wrap -m-4 text-justify">
+        <div className="hidden md:flex flex-wrap -m-4 text-justify">
           {projects.map((project, index) => (
-            <div className="snap-start lg:w-1/3 sm:w-1/2 p-4 mb-4 sm:mb-0" key={index}>
+            <div className="lg:w-1/3 sm:w-1/2 p-4 mb-4 sm:mb-0" key={index}>
               <ProjectCard project={project} />
             </div>
           ))}
         </div>
 
         {/* Mobile View with scroll */}
-        <div ref={scrollRef} className="flex md:hidden overflow-x-auto space-x-4">
+        <div ref={scrollRef} className="snap-x flex md:hidden overflow-x-auto space-x-4">
           {projects.map((project, index) => (
-            <div className="w-full py-2 flex-shrink-0" key={index}>
+            <div className=" snap-start w-full py-10 flex-shrink-0" key={index}>
               <ProjectCard project={project} />
             </div>
           ))}

@@ -85,15 +85,15 @@ function Comment() {
     return (
         <section
             ref={contentRef}
-            className={`text-gray-600 body-font relative bg-gradient-to-r from-gray-100 via-gray-200 py-6 sm:py-4 transition-all duration-1000 ease-in-out transform ${
+            className={`text-gray-600 body-font relative bg-gradient-to-r from-gray-100 via-gray-200 py-1 sm:py-4 transition-all duration-1000 ease-in-out transform ${
                 isContentVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
             }`}
         >
             <div className="container px-10 py-2 sm:py-5 mx-auto w-full sm:w-1/2">
-                <div className="flex flex-col text-center w-full mb-4">
-                    <h1 className="sm:text-3xl text-3xl font-bold title-font mb-4 text-gray-900">{language === 'en' ? "Feedback" : "Kritik dan Saran"}</h1>
+                <div className="flex flex-col text-center w-full mt-2 mb-4">
+                    <h1 className="sm:text-3xl text-2xl font-bold title-font mb-4 text-gray-900">{language === 'en' ? "Feedback" : "Kritik dan Saran"}</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
                         {language === 'en' ? 'Feel free to share your comments or feedback for my portfolio.' : 'Dipersilahkan teman-teman memberikan kritik dan saran kepada website portoku.'}
                     </p>
@@ -123,7 +123,7 @@ function Comment() {
                                     placeholder={language === 'en' ? 'Your message' : 'Pesan Kamu'}
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
-                                    className="w-full bg-gray-100 bg-opacity-50 rounded-lg border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-3 px-4 resize-none transition-colors duration-200 ease-in-out"
+                                    className="w-full bg-gray-100 bg-opacity-50 rounded-lg border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-24 text-base outline-none text-gray-700 py-3 px-4 resize-none transition-colors duration-200 ease-in-out"
                                 />
                             </div>
                         </div>

@@ -60,7 +60,7 @@ const Footer = () => {
 
   return (
     <div
-      className="bg-gray-900 text-white py-12 sm:py-12 rounded-xl "
+      className="bg-gray-900 text-white py-8 sm:py-12 rounded-xl "
       id="contact"
     >
       <div
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
 
         <form
-          className="w-4/5 md:w-1/3 bg-gray-800 p-6 rounded-lg shadow-lg"
+          className="w-4/5 md:w-1/3 bg-gray-800 p-3 sm:p-6 rounded-lg shadow-lg"
           id="form"
         >
           <h2 className="text-lg font-semibold text-white mb-4">

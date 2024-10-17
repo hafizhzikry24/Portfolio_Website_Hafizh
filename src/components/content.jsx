@@ -27,7 +27,7 @@ function Content() {
       >
         {/* Text Section */}
         <div className="lg:w-1/2 w-full lg:pr-12 mb-8 lg:mb-0">
-          <div className="flex items-center mb-4">
+          <div className="flex items-center mb-4 transition-transform transform hover:scale-90">
             <svg
               className="stroke-gray-400 stroke-2 h-5 w-5 mr-2"
               xmlns="http://www.w3.org/2000/svg"
@@ -35,16 +35,16 @@ function Content() {
             >
               <line x1="0" y1="5" x2="10" y2="5" />
             </svg>
-            <h2 className="text-2xl font-light text-gray-300 uppercase">
+            <h2 className="text-xl sm:text-2xl font-light text-gray-300 uppercase ">
               {language === 'en' ? 'My name is': 'Nama Saya'} 
             </h2>
           </div>
-          <h3 className="text-4xl font-bold text-white mb-4">
+          <h3 className="text-3xl sm:text-5xl font-bold text-white mb-4 animate-pulse sm:animate-bounce">
             <span className="bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-200 bg-clip-text text-transparent">
               Muhammad Hafizh Zikry
             </span>
           </h3>
-          <p className="text-lg md:text-2xl text-gray-300 mb-6 text-justify">
+          <p className="text-md md:text-xl text-gray-300 mb-6 text-justify transition-transform transform hover:scale-110">
             {language === 'en' ? 'Hello! I am Muhammad Hafizh Zikry, a fresh graduate Computer Engineering Diponegoro University passionate about both backend and frontend development. I’m dedicated to mastering technologies and delivering impactful solutions.' : 'Halo! Saya Muhammad Hafizh Zikry, lulusan baru Teknik Komputer Universitas Diponegoro yang bersemangat dalam pengembangan backend dan frontend. Saya berdedikasi untuk menguasai teknologi dan memberikan solusi yang berdampak.'}
           </p>
           <div className="flex space-x-4">
@@ -59,7 +59,7 @@ function Content() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2 "
-                className="w-6 h-6 text-gray-300 hover:text-purple-400 transition-transform transform hover :scale-110"
+                className="w-6 h-6 text-gray-300 hover:text-purple-400 transition-transform transform hover:scale-110"
                 viewBox="0 0 24 24"
               >
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
