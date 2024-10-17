@@ -42,59 +42,40 @@ const About = () => {
       className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-20 sm:py-16"
       id="about"
     >
-        <div className="text-center mb-8 sm:mb-16">
-          <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400 ">
-            About Me
-          </p>
-        </div>
+      <div
+        ref={cardRef} // Attach ref to trigger the animation
+        className={`slider-container overflow-hidden w-full px-2 sm:px-3 ${
+          isCardVisible ? "animate-fadeInUp" : "" // Apply animation when in view
+        }`}
+      >
+      <div className="text-center mb-8 sm:mb-16">
+        <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400 ">
+          My Skills
+        </p>
+      </div>
+<Slider {...settings}>
+  {[
+    js,
+    css,
+    html,
+    reactImg,
+    github,
+    tailwind,
+    laravel,
+    figma,
+    cisco2,
+  ].map((icon, index) => (
+    <img
+      key={index} // Ensure each image has a unique key
+      src={icon}
+      title={icon.split("/").pop().split(".")[0]}
+      alt=""
+      className="w-12 h-12 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12"
+    />
+  ))}
+</Slider>
 
-        {/* <div className="text-center mb-12">
-            <p className="text-4xl font-extrabold text-purple-600 inline border-b-4 border-purple-400 mb-4">
-              About Me
-            </p>
-          </div>
-          <div className="flex flex-col md:flex-row gap-8 items-center transition-all duration-1000 ease-in-out">
-            <div className="flex-1 text-center md:text-justify">
-              <p className="text-lg md:text-xl mb-4">
-                I am eager to build a career in IT, focusing on both backend and frontend development. I thrive on creating efficient backend systems and crafting engaging front-end interfaces. I am committed to mastering the latest technologies and best practices to deliver high-quality, comprehensive solutions.
-              </p>
-            </div>
-            <div className="flex-1 text-center md:text-left hidden md:block">
-              <img
-                src={design}
-                alt="Design"
-                className="w-96 mx-auto mb-4 rounded-lg shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110 transform hover:rotate-3"
-              />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-lg md:text-xl">
-                Creative software developer and network engineer with over 3+ years of experience as a freelancer. Proficient in Laravel, Tailwind CSS, ReactJS, APIs, and Cisco.
-              </p>
-            </div>
-          </div> */}
-        <div className="slider-container overflow-hidden w-full px-2 sm:px-3 ">
-          <Slider {...settings}>
-            {[
-              js,
-              css,
-              html,
-              reactImg,
-              github,
-              tailwind,
-              laravel,
-              figma,
-              cisco2,
-            ].map((icon, index) => (
-              <img
-                src={icon}
-                title={icon.split("/").pop().split(".")[0]}
-                alt=""
-                className="sm:w-20 w-16 sm:h-20 h-16 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12" 
-              />
-            ))}
-          </Slider>
-        </div>
-
+      </div>
     </section>
   );
 };
