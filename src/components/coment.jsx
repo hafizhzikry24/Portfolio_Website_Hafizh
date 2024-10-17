@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useInView } from "react-intersection-observer";
 import { FiSend } from 'react-icons/fi';
+import { useLanguage } from '../LanguageContext';
 
 // Initialize Supabase client
 const supabaseUrl = "https://mnwjnvmlgusuwjxtwczy.supabase.co";
@@ -11,6 +12,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 function Comment() {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
+    const {language} = useLanguage();
     const [feedbackList, setFeedbackList] = useState([]);
     const { ref: contentRef, inView: isContentVisible } = useInView({
         triggerOnce: false,
@@ -91,21 +93,21 @@ function Comment() {
         >
             <div className="container px-10 py-2 sm:py-5 mx-auto w-full sm:w-1/2">
                 <div className="flex flex-col text-center w-full mb-4">
-                    <h1 className="sm:text-3xl text-3xl font-bold title-font mb-4 text-gray-900">Feedback</h1>
+                    <h1 className="sm:text-3xl text-3xl font-bold title-font mb-4 text-gray-900">{language === 'en' ? "Feedback" : "Kritik dan Saran"}</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
-                        Feel free to share your comments or feedback for my portfolio.
+                        {language === 'en' ? 'Feel free to share your comments or feedback for my portfolio.' : 'Dipersilahkan teman-teman memberikan kritik dan saran kepada website portoku.'}
                     </p>
                 </div>
                 <div className="lg:w-1/2 md:w-2/3 mx-auto">
                     <div className="flex flex-wrap -m-2">
                         <div className="p-2 w-full">
                             <div className="relative">
-                                <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>
+                                <label htmlFor="name" className="leading-7 text-sm text-gray-600">{language === 'en' ? 'Name' : 'Nama'}</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
-                                    placeholder='Feel free to use anonym'
+                                    placeholder={language === 'en' ? 'Feel free to use anonym' : 'Dipersilahkan menggunakan nama samaran'}
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     className="w-full bg-gray-100 bg-opacity-50 rounded-lg border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-3 px-4 transition-colors duration-200 ease-in-out"
@@ -114,11 +116,11 @@ function Comment() {
                         </div>
                         <div className="p-2 w-full">
                             <div className="relative">
-                                <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
+                                <label htmlFor="message" className="leading-7 text-sm text-gray-600">{language === 'en' ? 'Message' : 'Pesan'}</label>
                                 <textarea
                                     id="message"
                                     name="message"
-                                    placeholder='Your message'
+                                    placeholder={language === 'en' ? 'Your message' : 'Pesan Kamu'}
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     className="w-full bg-gray-100 bg-opacity-50 rounded-lg border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-3 px-4 resize-none transition-colors duration-200 ease-in-out"
@@ -138,14 +140,14 @@ function Comment() {
                             <button
                                 onClick={handleSubmit}
                                 className="flex items-center justify-center mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
-                                Send <FiSend className="ml-2" />
+                                {language === 'en' ? 'Send' : 'Kirim'} <FiSend className="ml-2" />
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="container px-7 mx-auto w-full py-8 sm:py-8">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Comments</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">{language === 'en' ? 'Comments' : 'Komentar'} </h3>
                 <div className="overflow-x-auto">
                     <div className="flex space-x-4">
                         {feedbackList.length > 0 ? (
@@ -160,7 +162,7 @@ function Comment() {
                                 </div>
                             ))
                         ) : (
-                            <p className="text-gray-600">No feedback yet.</p>
+                            <p className="text-gray-600">{language === 'en'? 'No feedback yet' : 'Tidak ada feedback'}.</p>
                         )}
                     </div>
                 </div>

@@ -11,12 +11,15 @@ import html from "../assets/html .png";
 import tailwind from "../assets/tailwind.png";
 import github from "../assets/github.png";
 import laravel from "../assets/laravel.png";
+import { useLanguage } from '../LanguageContext';
 
 const About = () => {
   const { ref: cardRef, inView: isCardVisible } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  const {language} = useLanguage();
 
   const settings = {
     dots: true,
@@ -50,7 +53,7 @@ const About = () => {
       >
       <div className="text-center mb-8 sm:mb-16">
         <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400 ">
-          My Skills
+          {language === 'en' ? 'My Skills' : 'Skill Saya'}
         </p>
       </div>
 <Slider {...settings}>

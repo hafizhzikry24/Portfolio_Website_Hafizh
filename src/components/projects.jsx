@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import porto from "../assets/SPCPLCPMK.png";
-
+import { useLanguage } from "../LanguageContext";
 import foody from "../assets/12.png";
 import kkn from "../assets/13.png";
 import bercak from "../assets/Bercak.png";
@@ -51,53 +51,66 @@ const ProjectCard = ({ project }) => {
 };
 
 export default function Projects() {
+  const {language} = useLanguage();
   const projects = [
     {
       src: bercak,
-      title: "BLOG Bercak Village",
-      category: "Profile Website",
+      title: language === 'en' ? "BLOG Bercak Village" : "Blog Desa Bercak",
+      category: language === 'en' ? "Profile Website" : "Website Profil",
       description:
-        "Created a profile village of Bercak for KKN task using ReactJS and Tailwind CSS.",
+        language === 'en'
+          ? "Created a profile village of Bercak for KKN task using ReactJS and Tailwind CSS."
+          : "Membuat profil desa Bercak untuk tugas KKN menggunakan ReactJS dan Tailwind CSS.",
       link: "https://desabercakboyolali.web.app/",
     },
     {
       src: madani,
       title: "Madani",
-      category: "UI/UX Competition",
+      category: language === 'en' ? "UI/UX Competition" : "Kompetisi UI/UX",
       description:
-        "Created for UI/UX Competition for MTQMN using Figma and developed with design thinking.",
+        language === 'en'
+          ? "Created for UI/UX Competition for MTQMN using Figma and developed with design thinking."
+          : "Dibuat untuk Kompetisi UI/UX MTQMN menggunakan Figma dan dikembangkan dengan design thinking.",
       link: "https://bit.ly/PrototipeMadani",
     },
     {
       src: KP,
-      title: "Network Engineer",
-      category: "Internship",
+      title: language === 'en' ? "Network Engineer" : "Teknisi Jaringan",
+      category: language === 'en' ? "Internship" : "Magang",
       description:
-        "Network Design And Reconfiguration Laboratory 2 State Vocational School 53 JAKARTA.",
+        language === 'en'
+          ? "Network Design And Reconfiguration Laboratory 2 State Vocational School 53 JAKARTA."
+          : "Desain Jaringan dan Rekonfigurasi Laboratorium 2 SMKN 53 JAKARTA.",
       link: "#",
     },
     {
       src: porto,
       title: "SPCPLCPMK",
-      category: "Capstone Project",
+      category: language === 'en' ? "Capstone Project" : "Proyek Akhir",
       description:
-        "Created website SPCPLCPMK for Capstone, and my role is front-end developer.",
+        language === 'en'
+          ? "Created website SPCPLCPMK for Capstone, and my role is front-end developer."
+          : "Membuat website SPCPLCPMK untuk Proyek Akhir, dan peran saya adalah pengembang front-end.",
       link: "https://test1.spcplcpmk.com/login",
     },
     {
       src: foody,
       title: "FOODY",
-      category: "Final Project PWA",
+      category: language === 'en' ? "Final Project PWA" : "Proyek Akhir PWA",
       description:
-        "Created a PWA App recipe food using Next.js, Tailwind CSS, and Firebase for real-time updates.",
+        language === 'en'
+          ? "Created a PWA App recipe food using Next.js, Tailwind CSS, and Firebase for real-time updates."
+          : "Membuat aplikasi PWA resep makanan menggunakan Next.js, Tailwind CSS, dan Firebase.",
       link: "https://foody-culinary.vercel.app/",
     },
     {
       src: kkn,
-      title: "Blog Klikiran Village",
-      category: "Profile Website",
+      title: language === 'en' ? "Blog Klikiran Village" : "Blog Desa Klikiran",
+      category: language === 'en' ? "Profile Website" : "Website Profil",
       description:
-        "Created a profile village of Klikiran for KKN task using ReactJS and Tailwind CSS.",
+        language === 'en'
+          ? "Created a profile village of Klikiran for KKN task using ReactJS and Tailwind CSS."
+          : "Membuat profil desa Klikiran untuk tugas KKN menggunakan ReactJS dan Tailwind CSS.",
       link: "https://desaklikiran-381b3.web.app/",
     },
   ];
@@ -120,10 +133,12 @@ export default function Projects() {
       <div className="container px-5 mx-auto">
         <div className="text-center mb-5 mt-6">
           <h1 className="text-3xl font-extrabold text-gray-900 mb-4 animate__animated animate__fadeIn">
-            My Projects
+            {language === 'en' ? 'My Projects' : 'Proyek Saya'}
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 animate__animated animate__fadeIn animate__delay-1s">
-            This is a project that I made while studying in the IT field. These projects were created for college and internship needs to develop hard skills, including college assignments, practical work, and research.
+            {language === 'en'
+              ? 'This is a project that I made while in the IT field. These projects were created for college and internship needs to develop hard skills, including college assignments, practical work, and research.'
+              : 'Ini adalah proyek yang saya buat saat berada di bidang IT. Proyek-proyek ini dibuat untuk kebutuhan kuliah dan magang untuk mengembangkan hard skills, termasuk tugas kuliah, kerja praktek, dan penelitian.'}
           </p>
         </div>
 
