@@ -85,14 +85,14 @@ function Comment() {
     return (
         <section
             ref={contentRef}
-            className={`text-gray-600 body-font relative bg-gradient-to-r from-gray-100 via-gray-200 py-1 sm:py-4 transition-all duration-1000 ease-in-out transform ${
+            className={`text-gray-600 body-font relative bg-gradient-to-r from-gray-100 via-gray-200 py-20 sm:py-12 transition-all duration-1000 ease-in-out transform ${
                 isContentVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
-            }`}
+            }`}id='comment'
         >
-            <div className="container px-10 py-2 sm:py-5 mx-auto w-full sm:w-1/2">
-                <div className="flex flex-col text-center w-full mt-2 mb-4">
+            <div className="container px-10 py-2 mt-6 sm:mt-4 sm:py-5 mx-auto w-full sm:w-1/2">
+                <div className="flex flex-col text-center w-full mt-10 mb-4">
                     <h1 className="sm:text-3xl text-2xl font-bold title-font mb-4 text-gray-900">{language === 'en' ? "Feedback" : "Kritik dan Saran"}</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
                         {language === 'en' ? 'Feel free to share your comments or feedback for my portfolio.' : 'Dipersilahkan teman-teman memberikan kritik dan saran kepada website portoku.'}
