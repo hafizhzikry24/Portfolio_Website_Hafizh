@@ -77,7 +77,7 @@ export default function Experience() {
     {
       company: { en: "SMKN 53 Jakarta", id: "SMKN 53 Jakarta" },
       period: { en: "Jan 2023 - Feb 2023", id: "Januari 2023 - Februari 2023" },
-      role: { en: "Network Engineer", id: "Insinyur Jaringan" },
+      role: { en: "Network Engineer", id: "Network Engineer" },
       description: {
         en: "Carrying out network design or what is known as network architecture, installing and configuring the network design then monitoring the network to ensure that the network does not experience problems, troubleshooting which is carried out when interference or problems are found on a network and documentation is useful for reports and also makes the subsequent troubleshooting process easier.",
         id: "Melaksanakan desain jaringan atau yang dikenal sebagai arsitektur jaringan, menginstal dan mengonfigurasi desain jaringan kemudian memantau jaringan untuk memastikan jaringan tidak mengalami masalah, pemecahan masalah dilakukan ketika gangguan atau masalah ditemukan pada jaringan dan dokumentasi berguna untuk laporan serta memudahkan proses pemecahan masalah selanjutnya."
