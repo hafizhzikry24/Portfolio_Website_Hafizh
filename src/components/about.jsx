@@ -1,6 +1,5 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import design from "../assets/profile.png";
 import js from "../assets/js.png";
 import reactImg from "../assets/react.png";
 import css from "../assets/css.png";
@@ -30,6 +29,7 @@ const About = () => {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    pauseOnHover: false, // Tambahkan ini untuk mencegah pause saat hover
     responsive: [
       {
         breakpoint: 1024,
@@ -56,27 +56,27 @@ const About = () => {
           {language === 'en' ? 'My Skills' : 'Skill Saya'}
         </p>
       </div>
-<Slider {...settings}>
-  {[
-    js,
-    css,
-    html,
-    reactImg,
-    github,
-    tailwind,
-    laravel,
-    figma,
-    cisco2,
-  ].map((icon, index) => (
-    <img
-      key={index} // Ensure each image has a unique key
-      src={icon}
-      title={icon.split("/").pop().split(".")[0]}
-      alt=""
-      className="w-12 h-12 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12"
-    />
-  ))}
-</Slider>
+      <Slider {...settings}>
+        {[
+          js,
+          css,
+          html,
+          reactImg,
+          github,
+          tailwind,
+          laravel,
+          figma,
+          cisco2,
+        ].map((icon, index) => (
+          <img
+            key={index} // Ensure each image has a unique key
+            src={icon}
+            title={icon.split("/").pop().split(".")[0]}
+            alt=""
+            className="w-12 h-12 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+          />
+        ))}
+      </Slider>
 
       </div>
     </section>
