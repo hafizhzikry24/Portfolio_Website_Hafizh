@@ -87,14 +87,6 @@ const Header = () => {
             {language === 'en' ? 'Project' : 'Proyek'}
           </Link>
           <Link
-            to="comment"
-            smooth={true}
-            duration={500}
-            className="hover:text-purple-400 text-purple-300 cursor-pointer  font-bold duration-300 font-mono transition-transform transform hover:scale-110"
-          >
-            {language === 'en' ? 'Comment' : 'Komentar'}
-          </Link>
-          <Link
             to="contact"
             smooth={true}
             duration={500}
