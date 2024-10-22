@@ -6,12 +6,15 @@ import About from "./components/about";
 import Projects from "./components/projects";
 import Experience from "./components/experience";
 import Comment from "./components/coment";
+import Landing from "./components/lnding";
 
 
 const App = () => {
+  
   return (
     <>
       <Header/>
+      <Landing/>
       <Content/>
       <About/>
       <Experience/>

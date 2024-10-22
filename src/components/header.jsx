@@ -68,7 +68,7 @@ const Header = () => {
             duration={500}
             className="hover:text-purple-400 text-purple-300 ml-2 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-110"
           >
-            {language === 'en' ? 'Intro' : 'Kenalan?'}
+            {language === 'en' ? 'Intro' : 'Kenalan'}
           </Link>
           <Link
             to="experience"
