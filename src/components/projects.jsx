@@ -162,11 +162,11 @@ export default function Projects() {
             </div>
           ))}
         </div>
-
-        <div className="flex md:hidden justify-between items-center mt-4 mx-6">
+        <div className="flex md:hidden justify-between items-center mx-2">
           <FiArrowLeft onClick={scrollLeft} className="text-2xl cursor-pointer" />
           <FiArrowRight onClick={scrollRight} className="text-2xl cursor-pointer" />
         </div>
+
       </div>
     </section>
   );
