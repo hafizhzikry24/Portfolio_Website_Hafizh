@@ -43,7 +43,6 @@ const About = () => {
   return (
     <section
       className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-16 sm:py-16"
-      id="about"
     >
       <div
         ref={cardRef} // Attach ref to trigger the animation
