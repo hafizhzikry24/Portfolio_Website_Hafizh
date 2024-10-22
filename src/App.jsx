@@ -7,6 +7,7 @@ import Projects from "./components/projects";
 import Experience from "./components/experience";
 import Comment from "./components/coment";
 import Landing from "./components/lnding";
+import { TimelineDemo } from "./components/timeline";
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
       <Landing/>
       <Content/>
       <About/>
-      <Experience/>
+      <TimelineDemo/>
       <Projects/>
       <Comment/>
       <Footer/>

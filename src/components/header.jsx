@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <header className="body-font sticky top-0 z-10 bg-gradient-to-r from-gray-800 via-gray-900 to-black shadow-lg text-white">
+    <header className="body-font sticky top-0 z-50 bg-gradient-to-r from-gray-800 via-gray-900 to-black shadow-lg text-white">
       <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center sm:p-5">
         <div className="flex w-full justify-between items-center md:w-auto mb-2">
           {/* Logo */}
