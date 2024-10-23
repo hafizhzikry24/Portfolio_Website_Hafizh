@@ -27,7 +27,7 @@ const Landing: React.FC = () => {
 
   return (
     <div
-      className={`h-[400vh] bg-black min-w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip transition-all duration-1000 ease-in-out transform ${
+      className={`h-[325vh] bg-black min-w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip transition-all duration-1000 ease-in-out transform ${
         isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       ref={(node) => {
