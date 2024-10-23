@@ -41,7 +41,7 @@ function Content() {
           </div>
           <h3 className="text-3xl sm:text-5xl font-bold text-white mb-4 animate-pulse sm:animate-bounce">
             <span className="bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-200 bg-clip-text text-transparent">
-              Muhammad Hafizh Zikry
+              Muhammad Hafizh Zikry, I'am Gay
             </span>
           </h3>
           <p className="text-md md:text-xl text-gray-300 mb-6 text-justify transition-transform transform hover:scale-110">
