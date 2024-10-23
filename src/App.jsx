@@ -8,6 +8,7 @@ import Experience from "./components/experience";
 import Comment from "./components/coment";
 import Landing from "./components/lnding";
 import { TimelineDemo } from "./components/timeline";
+import { GlobeDemo } from "./components/globe";
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <>
       <Header/>
+      <GlobeDemo/>
       <Landing/>
       <Content/>
       <About/>
