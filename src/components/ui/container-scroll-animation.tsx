@@ -36,9 +36,9 @@ export const ContainerScroll = ({
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <BackgroundLines className="h-[55rem] sm:h-[82rem] md:h-[60rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20 bg-black" >
+    <BackgroundLines className="h-[55rem] sm:h-[82rem] md:h-[110rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20 bg-black" >
     <div
-      className="h-[65rem] sm:h-[82rem] md:h-[60rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20"
+      className="h-[65rem] sm:h-[82rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20"
       ref={containerRef}
     >
       <div
@@ -88,7 +88,7 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl lg:-mt-10 md:-mt-8 -mt-20 mx-auto lg:h-full md:h-[20rem] sm:h-[28rem] h-[24rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="max-w-5xl lg:-mt-10 md:-mt-8 -mt-20 mx-auto lg:h-full md:h-[28rem] sm:h-[28rem] h-[24rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
       <div className=" h-full w-full  overflow-hidden rounded-2xl bg-zinc-900 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
         {children}
