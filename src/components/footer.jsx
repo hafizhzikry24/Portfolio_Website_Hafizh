@@ -65,7 +65,7 @@ const Footer = () => {
     >
       <div
         ref={contentRef}
-        className={`container mx-auto flex flex-col md:flex-row justify-around items-center px-5 transition-all duration-1000 ease-in-out transform ${
+        className={`container mx-auto flex flex-col md:flex-row justify-around items-center  transition-all duration-1000 ease-in-out transform ${
           isContentVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-10"
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
 
         <form
-          className="w-4/5 md:w-1/3 bg-gray-800 p-3 sm:p-6 rounded-lg shadow-lg"
+          className="w-80 sm:w-1/4 lg:3/4 md:w-2/3 bg-gray-800 p-3 sm:p-6 rounded-lg shadow-lg"
           id="form"
         >
           <h2 className="text-lg font-semibold text-white mb-4">

@@ -13,11 +13,11 @@ export function TimelineDemo() {
 
   const data = [
     {
-      title: "PT. Awan Network Indonesia",
+      title: "PT Awan Network Indonesia",
       content: (
         <div>
           <p className="text-neutral-500  text-xs md:text-base font-normal mb-6">
-            Aug 2024 - Nov 2024
+            Aug 2024 - Present
           </p>
           <p className="text-neutral-800  text-xs text-justify md:text-base font-normal mb-8 sm:mb-16">
             {language === "en"

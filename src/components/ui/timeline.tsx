@@ -6,6 +6,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { useLanguage } from "../../LanguageContext";
 
 interface TimelineEntry {
   title: string;
@@ -31,6 +32,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const {language} = useLanguage();
 
   return (
     <div
@@ -39,10 +41,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 lg:px-10 mt-" >
         <h2 className="text-lg md:text-4xl mb-4 text-[#1d377f]  max-w-4xl font-bold">
-          Changelog from my journey
+          {language === 'en'? 'Changelog from my journey' : 'Catatan perubahan dari perjalanan saya' }
         </h2>
         <p className="text-neutral-900  text-sm md:text-base max-w-sm">
-        I have experience in the technology field, working on diverse projects and skills development.
+        {language === 'en'? 'I have experience in the technology field, working on diverse projects and skills development.' : 'Saya memiliki pengalaman di bidang teknologi, mengerjakan berbagai proyek dan pengembangan keterampilan.' }
+        
         </p>
       </div>
 
@@ -73,7 +76,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-pink-200 dark:via-indigo-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-pink-100 dark:via-indigo-200 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
         >
           <motion.div
             style={{
