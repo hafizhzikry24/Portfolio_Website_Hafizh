@@ -9,9 +9,9 @@ export function HeroScrollDemo() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-4xl font-semibold bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-200 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-200 bg-clip-text text-transparent">
                 Unlock the potential <br />
-              <span className="text-4xl sm:text-7xl md:text-5xl lg:text-[6rem] font-bold mt-1 leading-none">
+              <span className="text-4xl sm:text-7xl md:text-7xl lg:text-[6rem] font-bold mt-1 leading-none">
                 Animations Scroll 
               </span>
             </h1>
