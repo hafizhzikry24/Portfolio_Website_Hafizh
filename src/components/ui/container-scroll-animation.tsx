@@ -36,7 +36,7 @@ export const ContainerScroll = ({
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <BackgroundLines className="h-[55rem] sm:h-[82rem] md:h-[110rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20 bg-black" >
+    <BackgroundLines className="h-[55rem] sm:h-[82rem] md:h-[90rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20 bg-black" >
     <div
       className="h-[65rem] sm:h-[82rem] lg:h-[75rem] flex items-center justify-center relative p-0 md:p-20"
       ref={containerRef}
