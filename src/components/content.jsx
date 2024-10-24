@@ -57,7 +57,7 @@ function Content() {
         }`}
       >
         {/* Text Section */}
-        <div className="lg:w-1/2 w-full lg:pr-12 mb-8 lg:mb-0">
+        <div className="lg:w-1/2 w-full lg:pr-12 mb-6 lg:mb-0">
           <div className="flex items-center mb-4 transition-transform transform hover:scale-90">
             <svg
               className="stroke-gray-400 stroke-2 h-5 w-5 mr-2"
@@ -156,7 +156,7 @@ function Content() {
             src={icon}
             title={icon.split("/").pop().split(".")[0]}
             alt=""
-            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-16 sm:mt-16 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-0 sm:mt-16 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
           />
         ))}
       </Slider>
