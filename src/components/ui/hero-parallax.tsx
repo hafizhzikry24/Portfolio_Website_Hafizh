@@ -105,10 +105,10 @@ export const Header = () => {
     const {language} = useLanguage();
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl l font-bold dark:text-white">
+      <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl l font-bold text-white">
         {language === 'en' ? 'My':'Portofolio'} <br /> {language === 'en' ? 'Portfolio' : 'Saya'}
       </h1>
-      <p className="max-w-2xl text-sm md:text-xl lg:text-2xl mt-8 dark:text-neutral-200 text-justify">
+      <p className="max-w-2xl text-sm md:text-xl lg:text-2xl mt-8 text-neutral-200 text-justify">
         {language === 'en' ? 'I"m build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). passionate developers and designers that love to build amazing products.': 'Saya sedang membangun portofolio yang indah (menurut saya) dengan teknologi dan kerangka kerja terkini (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang bersemangat dan gemar membangun produk yang menakjubkan.'}
       
       </p>
