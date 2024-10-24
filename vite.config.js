@@ -1,7 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import imagePresets from 'vite-plugin-image-presets';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    imagePresets({
+      microlink: {
+        domains: ["api.microlink.io"]
+      },
+    }),
+  ],
+});
