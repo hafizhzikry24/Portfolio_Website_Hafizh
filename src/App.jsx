@@ -10,6 +10,7 @@ import Landing from "./components/lnding";
 import { TimelineDemo } from "./components/timeline";
 import { HeroScrollDemo } from "./components/tab";
 import { HeroParallaxDemo } from "./components/hero-parallax";
+import { LampDemo } from "./components/lampsection";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
       {/* <About/> */}
       <TimelineDemo/>
       <Projects/>
+      <LampDemo/>
       <Comment/>
       <Footer/>
 
