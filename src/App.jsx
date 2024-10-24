@@ -9,6 +9,7 @@ import Comment from "./components/coment";
 import Landing from "./components/lnding";
 import { TimelineDemo } from "./components/timeline";
 import { HeroScrollDemo } from "./components/tab";
+import { HeroParallaxDemo } from "./components/hero-parallax";
 
 
 const App = () => {
@@ -16,8 +17,9 @@ const App = () => {
   return (
     <>
       <Header/>
-      <Landing/>
-      <HeroScrollDemo/>
+      <HeroParallaxDemo/>
+      {/* <Landing/> */}
+      {/* <HeroScrollDemo/> */}
       <Content/>
       <About/>
       <TimelineDemo/>
