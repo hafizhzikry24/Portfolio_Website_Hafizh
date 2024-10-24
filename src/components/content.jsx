@@ -3,12 +3,43 @@ import Profile from "../assets/graduated.jpg";
 import { BiLogoGmail } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from '../LanguageContext'; // Import useLanguage
+import js from "../assets/js.png";
+import reactImg from "../assets/react.png";
+import css from "../assets/css.png";
+import Slider from "react-slick";
+import figma from "../assets/figma.png";
+import cisco2 from "../assets/image.png";
+import html from "../assets/html .png";
+import tailwind from "../assets/tailwind.png";
+import github from "../assets/github.png";
+import laravel from "../assets/laravel.png";
+
 
 function Content() {
   const { ref: contentRef, inView: isContentVisible } = useInView({
     triggerOnce: false, // Allows fade-in animation on both scroll up and down
     threshold: 0.1,
   });
+  
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 8, // Menampilkan 8 logo di desktop
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    pauseOnHover: false, // Tambahkan ini untuk mencegah pause saat hover
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4, // Menampilkan 4 logo di tablet dan mobile
+        },
+      },
+    ],
+  };
 
   const { language } = useLanguage(); // Get language
 
@@ -108,6 +139,27 @@ function Content() {
           />
         </div>
       </div>
+      <Slider {...settings}>
+        {[
+          js,
+          css,
+          html,
+          reactImg,
+          github,
+          tailwind,
+          laravel,
+          figma,
+          cisco2,
+        ].map((icon, index) => (
+          <img
+            key={index} // Ensure each image has a unique key
+            src={icon}
+            title={icon.split("/").pop().split(".")[0]}
+            alt=""
+            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-16 sm:mt-16 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+          />
+        ))}
+      </Slider>
     </section>
   );
 }

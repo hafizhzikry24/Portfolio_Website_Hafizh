@@ -76,7 +76,6 @@ const About = () => {
           />
         ))}
       </Slider>
-
       </div>
     </section>
   );

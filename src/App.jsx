@@ -21,7 +21,7 @@ const App = () => {
       {/* <Landing/> */}
       {/* <HeroScrollDemo/> */}
       <Content/>
-      <About/>
+      {/* <About/> */}
       <TimelineDemo/>
       <Projects/>
       <Comment/>
