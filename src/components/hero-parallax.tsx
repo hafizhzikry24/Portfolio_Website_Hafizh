@@ -19,10 +19,10 @@ export const products = [
       "https://aceternity.com/images/products/thumbnails/new/cursor.png",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
+    title: "Blackbox AI",
+    link: "https://www.blackbox.ai/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+      "https://logomakerr.ai/uploads/output/2024/03/17/eb4670c2376a91c3aeb110c32c438df5.jpg?t=1710632784",
   },
 
   {
@@ -76,10 +76,10 @@ export const products = [
   },
 
   {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
+    title: "Tailblock Component",
+    link: "https://tailblocks.cc",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+      "https://tailkits.com/_ipx/_/tailblocks.png",
   },
   {
     title: "Golden Bells Academy",
