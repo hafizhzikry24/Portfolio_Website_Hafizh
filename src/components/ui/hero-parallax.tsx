@@ -7,6 +7,7 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
+import { useLanguage } from "../../LanguageContext";
 
 
 export const HeroParallax = ({
@@ -56,7 +57,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] sm:h-[250vh] md:h-[150vh] lg:h-[190vh] xl:h-[220vh] mt-0 sm:mt-10 py-36 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] sm:h-[300vh] md:h-[300vh] lg:h-[200vh] xl:h-[320vh] 2xl:h-[320vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-black"
     >
       <Header />
       <motion.div
@@ -68,7 +69,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-3 sm:mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -77,7 +78,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-3 sm:mb-20 space-x-20">
+        <motion.div className="flex flex-row  mb-20 space-x-20 ">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -101,14 +102,15 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
+    const {language} = useLanguage();
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-32 px-4 w-full  left-0 top-0">
-      <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-bold dark:text-gray-800">
-        MY PORTOFOLIO
+    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+      <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl l font-bold dark:text-white">
+        {language === 'en' ? 'My':'Portofolio'} <br /> {language === 'en' ? 'Portfolio' : 'Saya'}
       </h1>
-      <p className="max-w-2xl text-base md:text-2xl mt-8 dark:text-neutral-700 tex">
-        I'm build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc).
-        passionate developers and designers that love to build amazing products.
+      <p className="max-w-2xl text-sm md:text-xl lg:text-2xl mt-8 dark:text-neutral-200 text-justify">
+        {language === 'en' ? 'I"m build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). passionate developers and designers that love to build amazing products.': 'Saya sedang membangun portofolio yang indah (menurut saya) dengan teknologi dan kerangka kerja terkini (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang bersemangat dan gemar membangun produk yang menakjubkan.'}
+      
       </p>
     </div>
   );
@@ -144,7 +146,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-4/5 sm:h-full w-4/5 sm:w-full inset-0"
+          className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={product.title}
         />
       </a>
