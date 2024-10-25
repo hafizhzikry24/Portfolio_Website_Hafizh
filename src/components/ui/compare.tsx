@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { SparklesCore } from "./sparkles";
 import { AnimatePresence, motion } from "framer-motion";
-import Profile from '../../assets/code.png';
+import Profile from '../../assets/eloquent.png';
+import Query from '../../assets/querybuilder.png';
 import { cn } from "../../lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
 
@@ -229,7 +230,7 @@ export const Compare = ({
               secondImageClassname
             )}
             alt="second image"
-            src={secondImage}
+            src={Query}
             draggable={false}
           />
         ) : null}

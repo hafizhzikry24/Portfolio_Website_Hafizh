@@ -3,7 +3,7 @@ import { Compare } from "./ui/compare";
 
 export function CompareDemo() {
   return (
-    <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100  border-neutral-200 dark:border-neutral-800 px-4">
+    <div className="h-[100vh] p-4   dark:bg-neutral-900 bg-neutral-900 px-4">
       <Compare
         firstImage="https://assets.aceternity.com/code-problem.png"
         secondImage="https://assets.aceternity.com/code-solution.png"
@@ -15,3 +15,5 @@ export function CompareDemo() {
     </div>
   );
 }
+
+
