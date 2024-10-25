@@ -11,25 +11,26 @@ import { TimelineDemo } from "./components/timeline";
 import { HeroScrollDemo } from "./components/tab";
 import { HeroParallaxDemo } from "./components/hero-parallax";
 import { LampDemo } from "./components/lampsection";
-import Home from "./Home";
-import { Routes, BrowserRouter, Route } from "react-router-dom";
-import { CompareDemo } from "./components/comparedemo";
 
 
-const App = () => {
+const Home = () => {
   
   return (
-      <BrowserRouter>
-     
-      <Routes>
-        {/* Define routes for components */}
-        <Route path="/" element={<Home />} />
-        <Route path="/tab" element={<HeroScrollDemo />} /> {/* Route for tab */}
-        {/* Other components as separate routes if needed */}
-      </Routes>
+    <>
+      <Header/>
+      <HeroParallaxDemo/>
+      {/* <Landing/> */}
+      {/* <HeroScrollDemo/> */}
+      <Content/>
+      {/* <About/> */}
+      <TimelineDemo/>
+      <Projects/>
+      <LampDemo/>
+      <Comment/>
+      <Footer/>
 
-    </BrowserRouter>
+    </>
   );
 };
 
-export default App;
+export default Home;
