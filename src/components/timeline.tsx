@@ -13,16 +13,16 @@ export function TimelineDemo() {
 
   const data = [
     {
-      title: "Gay Community",
+      title: "PT Awan Network Indonesia",
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
             Aug 2024 - Present
           </p>
           <p className="text-gray-200  text-xs text-justify md:text-base font-normal mb-8 sm:mb-16">
-            {language === "en"
-              ? "Being gay"
-              : "Jadi Gay"
+          {language === "en"
+              ? "As a Backend Developer at PT Awan Network Indonesia, I developed and optimized APIs for seamless integration between the application and the website with my team. My responsibilities included ensuring efficient backend performance, implementing scalable solutions, and collaborating with cross-functional teams to deliver a robust and secure platform that enhances user interaction and functionality."
+              : "Sebagai Backend Developer di PT Awan Network Indonesia, saya mengembangkan dan mengoptimalkan API untuk integrasi yang mulus antara aplikasi dan situs web dengan tim saya. Tanggung jawab saya termasuk memastikan kinerja backend yang efisien, menerapkan solusi yang dapat diskalakan, dan berkolaborasi dengan tim lintas fungsi untuk menghadirkan platform yang kuat dan aman yang meningkatkan interaksi dan fungsionalitas pengguna."
             }
           </p>
         </div>
