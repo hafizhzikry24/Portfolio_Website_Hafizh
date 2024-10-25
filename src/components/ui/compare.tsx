@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { SparklesCore } from "./sparkles";
 import { AnimatePresence, motion } from "framer-motion";
+import Profile from '../../assets/code.png';
 import { cn } from "../../lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
 
@@ -208,7 +209,7 @@ export const Compare = ({
             >
               <img
                 alt="first image"
-                src={firstImage}
+                src={Profile}
                 className={cn(
                   "absolute inset-0  z-20 rounded-2xl flex-shrink-0 w-full h-full select-none",
                   firstImageClassName
