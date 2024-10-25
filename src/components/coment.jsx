@@ -13,7 +13,22 @@ function Comment() {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
     const {language} = useLanguage();
-    const forbiddenWords = ['gay'];
+    const forbiddenWords = [
+        'gay', 
+        'homo', 
+        'aku suka cowo', 
+        'lesbian', 
+        'biseksual', 
+        'lgbt', 
+        'p gay', 
+        'p gay', 
+        'homoseksual', 
+        'cinta sesama jenis', 
+        'cinta gay', 
+        'hubungan sesama jenis', 
+        'cinta homo', 
+        'hubungan homo'
+    ];
     const containsForbiddenWords = (message) => {
         return forbiddenWords.some((word) => message.toLowerCase().includes(word));
     };
