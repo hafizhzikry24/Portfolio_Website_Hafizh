@@ -31,8 +31,8 @@ function Comment() {
         'hubungan homo'
     ];
     const containsForbiddenWords = (message) => {
-        const words = message.toLowerCase().split(/\s+/);
-        return words.some((word) => forbiddenWords.includes(word));
+        const regex = new RegExp(forbiddenWords.join('|'), 'i'); // 'i' untuk case insensitive
+        return regex.test(message);
     };
     const [feedbackList, setFeedbackList] = useState([]);
     const { ref: contentRef, inView: isContentVisible } = useInView({
