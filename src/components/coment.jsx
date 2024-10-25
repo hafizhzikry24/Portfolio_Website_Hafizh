@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { useInView } from "react-intersection-observer";
 import { FiSend } from 'react-icons/fi';
 import { useLanguage } from '../LanguageContext';
+import Swal from 'sweetalert2';
 
 // Initialize Supabase client
 const supabaseUrl = "https://mnwjnvmlgusuwjxtwczy.supabase.co";
@@ -73,7 +74,13 @@ function Comment() {
 
     const handleSubmit = async () => {
         if (containsForbiddenWords(message)) {
-            alert("Your message contains inappropriate content.");
+            // Menggunakan SweetAlert untuk menampilkan peringatan
+            await Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Your message contains inappropriate content.',
+                confirmButtonText: 'Okay'
+            });
             return; // Tidak melanjutkan jika ada kata terlarang
         }
     
