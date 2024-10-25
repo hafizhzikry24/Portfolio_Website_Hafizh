@@ -30,7 +30,8 @@ function Comment() {
         'hubungan homo'
     ];
     const containsForbiddenWords = (message) => {
-        return forbiddenWords.some((word) => message.toLowerCase().includes(word));
+        const words = message.toLowerCase().split(/\s+/);
+        return words.some((word) => forbiddenWords.includes(word));
     };
     const [feedbackList, setFeedbackList] = useState([]);
     const { ref: contentRef, inView: isContentVisible } = useInView({
@@ -73,7 +74,7 @@ function Comment() {
     const handleSubmit = async () => {
         if (containsForbiddenWords(message)) {
             alert("Your message contains inappropriate content.");
-            return; 
+            return; // Tidak melanjutkan jika ada kata terlarang
         }
     
         if (name && message) {
