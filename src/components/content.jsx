@@ -2,7 +2,18 @@ import React from "react";
 import Profile from "../assets/graduated.jpg";
 import { BiLogoGmail } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
-import { useLanguage } from '../LanguageContext'; // Import useLanguage
+import { useLanguage } from "../LanguageContext"; // Import useLanguage
+import js from "../assets/js.png";
+import reactImg from "../assets/react.png";
+import css from "../assets/css.png";
+import Slider from "react-slick";
+import figma from "../assets/figma.png";
+import cisco2 from "../assets/image.png";
+import html from "../assets/html .png";
+import tailwind from "../assets/tailwind.png";
+import github from "../assets/github.png";
+import laravel from "../assets/laravel.png";
+import CV from "../assets/CV_Muhammad Hafizh Zikry.pdf";
 
 function Content() {
   const { ref: contentRef, inView: isContentVisible } = useInView({
@@ -10,23 +21,43 @@ function Content() {
     threshold: 0.1,
   });
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 8, // Menampilkan 8 logo di desktop
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    pauseOnHover: false, // Tambahkan ini untuk mencegah pause saat hover
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4, // Menampilkan 4 logo di tablet dan mobile
+        },
+      },
+    ],
+  };
+
   const { language } = useLanguage(); // Get language
 
   return (
     <section
-      className="text-gray-500 body-font bg-gradient-to-r py-20 sm:py-24 from-gray-800 to-gray-900"
+      className="text-gray-500 body-font bg-gradient-to-r py-24 from-gray-800 to-gray-900"
       id="content"
     >
       <div
         ref={contentRef}
         className={`container mx-auto flex flex-col-reverse lg:flex-row items-center py-12 px-6 lg:px-12 transition-all duration-1000 ease-in-out transform ${
           isContentVisible
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-10'
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
       >
         {/* Text Section */}
-        <div className="lg:w-1/2 w-full lg:pr-12 mb-8 lg:mb-0">
+        <div className="lg:w-1/2 w-full lg:pr-12 mb-6 lg:mb-0">
           <div className="flex items-center mb-4 transition-transform transform hover:scale-90">
             <svg
               className="stroke-gray-400 stroke-2 h-5 w-5 mr-2"
@@ -36,7 +67,7 @@ function Content() {
               <line x1="0" y1="5" x2="10" y2="5" />
             </svg>
             <h2 className="text-xl sm:text-2xl font-light text-gray-300 uppercase ">
-              {language === 'en' ? 'My name is': 'Nama Saya'} 
+              {language === "en" ? "My name is" : "Nama Saya"}
             </h2>
           </div>
           <h3 className="text-3xl sm:text-5xl font-bold text-white mb-4 animate-pulse sm:animate-bounce">
@@ -45,9 +76,11 @@ function Content() {
             </span>
           </h3>
           <p className="text-md md:text-xl text-gray-300 mb-6 text-justify transition-transform transform hover:scale-110">
-            {language === 'en' ? 'Hello! I am Muhammad Hafizh Zikry, a fresh graduate Computer Engineering Diponegoro University passionate about both backend and frontend development. I’m dedicated to mastering technologies and delivering impactful solutions.' : 'Halo! Saya Muhammad Hafizh Zikry, lulusan baru Teknik Komputer Universitas Diponegoro yang bersemangat dalam pengembangan backend dan frontend. Saya berdedikasi untuk menguasai teknologi dan memberikan solusi yang berdampak.'}
+            {language === "en"
+              ? "Hello! I am Muhammad Hafizh Zikry, a fresh graduate Computer Engineering Diponegoro University passionate about both backend and frontend development. I’m dedicated to mastering technologies and delivering impactful solutions."
+              : "Halo! Saya Muhammad Hafizh Zikry, lulusan baru Teknik Komputer Universitas Diponegoro yang bersemangat dalam pengembangan backend dan frontend. Saya berdedikasi untuk menguasai teknologi dan memberikan solusi yang berdampak."}
           </p>
-          <div className="flex space-x-4">
+          <div className="flex items-center space-x-4 mb-3">
             <a
               href="https://www.instagram.com/hafizh.zikry/"
               target="_blank"
@@ -97,6 +130,11 @@ function Content() {
                 ></path>
               </svg>
             </a>
+            <a href={CV} download="CV_Muhammad_Hafizh_Zikry.pdf">
+              <button className="transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
+                Download CV
+              </button>
+            </a>
           </div>
         </div>
         {/* Image Section */}
@@ -108,6 +146,27 @@ function Content() {
           />
         </div>
       </div>
+      <Slider {...settings}>
+        {[
+          js,
+          css,
+          html,
+          reactImg,
+          github,
+          tailwind,
+          laravel,
+          figma,
+          cisco2,
+        ].map((icon, index) => (
+          <img
+            key={index} // Ensure each image has a unique key
+            src={icon}
+            title={icon.split("/").pop().split(".")[0]}
+            alt=""
+            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-0 sm:mt-16 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+          />
+        ))}
+      </Slider>
     </section>
   );
 }

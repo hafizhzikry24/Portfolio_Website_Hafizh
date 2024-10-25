@@ -7,6 +7,14 @@ export default {
         header: ['Roboto', 'sans-serif'], // Add Roboto as the custom font
       },
       keyframes: {
+        shimmer: {
+          from: {
+            "backgroundPosition": "0 0"
+          },
+          to: {
+            "backgroundPosition": "-200% 0"
+          }
+        },
         slide: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
@@ -25,6 +33,7 @@ export default {
         fadeInUp: 'fadeInUp 1s ease-out',
         rotate: 'rotate 3s linear infinite',
         marquee: 'marquee 10s linear infinite',
+        shimmer: "shimmer 4s linear infinite"
       },
     },
   },
