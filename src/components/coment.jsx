@@ -13,6 +13,10 @@ function Comment() {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
     const {language} = useLanguage();
+    const forbiddenWords = ['gay'];
+    const containsForbiddenWords = (message) => {
+        return forbiddenWords.some((word) => message.toLowerCase().includes(word));
+    };
     const [feedbackList, setFeedbackList] = useState([]);
     const { ref: contentRef, inView: isContentVisible } = useInView({
         triggerOnce: false,
@@ -52,28 +56,33 @@ function Comment() {
     };
 
     const handleSubmit = async () => {
+        if (containsForbiddenWords(message)) {
+            alert("Your message contains inappropriate content.");
+            return; 
+        }
+    
         if (name && message) {
             try {
                 const createdAt = new Date().toISOString();
-
+    
                 const { data, error } = await supabase
                     .from('feedback')
                     .insert([{ name, messages: message, created_at: createdAt }]);
-
+    
                 if (error) {
                     console.error('Error submitting feedback:', error);
                     return;
                 }
-
+    
                 const formattedCreatedAt = new Date(createdAt).toLocaleDateString('en-US', {
                     weekday: 'long',
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                 });
-
+    
                 setFeedbackList([{ name, messages: message, created_at: formattedCreatedAt }, ...feedbackList]);
-
+    
                 setName('');
                 setMessage('');
             } catch (error) {
