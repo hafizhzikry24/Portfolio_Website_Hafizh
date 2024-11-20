@@ -26,10 +26,10 @@ export const products = [
   },
 
   {
-    title: "Editorially",
-    link: "https://editorially.org",
+    title: "Chat GPT",
+    link: "https://chatgpt.com/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+      "https://lirp.cdn-website.com/df735c7c/dms3rep/multi/opt/MicrosoftTeams-image+%28123%29-640w.png",
   },
   {
     title: "Editrix AI",
@@ -63,10 +63,10 @@ export const products = [
       "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
   },
   {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
+    title: "SPCPLCPMK",
+    link: "https://test1.spcplcpmk.com",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+      "https://test1.spcplcpmk.com/assets/background.jpg",
   },
   {
     title: "Renderwork Studio",
@@ -88,10 +88,10 @@ export const products = [
       "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
   },
   {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
+    title: "SPCPLCPMK",
+    link: "https://test1.spcplcpmk.com",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+      "https://test1.spcplcpmk.com/assets/background.jpg",
   },
   {
     title: "E Free Invoice",
