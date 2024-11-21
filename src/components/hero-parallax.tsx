@@ -7,10 +7,10 @@ export function HeroParallaxDemo() {
 }
 export const products = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
+    title: "My Portofolio",
+    link: "https://zikkdev.vercel.app/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+      "https://media.licdn.com/dms/image/v2/D5616AQGq8rX1NpfnfA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1724774396982?e=2147483647&v=beta&t=dS86y8Begd9z7XL6AHg7iqdMCGUv97awxH_wWZ7aA-I",
   },
   {
     title: "Cursor",
