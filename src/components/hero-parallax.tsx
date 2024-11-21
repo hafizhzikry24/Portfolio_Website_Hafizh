@@ -13,16 +13,22 @@ export const products = [
       "https://media.licdn.com/dms/image/v2/D5616AQGq8rX1NpfnfA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1724774396982?e=2147483647&v=beta&t=dS86y8Begd9z7XL6AHg7iqdMCGUv97awxH_wWZ7aA-I",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
-  },
-  {
     title: "Blackbox AI",
     link: "https://www.blackbox.ai/",
     thumbnail:
       "https://logomakerr.ai/uploads/output/2024/03/17/eb4670c2376a91c3aeb110c32c438df5.jpg?t=1710632784",
+  },
+  // {
+  //   title: "Cursor",
+  //   link: "https://cursor.so",
+  //   thumbnail:
+  //     "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+  // },
+  {
+    title: "KatoSiBoy",
+    link: "https://katosiboy.vercel.app/",
+    thumbnail:
+      "https://www.shutterstock.com/image-vector/chat-bot-logo-design-concept-600nw-1938811039.jpg",
   },
 
   {
@@ -38,17 +44,16 @@ export const products = [
       "https://aceternity.com/images/products/thumbnails/new/editrix.png",
   },
   {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
+    title: "KatoSiBoy",
+    link: "https://katosiboy.vercel.app/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+      "https://www.shutterstock.com/image-vector/chat-bot-logo-design-concept-600nw-1938811039.jpg",
   },
-
   {
-    title: "Algochurn",
-    link: "https://algochurn.com",
+    title: "KatoSiBoy",
+    link: "https://katosiboy.vercel.app/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+      "https://www.shutterstock.com/image-vector/chat-bot-logo-design-concept-600nw-1938811039.jpg",
   },
   {
     title: "Aceternity UI",
@@ -81,11 +86,12 @@ export const products = [
     thumbnail:
       "https://tailkits.com/_ipx/_/tailblocks.png",
   },
+
   {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
+    title: "Chat GPT",
+    link: "https://chatgpt.com/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+      "https://lirp.cdn-website.com/df735c7c/dms3rep/multi/opt/MicrosoftTeams-image+%28123%29-640w.png",
   },
   {
     title: "SPCPLCPMK",

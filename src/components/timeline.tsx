@@ -13,7 +13,7 @@ export function TimelineDemo() {
 
   const data = [
     {
-      title: "PT Awan Network Indonesia",
+      title: "PT Awan Network Indonesia (Backend Developer)",
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
@@ -29,7 +29,7 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: language === "en" ? "Diponegoro University" : "Universitas Diponegoro",
+      title: language === "en" ? "Diponegoro University (Assistant Practicum)" : "Universitas Diponegoro (Asisten Praktikum)",
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
@@ -45,7 +45,7 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: language === "en" ? "MTQMN XVII at Malang" : "MTQMN XVII Malang",
+      title: language === "en" ? "MTQMN XVII at Malang (UI/UX Designer)" : "MTQMN XVII Malang (Desain UI/UX)",
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
@@ -61,7 +61,7 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: "SMKN 53 Jakarta",
+      title: "SMKN 53 Jakarta (Network Engineer)",
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
