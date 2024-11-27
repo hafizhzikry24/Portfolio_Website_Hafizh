@@ -10,7 +10,7 @@ import html from "../assets/html .png";
 import tailwind from "../assets/tailwind.png";
 import github from "../assets/github.png";
 import laravel from "../assets/laravel.png";
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from "../LanguageContext";
 
 const About = () => {
   const { ref: cardRef, inView: isCardVisible } = useInView({
@@ -18,7 +18,7 @@ const About = () => {
     threshold: 0.1,
   });
 
-  const {language} = useLanguage();
+  const { language } = useLanguage();
 
   const settings = {
     dots: true,
@@ -41,41 +41,59 @@ const About = () => {
   };
 
   return (
-    <section
-      className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-16 sm:py-16"
-    >
+    <section className="text-gray-700 body-font overflow-hidden bg-gradient-to-r from-slate-100 to-slate-200 py-16 sm:py-16">
       <div
         ref={cardRef} // Attach ref to trigger the animation
         className={`slider-container overflow-hidden w-full px-2 sm:px-3 ${
           isCardVisible ? "animate-fadeInUp" : "" // Apply animation when in view
         }`}
       >
-      <div className="text-center mb-8 sm:mb-16 transition-transform transform hover:scale-110 hover:rotate-6">
-        <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400  ">
-          {language === 'en' ? 'My Skills' : 'Skill Saya'}
-        </p>
-      </div>
-      <Slider {...settings}>
-        {[
-          js,
-          css,
-          html,
-          reactImg,
-          github,
-          tailwind,
-          laravel,
-          figma,
-          cisco2,
-        ].map((icon, index) => (
-          <img
-            key={index} // Ensure each image has a unique key
-            src={icon}
-            title={icon.split("/").pop().split(".")[0]}
-            alt=""
-            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
-          />
-        ))}
-      </Slider>
+        <div className="text-center mb-8 sm:mb-16 transition-transform transform hover:scale-110 hover:rotate-6">
+          <p className="text-2xl sm:text-3xl font-extrabold text-purple-600 inline border-b-4 border-purple-400  ">
+            {language === "en" ? "My Skills" : "Skill Saya"}
+          </p>
+        </div>
+        <Slider {...settings}>
+          {[
+            js,
+            css,
+            html,
+            reactImg,
+            github,
+            tailwind,
+            laravel,
+            figma,
+            cisco2,
+          ].map((icon, index) => (
+            <img
+              key={index} // Ensure each image has a unique key
+              src={icon}
+              title={icon.split("/").pop().split(".")[0]}
+              alt={
+                icon.includes("js")
+                  ? "JavaScript Icon"
+                  : icon.includes("css")
+                  ? "CSS Icon"
+                  : icon.includes("html")
+                  ? "HTML Icon"
+                  : icon.includes("react")
+                  ? "React Icon"
+                  : icon.includes("github")
+                  ? "GitHub Icon"
+                  : icon.includes("tailwind")
+                  ? "Tailwind CSS Icon"
+                  : icon.includes("laravel")
+                  ? "Laravel Icon"
+                  : icon.includes("figma")
+                  ? "Figma Icon"
+                  : icon.includes("cisco")
+                  ? "Cisco Icon"
+                  : "Tech Icon" // Default for unrecognized icons
+              }
+              className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+            />
+          ))}
+        </Slider>
       </div>
     </section>
   );

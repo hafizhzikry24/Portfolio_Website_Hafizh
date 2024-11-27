@@ -152,26 +152,46 @@ function Content() {
         </div>
       </div>
       <Slider {...settings}>
-        {[
-          js,
-          css,
-          html,
-          reactImg,
-          github,
-          tailwind,
-          laravel,
-          figma,
-          cisco2,
-        ].map((icon, index) => (
-          <img
-            key={index} // Ensure each image has a unique key
-            src={icon}
-            title={icon.split("/").pop().split(".")[0]}
-            alt=""
-            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-0 sm:mt-16 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
-          />
-        ))}
-      </Slider>
+          {[
+            js,
+            css,
+            html,
+            reactImg,
+            github,
+            tailwind,
+            laravel,
+            figma,
+            cisco2,
+          ].map((icon, index) => (
+            <img
+              key={index} // Ensure each image has a unique key
+              src={icon}
+              title={icon.split("/").pop().split(".")[0]}
+              alt={
+                icon.includes("js")
+                  ? "JavaScript Icon"
+                  : icon.includes("css")
+                  ? "CSS Icon"
+                  : icon.includes("html")
+                  ? "HTML Icon"
+                  : icon.includes("react")
+                  ? "React Icon"
+                  : icon.includes("github")
+                  ? "GitHub Icon"
+                  : icon.includes("tailwind")
+                  ? "Tailwind CSS Icon"
+                  : icon.includes("laravel")
+                  ? "Laravel Icon"
+                  : icon.includes("figma")
+                  ? "Figma Icon"
+                  : icon.includes("cisco")
+                  ? "Cisco Icon"
+                  : "Tech Icon" // Default for unrecognized icons
+              }
+              className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+            />
+          ))}
+        </Slider>
     </section>
   );
 }
