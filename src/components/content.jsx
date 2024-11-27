@@ -130,7 +130,12 @@ function Content() {
                 ></path>
               </svg>
             </a>
-            <a href={CV} download="CV_Muhammad_Hafizh_Zikry.pdf">
+            {/* <a href={CV} download="CV_Muhammad_Hafizh_Zikry.pdf">
+              <button className="transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
+                Download CV
+              </button>
+            </a> */}
+            <a href='https://www.papermark.io/view/cm3zuc1h70004je9d9eib4hkw'target="_blank" >
               <button className="transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
                 Download CV
               </button>
