@@ -9,7 +9,6 @@ import {
 } from "framer-motion";
 import { useLanguage } from "../../LanguageContext";
 
-
 export const HeroParallax = ({
   products,
 }: {
@@ -102,15 +101,22 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
-    const {language} = useLanguage();
+  const { language } = useLanguage();
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl l font-bold text-white">
-        {language === 'en' ? 'My':'Portofolio'} <br /> {language === 'en' ? 'Portfolio' : 'Saya'}
+      <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white">
+        {language === "en" ? "My Portfolio" : "Portofolio Saya"}
       </h1>
       <p className="max-w-2xl text-sm md:text-xl lg:text-2xl mt-8 text-neutral-200 text-justify">
-        {language === 'en' ? 'I"m build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). passionate developers and designers that love to build amazing products, Currently i"m develop my chat AI with gemini by google, please checkout my AI Project. ': 'Saya sedang membangun portofolio yang indah (menurut saya) dengan teknologi dan kerangka kerja terkini (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang bersemangat dan gemar membangun produk yang menakjubkan, Sekarang saya sedang mengembangkan chat AI dengan gemini oleh google. '}
-        <a className="text-md text-blue-300 underline" href="https://katosiboy.vercel.app/">KatoSiBOY</a>
+        {language === "en"
+          ? 'I"m build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). passionate developers and designers that love to build amazing products, Currently i"m develop my chat AI with gemini by google, please checkout my AI Project. '
+          : "Saya sedang membangun portofolio yang indah (menurut saya) dengan teknologi dan kerangka kerja terkini (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang bersemangat dan gemar membangun produk yang menakjubkan, Sekarang saya sedang mengembangkan chat AI dengan gemini oleh google. "}
+        <a
+          className="text-md text-blue-300 underline"
+          href="https://katosiboy.vercel.app/"
+        >
+          KatoSiBOY
+        </a>
       </p>
     </div>
   );
@@ -138,10 +144,7 @@ export const ProductCard = ({
       key={product.title}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      <a
-        href={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
+      <a href={product.link} className="block group-hover/product:shadow-2xl ">
         <img
           src={product.thumbnail}
           height="600"

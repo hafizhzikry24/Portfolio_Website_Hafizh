@@ -130,7 +130,12 @@ function Content() {
                 ></path>
               </svg>
             </a>
-            <a href={CV} download="CV_Muhammad_Hafizh_Zikry.pdf">
+            {/* <a href={CV} download="CV_Muhammad_Hafizh_Zikry.pdf">
+              <button className="transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
+                Download CV
+              </button>
+            </a> */}
+            <a href='https://www.papermark.io/view/cm3zuc1h70004je9d9eib4hkw'target="_blank" >
               <button className="transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
                 Download CV
               </button>
@@ -147,26 +152,46 @@ function Content() {
         </div>
       </div>
       <Slider {...settings}>
-        {[
-          js,
-          css,
-          html,
-          reactImg,
-          github,
-          tailwind,
-          laravel,
-          figma,
-          cisco2,
-        ].map((icon, index) => (
-          <img
-            key={index} // Ensure each image has a unique key
-            src={icon}
-            title={icon.split("/").pop().split(".")[0]}
-            alt=""
-            className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-0 sm:mt-16 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
-          />
-        ))}
-      </Slider>
+          {[
+            js,
+            css,
+            html,
+            reactImg,
+            github,
+            tailwind,
+            laravel,
+            figma,
+            cisco2,
+          ].map((icon, index) => (
+            <img
+              key={index} // Ensure each image has a unique key
+              src={icon}
+              title={icon.split("/").pop().split(".")[0]}
+              alt={
+                icon.includes("js")
+                  ? "JavaScript Icon"
+                  : icon.includes("css")
+                  ? "CSS Icon"
+                  : icon.includes("html")
+                  ? "HTML Icon"
+                  : icon.includes("react")
+                  ? "React Icon"
+                  : icon.includes("github")
+                  ? "GitHub Icon"
+                  : icon.includes("tailwind")
+                  ? "Tailwind CSS Icon"
+                  : icon.includes("laravel")
+                  ? "Laravel Icon"
+                  : icon.includes("figma")
+                  ? "Figma Icon"
+                  : icon.includes("cisco")
+                  ? "Cisco Icon"
+                  : "Tech Icon" // Default for unrecognized icons
+              }
+              className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
+            />
+          ))}
+        </Slider>
     </section>
   );
 }
