@@ -1,7 +1,4 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /login/
-Disallow: /secret-page/
-Allow: /public-page/
+Allow: /
 
 Sitemap: https://zikkdev.vercel.app/sitemap.xml
