@@ -47,11 +47,11 @@ const Landing: React.FC = () => {
         ]}
       />
       <div className="flex justify-center mt-5">
-          <h3 className="text-5xl md:text-8xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+          <h1 className="text-5xl md:text-8xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
             <span className="bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-200 bg-clip-text text-transparent font-bold">
             {language === "en" ? "My Portfolio" : "Portofolio Saya"}
             </span>
-          </h3>
+          </h1>
       </div>
           <p className="text-2xl md:text-3xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
           {language === "en" ? "Scroll this component and see my journey!" : "Gulir konten ini dan Nikmati perjalanannya"}

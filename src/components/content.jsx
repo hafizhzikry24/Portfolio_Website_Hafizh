@@ -83,6 +83,7 @@ function Content() {
           <div className="flex items-center space-x-4 mb-3">
             <a
               href="https://www.instagram.com/hafizh.zikry/"
+              name = "instagram"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,6 +103,7 @@ function Content() {
             <a
               href="https://www.linkedin.com/in/muhammad-hafizh-zikry/"
               target="_blank"
+              name = "LinkedIn"
               rel="noopener noreferrer"
             >
               <svg
@@ -115,6 +117,7 @@ function Content() {
             </a>
             <a
               href="https://github.com/hafizhzikry24/"
+              name = 'github'
               target="_blank"
               rel="noopener noreferrer"
             >
