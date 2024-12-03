@@ -63,7 +63,8 @@ const Header = () => {
           style={{ transition: 'max-height 0.7s ease-in-out, opacity 1.5s ease-in-out' }}
         >
           <Link
-            to="content"
+            href='#profile'
+            to="profile"
             smooth={true}
             duration={500}
             className="hover:text-purple-400 text-purple-300 ml-2 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-110"
@@ -71,6 +72,7 @@ const Header = () => {
             {language === 'en' ? 'Intro' : 'Kenalan'}
           </Link>
           <Link
+            href='#experience'
             to="experience"
             smooth={true}
             duration={500}
@@ -79,6 +81,7 @@ const Header = () => {
             {language === 'en' ? 'Experience' : 'Pengalaman'}
           </Link>
           <Link
+            href='#project'
             to="projects"
             smooth={true}
             duration={500}
@@ -87,7 +90,8 @@ const Header = () => {
             {language === 'en' ? 'Project' : 'Proyek'}
           </Link>
           <Link
-            to="contact"
+            href='contact'
+            to="contacts"
             smooth={true}
             duration={500}
             className="mr-3 hover:text-purple-400 text-purple-300 cursor-pointer  font-bold duration-300 font-mono transition-transform transform hover:scale-110"

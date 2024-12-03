@@ -61,7 +61,7 @@ const Footer = () => {
   return (
     <div
       className="bg-gray-900 text-white py-8 sm:py-12 rounded-xl "
-      id="contact"
+      id="contacts"
     >
       <div
         ref={contentRef}

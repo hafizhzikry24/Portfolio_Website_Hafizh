@@ -46,7 +46,7 @@ function Content() {
   return (
     <section
       className="text-gray-500 body-font bg-gradient-to-r py-24 from-gray-800 to-gray-900"
-      id="content"
+      id="profile"
     >
       <div
         ref={contentRef}
