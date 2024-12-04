@@ -40,9 +40,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef} 
     >
       <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 lg:px-10 mt-" >
-        <h2 className="text-lg md:text-4xl mb-4 text-[#fdfdff]  max-w-4xl font-bold">
+        <h1 className="text-lg md:text-4xl mb-4 text-[#fdfdff]  max-w-4xl font-bold">
           {language === 'en'? 'Changelog from my journey' : 'Catatan perubahan dari perjalanan saya' }
-        </h2>
+        </h1>
         <p className="text-neutral-200  text-sm md:text-base max-w-sm">
         {language === 'en'? 'I have experience in the technology field, working on diverse projects and skills development.' : 'Saya memiliki pengalaman di bidang teknologi, mengerjakan berbagai proyek dan pengembangan keterampilan.' }
         

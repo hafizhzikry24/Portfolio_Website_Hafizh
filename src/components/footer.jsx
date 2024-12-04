@@ -86,9 +86,9 @@ const Footer = () => {
           className="w-3/4 sm:w-1/4 lg:w-1/3 md:w-2/3 bg-gray-800 p-3 sm:p-6 rounded-lg shadow-lg"
           id="form"
         >
-          <h2 className="text-lg font-semibold text-white mb-4">
+          <h1 className="text-lg font-semibold text-white mb-4">
             {language === "en" ? "Get In Touch" : "Hubungi lewat Email"}
-          </h2>
+          </h1>
 
           <input
             type="hidden"

@@ -70,11 +70,11 @@ function Content() {
               {language === "en" ? "My name is" : "Nama Saya"}
             </h2>
           </div>
-          <h3 className="text-3xl sm:text-5xl font-bold text-white mb-4 animate-pulse sm:animate-bounce">
+          <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4 animate-pulse sm:animate-bounce">
             <span className="bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-200 bg-clip-text text-transparent">
               Muhammad Hafizh Zikry
             </span>
-          </h3>
+          </h1>
           <p className="text-md md:text-xl text-gray-300 mb-6 text-justify transition-transform transform hover:scale-110">
             {language === "en"
               ? "Hello! I am Muhammad Hafizh Zikry, a fresh graduate Computer Engineering Diponegoro University passionate about both backend and frontend development. I’m dedicated to mastering technologies and delivering impactful solutions."
@@ -86,6 +86,7 @@ function Content() {
               name = "instagram"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Kunjungi profil Instagram Hafizh Zikry"
             >
               <svg
                 fill="none"
@@ -105,6 +106,7 @@ function Content() {
               target="_blank"
               name = "LinkedIn"
               rel="noopener noreferrer"
+              aria-label="Kunjungi profil LinkedIn Muhammad Hafizh Zikry"
             >
               <svg
                 fill="currentColor"
@@ -120,6 +122,7 @@ function Content() {
               name = 'github'
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Kunjungi profil GitHub Hafizh Zikry"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
