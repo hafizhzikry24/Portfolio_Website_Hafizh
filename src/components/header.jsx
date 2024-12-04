@@ -48,6 +48,7 @@ const Header = () => {
           <button
             onClick={handleMobileMenuToggle}
             className={`inline-flex items-center mr-3 mt-3 border-0 px-3 focus:outline-none rounded text-base md:hidden transition-transform duration-500 transform ${isMobileMenuOpen ? 'rotate-90' : 'rotate-0'} shadow-lg`}
+            aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
           >
             {isMobileMenuOpen ? (
               <IoCloseSharp className="text-3xl text-purple-500" />
