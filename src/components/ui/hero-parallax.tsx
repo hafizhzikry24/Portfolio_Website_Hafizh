@@ -104,8 +104,8 @@ export const Header = () => {
   const { language } = useLanguage();
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white">
-        {language === "en" ? "My Portfolio" : "Portofolio Saya"}
+      <h1 className="text-5xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white">
+        {language === "en" ? "Muhammad Hafizh Zikry Portfolio " : "Muhammad Hafizh Zikry Portofolio"}
       </h1>
       <p className="max-w-2xl text-sm md:text-xl lg:text-2xl mt-8 text-neutral-200 text-justify">
         {language === "en"
