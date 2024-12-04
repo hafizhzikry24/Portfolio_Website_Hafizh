@@ -303,9 +303,9 @@ function Comment() {
                   key={index}
                   className="w-full md:w-3/4 lg:w-1/3 sm:w-2/3 p-4 border-l-8 border-indigo-500 bg-gray-50 rounded-lg shadow-md flex-shrink-0 transition-all duration-300 ease-in-out transform hover:scale-90 hover:bg-gray-100"
                 >
-                  <h4 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-gray-900">
                     {feedback.name}
-                  </h4>
+                  </h3>
                   <p className="mt-2 text-gray-700">{feedback.messages}</p>
                   <p className="mt-2 text-gray-500 text-sm">
                     {feedback.created_at}
