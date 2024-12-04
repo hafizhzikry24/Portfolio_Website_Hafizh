@@ -14,4 +14,7 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
+  build: {
+    sourcemap: true,  // Menambahkan konfigurasi sourcemap untuk produksi
+  },
 });

@@ -151,7 +151,7 @@ function Content() {
         {/* Image Section */}
         <div className="lg:w-1/2 w-full flex justify-center mb-10">
           <img
-            className="w-72 h-72 sm:w-3/4 sm:h-3/4 rounded-full sm:rounded-xl shadow-xl transition-transform duration-1000 ease-in-out transform hover:scale-110 hover:rotate-3"
+            className="w-72 h-auto sm:w-3/4 sm:h-3/4 rounded-full sm:rounded-xl shadow-xl transition-transform duration-1000 ease-in-out transform hover:scale-110 hover:rotate-3"
             src={Profile}
             alt="Profile"
           />
