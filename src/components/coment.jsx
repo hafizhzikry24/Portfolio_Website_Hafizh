@@ -292,9 +292,9 @@ function Comment() {
         </div>
       </div>
       <div className="container px-7 mx-auto w-full py-8 sm:py-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
           {language === "en" ? "Comments" : "Komentar"}{" "}
-        </h3>
+        </h2>
         <div className="overflow-x-auto">
           <div className="flex space-x-4">
             {feedbackList.length > 0 ? (
