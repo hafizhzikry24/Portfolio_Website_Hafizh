@@ -6,12 +6,7 @@ export function HeroParallaxDemo() {
   return <HeroParallax products={products} />;
 }
 export const products = [
-  {
-    title: "My Portofolio",
-    link: "https://zikkdev.vercel.app/",
-    thumbnail:
-      "https://media.licdn.com/dms/image/v2/D5616AQGq8rX1NpfnfA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1724774396982?e=2147483647&v=beta&t=dS86y8Begd9z7XL6AHg7iqdMCGUv97awxH_wWZ7aA-I",
-  },
+
   {
     title: "Blackbox AI",
     link: "https://www.blackbox.ai/",
@@ -37,6 +32,14 @@ export const products = [
     thumbnail:
       "https://lirp.cdn-website.com/df735c7c/dms3rep/multi/opt/MicrosoftTeams-image+%28123%29-640w.png",
   },
+
+  {
+    title: "My Portofolio",
+    link: "https://zikkdev.vercel.app/",
+    thumbnail:
+      "https://media.licdn.com/dms/image/v2/D5616AQGq8rX1NpfnfA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1724774396982?e=2147483647&v=beta&t=dS86y8Begd9z7XL6AHg7iqdMCGUv97awxH_wWZ7aA-I",
+  },
+
   {
     title: "Editrix AI",
     link: "https://editrix.ai",
