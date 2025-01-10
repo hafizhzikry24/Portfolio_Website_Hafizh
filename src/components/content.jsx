@@ -157,7 +157,7 @@ function Content() {
           />
         </div>
       </div>
-      <Slider {...settings}>
+      <Slider className="overflow-x-hidden"  {...settings}>
           {[
             js,
             css,
