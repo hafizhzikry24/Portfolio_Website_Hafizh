@@ -13,11 +13,27 @@ export function TimelineDemo() {
 
   const data = [
     {
+      title: "Alturian Indonesia (Software Engineer)",
+      content: (
+        <div>
+          <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
+            Jan 2025 - Present
+          </p>
+          <p className="text-gray-200  text-xs text-justify md:text-base font-normal mb-8 sm:mb-16">
+          {language === "en"
+              ? "responsible for developing and maintaining web and mobile applications. I work on frontend, backend, and mobile development, ensuring optimal performance and security. Additionally, I collaborate with the team to enhance application features and functionality."
+              : "Bertanggung jawab untuk mengembangkan dan memelihara aplikasi web dan seluler. Saya bekerja pada pengembangan frontend, backend, dan seluler, memastikan kinerja dan keamanan yang optimal. Selain itu, saya berkolaborasi dengan tim untuk meningkatkan fitur dan fungsionalitas aplikasi."
+            }
+          </p>
+        </div>
+      ),
+    },
+    {
       title: "PT Awan Network Indonesia (Backend Developer)",
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
-            Aug 2024 - Present
+            Aug 2024 - Jan 2025
           </p>
           <p className="text-gray-200  text-xs text-justify md:text-base font-normal mb-8 sm:mb-16">
           {language === "en"
