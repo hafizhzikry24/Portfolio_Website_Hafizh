@@ -54,6 +54,26 @@ export default function Projects() {
   const {language} = useLanguage();
   const projects = [
     {
+      src: ocr,
+      title: "OCReadEasy",
+      category: language === 'en' ? "OCR PWA" : "OCR PWA",
+      description:
+        language === 'en'
+          ? "Created a PWA App OCR using Next.js, Tailwind CSS, and Tesseract.js for real-time updates."
+          : "Membuat aplikasi PWA OCR menggunakan Next.js, Tailwind CSS, dan Tesseract.js.",
+      link: "https://ocreadeasy.vercel.app/",
+    },
+    {
+      src: porto,
+      title: "SPCPLCPMK",
+      category: language === 'en' ? "Capstone Project" : "Proyek Akhir",
+      description:
+        language === 'en'
+          ? "Created website SPCPLCPMK for Capstone, and my role is front-end developer."
+          : "Membuat website SPCPLCPMK untuk Proyek Akhir, dan peran saya adalah pengembang front-end.",
+      link: "https://test1.spcplcpmk.com/login",
+    },
+    {
       src: bercak,
       title: language === 'en' ? "BLOG Bercak Village" : "Blog Desa Bercak",
       category: language === 'en' ? "Profile Website" : "Website Profil",
@@ -62,6 +82,16 @@ export default function Projects() {
           ? "Created a profile village of Bercak for KKN task using ReactJS and Tailwind CSS."
           : "Membuat profil desa Bercak untuk tugas KKN menggunakan ReactJS dan Tailwind CSS.",
       link: "https://desabercakboyolali.web.app/",
+    },
+    {
+      src: kkn,
+      title: language === 'en' ? "Blog Klikiran Village" : "Blog Desa Klikiran",
+      category: language === 'en' ? "Profile Website" : "Website Profil",
+      description:
+        language === 'en'
+          ? "Created a profile village of Klikiran for KKN task using ReactJS and Tailwind CSS."
+          : "Membuat profil desa Klikiran untuk tugas KKN menggunakan ReactJS dan Tailwind CSS.",
+      link: "https://desaklikiran-381b3.web.app/",
     },
     {
       src: madani,
@@ -82,36 +112,6 @@ export default function Projects() {
           ? "Network Design And Reconfiguration Laboratory 2 State Vocational School 53 JAKARTA."
           : "Desain Jaringan dan Rekonfigurasi Laboratorium 2 SMKN 53 JAKARTA.",
       link: "#",
-    },
-    {
-      src: porto,
-      title: "SPCPLCPMK",
-      category: language === 'en' ? "Capstone Project" : "Proyek Akhir",
-      description:
-        language === 'en'
-          ? "Created website SPCPLCPMK for Capstone, and my role is front-end developer."
-          : "Membuat website SPCPLCPMK untuk Proyek Akhir, dan peran saya adalah pengembang front-end.",
-      link: "https://test1.spcplcpmk.com/login",
-    },
-    {
-      src: ocr,
-      title: "OCReadEasy",
-      category: language === 'en' ? "OCR PWA" : "OCR PWA",
-      description:
-        language === 'en'
-          ? "Created a PWA App OCR using Next.js, Tailwind CSS, and Tesseract.js for real-time updates."
-          : "Membuat aplikasi PWA OCR menggunakan Next.js, Tailwind CSS, dan Tesseract.js.",
-      link: "https://ocreadeasy.vercel.app/",
-    },
-    {
-      src: kkn,
-      title: language === 'en' ? "Blog Klikiran Village" : "Blog Desa Klikiran",
-      category: language === 'en' ? "Profile Website" : "Website Profil",
-      description:
-        language === 'en'
-          ? "Created a profile village of Klikiran for KKN task using ReactJS and Tailwind CSS."
-          : "Membuat profil desa Klikiran untuk tugas KKN menggunakan ReactJS dan Tailwind CSS.",
-      link: "https://desaklikiran-381b3.web.app/",
     },
   ];
 
