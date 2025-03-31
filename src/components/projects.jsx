@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import porto from "../assets/SPCPLCPMK.png";
 import { useLanguage } from "../LanguageContext";
-import foody from "../assets/12.png";
 import kkn from "../assets/13.png";
 import bercak from "../assets/Bercak.png";
-import madani from "../assets/Madani.png";
+import ocr from "../assets/OCReadEasy.png";
 import KP from "../assets/KP.png";
+import madani from "../assets/Madani.png";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
 
@@ -94,14 +94,14 @@ export default function Projects() {
       link: "https://test1.spcplcpmk.com/login",
     },
     {
-      src: foody,
-      title: "FOODY",
-      category: language === 'en' ? "Final Project PWA" : "Proyek Akhir PWA",
+      src: ocr,
+      title: "OCReadEasy",
+      category: language === 'en' ? "OCR PWA" : "OCR PWA",
       description:
         language === 'en'
-          ? "Created a PWA App recipe food using Next.js, Tailwind CSS, and Firebase for real-time updates."
-          : "Membuat aplikasi PWA resep makanan menggunakan Next.js, Tailwind CSS, dan Firebase.",
-      link: "https://foody-culinary.vercel.app/",
+          ? "Created a PWA App OCR using Next.js, Tailwind CSS, and Tesseract.js for real-time updates."
+          : "Membuat aplikasi PWA OCR menggunakan Next.js, Tailwind CSS, dan Tesseract.js.",
+      link: "https://ocreadeasy.vercel.app/",
     },
     {
       src: kkn,
