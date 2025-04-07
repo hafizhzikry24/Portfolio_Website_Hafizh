@@ -13,7 +13,11 @@ import html from "../assets/html .png";
 import tailwind from "../assets/tailwind.png";
 import github from "../assets/github.png";
 import laravel from "../assets/laravel.png";
-import CV from "../assets/CV_Muhammad Hafizh Zikry.pdf";
+import angular from "../assets/angular.png";
+import docker from "../assets/docker.png"
+import php from "../assets/php.png"
+import python from "../assets/python.png"
+import next from "../assets/next.png"
 
 function Content() {
   const { ref: contentRef, inView: isContentVisible } = useInView({
@@ -162,12 +166,17 @@ function Content() {
             js,
             css,
             html,
+            php,
+            python,
+            figma,
             reactImg,
-            github,
+            next,
+            angular,
             tailwind,
             laravel,
-            figma,
+            github,
             cisco2,
+            docker
           ].map((icon, index) => (
             <img
               key={index} // Ensure each image has a unique key
@@ -180,18 +189,28 @@ function Content() {
                   ? "CSS Icon"
                   : icon.includes("html")
                   ? "HTML Icon"
+                  : icon.includes("php")
+                  ? "PHP Icon"
+                  : icon.includes("python")
+                  ? "Python Icon"
+                  : icon.includes("figma")
+                  ? "Figma Icon"
                   : icon.includes("react")
                   ? "React Icon"
-                  : icon.includes("github")
-                  ? "GitHub Icon"
+                  : icon.includes("next")
+                  ? "Next Icon"
+                  : icon.includes("angular")
+                  ? "Angular Icon"
                   : icon.includes("tailwind")
                   ? "Tailwind CSS Icon"
                   : icon.includes("laravel")
                   ? "Laravel Icon"
-                  : icon.includes("figma")
-                  ? "Figma Icon"
+                  : icon.includes("github")
+                  ? "GitHub Icon"
                   : icon.includes("cisco")
                   ? "Cisco Icon"
+                  : icon.includes("docker")
+                  ? "Docker Icon"
                   : "Tech Icon" // Default for unrecognized icons
               }
               className="w-10 h-10 sm:w-20 sm:h-20 object-contain mt-5 sm:mt-10 mb-2 sm:mb-12 ease-in-out transform hover:scale-110 hover:rotate-6"
