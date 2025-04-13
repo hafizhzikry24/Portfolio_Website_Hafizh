@@ -17,7 +17,7 @@ export function TimelineDemo() {
       content: (
         <div>
           <p className="text-neutral-300  text-xs md:text-base font-normal mb-6">
-            Jan 2025 - Present
+            Feb 2025 - Present
           </p>
           <p className="text-gray-200  text-xs text-justify md:text-base font-normal mb-8 sm:mb-16">
           {language === "en"

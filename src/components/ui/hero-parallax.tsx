@@ -110,7 +110,7 @@ export const Header = () => {
       <p className="max-w-2xl text-sm md:text-xl lg:text-2xl mt-8 text-neutral-200 text-justify">
         {language === "en"
           ? 'I"m build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). passionate developers and designers that love to build amazing products, Currently i"m develop my chat AI with gemini by google, please checkout my AI Project. '
-          : "Saya sedang membangun portofolio yang indah (menurut saya) dengan teknologi dan kerangka kerja terkini (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang bersemangat dan gemar membangun produk yang menakjubkan, Sekarang saya sedang mengembangkan chat AI dengan gemini oleh google. "}
+          : "Saya membuat portofolio menarik (menurutku) memakai teknologi serta framework modern (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang menyukai membuat produk menarik. Kini, saya sedang mengembangkan chat AI dengan Gemini dari Google."}
         <a
           className="text-md text-blue-300 underline"
           href="https://katosiboy.vercel.app/"

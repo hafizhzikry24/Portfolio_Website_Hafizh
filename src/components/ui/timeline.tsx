@@ -44,7 +44,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <h1 className="text-lg md:text-4xl mb-4 text-[#fdfdff]  max-w-4xl font-bold">
           {language === "en"
             ? "Changelog from my journey"
-            : "Catatan perubahan dari perjalanan saya"}
+            : "Catatan Pengalaman dari perjalanan saya"}
         </h1>
         <p className="text-neutral-200  text-sm md:text-base max-w-sm">
           {language === "en"
