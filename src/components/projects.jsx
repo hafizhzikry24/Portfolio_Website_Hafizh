@@ -5,7 +5,7 @@ import kkn from "../assets/13.png";
 import bercak from "../assets/Bercak.png";
 import ocr from "../assets/OCReadEasy.png";
 import KP from "../assets/KP.png";
-import madani from "../assets/Madani.png";
+import Madani from "../assets/Madani.png";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
 
@@ -94,7 +94,7 @@ export default function Projects() {
       link: "https://desaklikiran-381b3.web.app/",
     },
     {
-      src: madani,
+      src: Madani,
       title: "Madani",
       category: language === 'en' ? "UI/UX Competition" : "Kompetisi UI/UX",
       description:
