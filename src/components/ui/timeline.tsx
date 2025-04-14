@@ -7,6 +7,8 @@ import {
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../../LanguageContext";
+import { Calendar, Briefcase } from 'lucide-react';
+
 
 interface TimelineEntry {
   title: string;
@@ -16,6 +18,7 @@ interface TimelineEntry {
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
@@ -30,6 +33,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     offset: ["start 10%", "end 50%"],
   });
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const sectionHeight = height / data.length;
+    const currentSection = Math.floor((latest * height) / sectionHeight);
+    setActiveIndex(Math.min(currentSection, data.length - 1));
+  });
+
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const { language } = useLanguage();
@@ -40,37 +49,61 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       id="experience"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 lg:px-10 mt-">
-        <h1 className="text-lg md:text-4xl mb-4 text-[#fdfdff]  max-w-4xl font-bold">
-          {language === "en"
-            ? "Changelog from my journey"
-            : "Catatan Pengalaman dari perjalanan saya"}
-        </h1>
-        <p className="text-neutral-200  text-sm md:text-base max-w-sm">
-          {language === "en"
-            ? "I have experience in the technology field, working on diverse projects and skills development."
-            : "Saya memiliki pengalaman di bidang teknologi, mengerjakan berbagai proyek dan pengembangan keterampilan."}
-        </p>
+      <div className="max-w-7xl mx-auto py-4 px-4 md:px-6 lg:px-6 mt-">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 sm:mb-16"
+        >
+          <h1 className="text-2xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 font-bold">
+            {language === "en"
+              ? "Professional Journey"
+              : "Perjalanan Profesional"}
+          </h1>
+          <p className="text-neutral-300 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed">
+            {language === "en"
+              ? "Exploring the intersection of technology and innovation through diverse projects and continuous learning."
+              : "Menjelajahi perpaduan teknologi dan inovasi melalui berbagai proyek dan pembelajaran berkelanjutan."}
+          </p>
+        </motion.div>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
           <div key={index} className="flex justify-start md:pt-5 md:gap-10">
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-9 w-9 absolute left-4 md:left-4 rounded-full bg-[#efe6fb] flex items-center justify-center ">
-                <div className="h-3 w-3 rounded-full bg-fuchsia-700 border border-[#A78BFA] dark:border-[#A78BFA] p-1.5" />
-              </div>
+                <div 
+                  className={`h-12 w-12 absolute left-2.5 sm:left-2.5 rounded-full 
+                    ${index === activeIndex 
+                      ? 'bg-gradient-to-br from-purple-500 to-pink-500 scale-110' 
+                      : 'bg-gradient-to-br from-purple-500/50 to-pink-500/50'
+                    } 
+                    flex items-center justify-center transform transition-all duration-300`}
+                >
+                  <div className={`h-8 w-8 rounded-full bg-gray-950 flex items-center justify-center transition-transform duration-300
+                    ${index === activeIndex ? 'scale-110' : 'scale-100'}`}>
+                    <Briefcase className={`h-4 w-4 ${index === activeIndex ? 'text-purple-400' : 'text-purple-400/50'}`} />
+                  </div>
+                </div>
               <h2 className="hidden md:block text-xl md:pl-20 font-semibold text-neutral-300">
                 {item.title}
               </h2>
             </div>
 
-            <div className="relative pl-20 pr-8 md:pl-4 w-full">
-              <h2 className="md:hidden block text-xl mb-2 text-left font-semibold text-[#3857ad] ">
-                {item.title}
-              </h2>
-              {item.content}{" "}
-            </div>
+            <div className="relative pl-24 sm:pl-4 pr-4 sm:pr-8 w-full sm:w-2/3 mb-10">
+                <h2 className="sm:hidden block text-lg mb-2 text-left font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+                  {item.title}
+                </h2>
+                <div className={`bg-gray-900/50 rounded-lg p-4 sm:p-6 backdrop-blur-sm border 
+                  ${index === activeIndex 
+                    ? 'border-purple-500/30 shadow-lg shadow-purple-500/10' 
+                    : 'border-purple-500/10'
+                  } 
+                  transition-all duration-300 hover:border-purple-500/20`}>
+                  {item.content}
+                </div>
+              </div>
           </div>
         ))}
         <div

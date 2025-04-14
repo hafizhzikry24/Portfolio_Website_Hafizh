@@ -17,6 +17,7 @@
     "country-flag-icons": "^1.5.13",
     "framer-motion": "^11.11.9",
     "gsap": "^3.12.2",
+    "lucide-react": "^0.488.0",
     "react": "^18.2.0",
     "react-animation-on-scroll": "^5.1.0",
     "react-dom": "^18.2.0",
