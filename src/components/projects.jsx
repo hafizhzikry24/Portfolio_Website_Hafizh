@@ -104,7 +104,7 @@ export default function Projects() {
       description:
         language === "en"
           ? "Created website SPCPLCPMK for Capstone, and my role is front-end developer."
-          : "Membuat website SPCPLCPMK untuk Proyek Akhir, dan peran saya adalah pengembang front-end.",
+          : "Membuat website SPCPLCPMK untuk Capstone, dan role saya adalah front-end.",
       link: "https://test1.spcplcpmk.com/login",
     },
     {
@@ -133,8 +133,8 @@ export default function Projects() {
       category: language === "en" ? "UI/UX Competition" : "Kompetisi UI/UX",
       description:
         language === "en"
-          ? "Created for UI/UX Competition for MTQMN using Figma and developed with design thinking."
-          : "Dibuat untuk Kompetisi UI/UX MTQMN menggunakan Figma dan dikembangkan dengan design thinking.",
+          ? "Created UI/UX Competition MTQMN using Figma and developed with design thinking."
+          : "Dibuat untuk Kompetisi UI/UX MTQMN dengan Figma dan design thinking.",
       link: "https://bit.ly/PrototipeMadani",
     },
     {
@@ -143,7 +143,7 @@ export default function Projects() {
       category: language === "en" ? "Internship" : "Magang",
       description:
         language === "en"
-          ? "Network Design And Reconfiguration Laboratory 2 State Vocational School 53 JAKARTA."
+          ? "Network Design And Reconfiguration Laboratory 2 SMKN 53 JAKARTA."
           : "Desain Jaringan dan Rekonfigurasi Laboratorium 2 SMKN 53 JAKARTA.",
       link: "#",
     },
