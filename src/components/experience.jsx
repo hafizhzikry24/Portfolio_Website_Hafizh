@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";

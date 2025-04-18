@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useMemo, useRef } from "react";
 import porto from "../assets/SPCPLCPMK.png";
 import { useLanguage } from "../LanguageContext";
