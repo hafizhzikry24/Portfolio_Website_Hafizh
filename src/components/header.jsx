@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyLogo from "../assets/mylogo.png";
 import { TiThMenuOutline } from "react-icons/ti";
 import { Link } from 'react-scroll';
@@ -8,8 +8,14 @@ import { useLanguage } from '../LanguageContext'; // Import useLanguage
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { language, setLanguage } = useLanguage(); // Get language and setLanguage
+  const { language, setLanguage } = useLanguage();
+  // Update isEnglish state when language changes
   const [isEnglish, setIsEnglish] = useState(language === "en");
+
+  // Add useEffect to sync isEnglish state with language changes
+  useEffect(() => {
+    setIsEnglish(language === "en");
+  }, [language]);
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(prevState => !prevState);
@@ -18,7 +24,8 @@ const Header = () => {
   const handleLanguageToggle = () => {
     const newLanguage = isEnglish ? "id" : "en";
     setLanguage(newLanguage);
-    setIsEnglish(!isEnglish);
+    // Remove this line as it's now handled by useEffect
+    // setIsEnglish(!isEnglish);
   };
 
   return (
