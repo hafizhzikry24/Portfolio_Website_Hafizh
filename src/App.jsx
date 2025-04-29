@@ -10,23 +10,19 @@ import Landing from "./components/lnding";
 import { TimelineDemo } from "./components/timeline";
 import { HeroScrollDemo } from "./components/tab";
 import { HeroParallaxDemo } from "./components/hero-parallax";
-
+import AiChat from "./components/ai-chat";
 
 const App = () => {
-  
   return (
     <>
       <Header/>
       <HeroParallaxDemo/>
-      {/* <Landing/> */}
-      {/* <HeroScrollDemo/> */}
       <Content/>
-      {/* <About/> */}
       <TimelineDemo/>
       <Projects/>
+      <AiChat/>
       <Comment/>
       <Footer/>
-
     </>
   );
 };

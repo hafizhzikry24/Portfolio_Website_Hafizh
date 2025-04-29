@@ -1,0 +1,280 @@
+"use client"
+
+import { useState, useEffect, useRef } from "react"
+import { useLanguage } from "../LanguageContext"
+import { Send, Bot, User } from "lucide-react"
+
+// Add this helper function before the AiChat component
+const formatAIResponse = (text) => {
+  if (!text) return ""
+  
+  let formattedText = text
+    // Hapus format markdown yang tidak diinginkan
+    .replace(/\*\*([^*]+)\*\*/g, "$1")  // Hapus format bold
+    .replace(/_([^_]+)_/g, "$1")        // Hapus format italic
+    .replace(/\*([^*]+)\*/g, "$1")      // Hapus format bullet dengan asterisk
+    // Perbaiki format bullet points
+    .replace(/^[•*]\s*/gm, "• ")        // Standarisasi bullet points
+    .replace(/\n\s*\n\s*\n/g, "\n\n")   // Hapus spasi berlebih
+    .replace(/^\s+/gm, "")              // Hapus spasi di awal baris
+    .replace(/\s+$/gm, "")              // Hapus spasi di akhir baris
+    // Tambahkan spasi yang konsisten
+    .replace(/\.\s+/g, ".\n\n")         // Spasi setelah titik
+    .replace(/•(.*?)(?=\n|$)/g, "• $1\n") // Spasi setelah bullet points
+
+  return formattedText
+}
+
+const AiChat = () => {
+  const { language } = useLanguage()
+  const [message, setMessage] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [chatHistory, setChatHistory] = useState([])
+  const [typingText, setTypingText] = useState("")
+  const [isTyping, setIsTyping] = useState(false)
+  const chatContainerRef = useRef(null)
+  const typingSpeed = 30 // kecepatan pengetikan dalam milidetik
+
+  // Fungsi untuk animasi pengetikan
+  const typeMessage = async (text) => {
+    setIsTyping(true)
+    setTypingText("")
+    
+    for (let i = 0; i < text.length; i++) {
+      await new Promise(resolve => setTimeout(resolve, typingSpeed))
+      setTypingText(prev => prev + text[i])
+    }
+    
+    setIsTyping(false)
+    return text
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!message.trim()) return
+
+    const userMessage = {
+      role: "user",
+      content: message,
+    }
+
+    setChatHistory(prev => [...prev, userMessage])
+    setIsLoading(true)
+    setMessage("")
+
+    try {
+      // Create conversation context from previous messages
+      const conversationContext = chatHistory
+        .map((msg) => `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`)
+        .join("\n\n")
+
+      const response = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": "AIzaSyAdYsf7vUD3EBeguddvkUqoMh3bpcjgkdI",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: `You are an AI assistant for the portfolio of Muhammad Hafizh Zikry.
+          Here is some information about the portfolio owner:
+          
+          EXPERIENCE:
+          • Software Engineer at Alturian (Jan 2025 – Present)  
+          Responsible for developing and maintaining website application(laravel, Angular) and mobile applications(PWA(Ionic)). I work on frontend, backend, and mobile development, ensuring optimal performance and security. I also collaborate with the team to improve application features and functionality.
+          
+          • Backend Developer at PT Awan Network Indonesia (Aug 2024 until Jan 2025)  
+          Developed and optimized APIs for application and website integration.
+          
+          • Teaching Assistant at Diponegoro University (Aug 2024 until Nov 2024)  
+          Assisted in teaching Digital Systems, Introduction to Networking, Advanced Digital Systems, etc.
+          
+          • UI/UX Designer at MTQMN XVII Malang (Nov 2023)  
+          1st place winner in the MTQMN Quran App Design Competition representing Undip.
+          
+          • Network Engineer at SMKN 53 Jakarta (Jan 2023 until Feb 2023)  
+          Designed and configured network architecture.
+          
+          PROJECTS:
+          • OCReadEasy: A PWA OCR app using Next.js and Tesseract.js  
+          • SPCPLCPMK: Capstone project website as a front-end developer  
+          • Desa Bercak & Klikiran Blog: Village profile website using ReactJS and Tailwind  
+          • Madani: UI/UX project for the MTQMN competition
+          
+          TECH STACK:
+          • Frontend: React.js, Next.js, Tailwind CSS, Angular, HTML, CSS, JavaScript, TypeScript
+          • Mobile: Ionic, React Native  
+          • Backend: Laravel, SQL, PHP, Python
+          • Tools: GitHub, Figma, Docker,  
+          • Networking: Cisco
+          
+          CONTACT:
+          • GitHub: hafizhzikry24  
+          • LinkedIn: hafizhzikry  
+          • Instagram: hafizh.zikry  
+          • WhatsApp: +628117428555  
+          • Portfolio: https://zikkdev.vercel.app/
+
+          Education:
+          • Computer Engineering at Diponegoro University (2020 - 2024)
+          
+          If the user asks about the level or rating of a skill (e.g., "How good is the Backend Development skill?" or "Give a score for Next.js and Laravel skills"), provide a brief evaluation based on the profile and experience provided.
+
+            Respond using a clear structure like:
+
+            • Skill: Backend Development  
+            • Rating: 9/10  
+            • Explanation: Strong experience shown through multiple projects and role as Backend Developer at PT Awan Network Indonesia. Uses Laravel, builds APIs, and integrates with frontend efficiently.
+
+            Please answer questions politely, informatively, and concisely in the appropriate language (Indonesian/English).
+          
+          Important: Format your responses properly. Use separate paragraphs for each sentence or key point. If using bullet points, format them correctly with "•" instead of "*". Provide adequate spacing between paragraphs.
+          
+          Here is the previous conversation history:
+          ${conversationContext}
+          
+          Users latest question: ${message}`,
+                  },
+                ],
+              },
+            ],
+          })
+          
+        },
+      )
+
+      const data = await response.json()
+      const aiResponse = data.candidates[0].content.parts[0].text
+      
+      // Mulai animasi pengetikan
+      const typedResponse = await typeMessage(aiResponse)
+      
+      // Setelah animasi selesai, tambahkan ke chat history
+      setChatHistory(prev => [...prev, { 
+        role: "assistant", 
+        content: typedResponse 
+      }])
+    } catch (error) {
+      console.error("Error:", error)
+      const errorMessage = language === "en"
+        ? "Sorry, there was an error processing your request."
+        : "Maaf, terjadi kesalahan dalam memproses permintaan Anda."
+      
+      await typeMessage(errorMessage)
+      setChatHistory(prev => [...prev, { 
+        role: "assistant", 
+        content: errorMessage 
+      }])
+    }
+
+    setIsLoading(false)
+  }
+
+  return (
+    <section className="bg-gradient-to-br from-gray-900 to-black py-28 text-white min-h-screen" id="ai-chat">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+              {language === "en" ? "Chat with AI Assistant" : "Ngobrol dengan Asisten AI"}
+            </h2>
+            <p className="text-gray-400">
+              {language === "en"
+                ? "Ask anything about my skills, experience, or projects!"
+                : "Tanyakan apa saja tentang skill, pengalaman, atau proyek saya!"}
+            </p>
+          </div>
+
+          <div className="bg-gray-800 rounded-lg p-6 shadow-xl">
+            {/* Chat history display */}
+            <div ref={chatContainerRef} className="mb-6 max-h-96 overflow-y-auto space-y-4 pr-2">
+              {chatHistory.map((chat, index) => (
+                <div key={index} className={`flex items-start gap-3 ${chat.role === "user" ? "justify-end" : ""}`}>
+                  {chat.role === "assistant" && <Bot className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />}
+                  <div className={`rounded-lg p-3 max-w-[80%] ${
+                    chat.role === "user" ? "bg-purple-600 ml-auto" : "bg-gray-700"
+                  }`}>
+                    {chat.role === "assistant" ? (
+                      <div className="text-sm whitespace-pre-line">
+                        {formatAIResponse(chat.content)}
+                      </div>
+                    ) : (
+                      <p className="text-sm">{chat.content}</p>
+                    )}
+                  </div>
+                  {chat.role === "user" && <User className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />}
+                </div>
+              ))}
+              
+              {/* Show typing animation OR loading dots, not both */}
+              {isTyping ? (
+                <div className="flex items-start gap-3">
+                  <Bot className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />
+                  <div className="bg-gray-700 rounded-lg p-3 max-w-[80%]">
+                    <div className="text-sm whitespace-pre-line">
+                      {formatAIResponse(typingText)}
+                    </div>
+                  </div>
+                </div>
+              ) : isLoading && (
+                <div className="flex items-start gap-3">
+                  <Bot className="w-6 h-6 text-purple-400 mt-1" />
+                  <div className="bg-gray-700 rounded-lg p-3">
+                    <div className="flex space-x-2">
+                      <div
+                        className="w-2 h-2 rounded-full bg-purple-400 animate-bounce"
+                        style={{ animationDelay: "0ms" }}
+                      ></div>
+                      <div
+                        className="w-2 h-2 rounded-full bg-purple-400 animate-bounce"
+                        style={{ animationDelay: "150ms" }}
+                      ></div>
+                      <div
+                        className="w-2 h-2 rounded-full bg-purple-400 animate-bounce"
+                        style={{ animationDelay: "300ms" }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Input form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="flex gap-4">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder={language === "en" ? "Ask something..." : "Tanyakan sesuatu..."}
+                  className="flex-1 bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading || !message}
+                  className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:cursor-not-allowed px-6 py-2 rounded-lg flex items-center gap-2 transition-colors"
+                >
+                  {isLoading ? (
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      {language === "en" ? "Send" : "Kirim"}
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default AiChat
