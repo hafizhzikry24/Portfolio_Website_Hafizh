@@ -49,9 +49,14 @@ const AiChat = () => {
     return text
   }
 
+  const [showSuggestions, setShowSuggestions] = useState(true)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!message.trim()) return
+
+    // Sembunyikan suggestions setelah submit pertama
+    setShowSuggestions(false)
 
     const userMessage = {
       role: "user",
@@ -175,8 +180,143 @@ const AiChat = () => {
     setIsLoading(false)
   }
 
+  // Add suggested questions in English
+  const suggestedQuestions = [
+    "Tell me about his Developer experience",
+    "What technologies use for Developement?",
+    "How to Contact the developer?",
+    "what's skill the developer?"
+  ]
+
+
+
+  // Remove the first handleSuggestedQuestion definition and keep only this one
+  const handleSuggestedQuestion = async (question) => {
+    if (isLoading) return
+    
+    const userMessage = {
+      role: "user",
+      content: question,
+    }
+
+    setChatHistory(prev => [...prev, userMessage])
+    setIsLoading(true)
+    setMessage("")
+    setShowSuggestions(false)
+
+    try {
+      const conversationContext = chatHistory
+        .map((msg) => `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`)
+        .join("\n\n")
+
+      const response = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": "AIzaSyAdYsf7vUD3EBeguddvkUqoMh3bpcjgkdI",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                {
+                  text: `You are an AI assistant for the portfolio of Muhammad Hafizh Zikry.
+          Here is some information about the portfolio owner:
+          
+          EXPERIENCE:
+          • Software Engineer at Alturian (Jan 2025 – Present)  
+          Responsible for developing and maintaining website application(laravel, Angular) and mobile applications(PWA(Ionic)). I work on frontend, backend, and mobile development, ensuring optimal performance and security. I also collaborate with the team to improve application features and functionality.
+          
+          • Backend Developer at PT Awan Network Indonesia (Aug 2024 until Jan 2025)  
+          Developed and optimized APIs for application and website integration.
+          
+          • Teaching Assistant at Diponegoro University (Aug 2024 until Nov 2024)  
+          Assisted in teaching Digital Systems, Introduction to Networking, Advanced Digital Systems, etc.
+          
+          • UI/UX Designer at MTQMN XVII Malang (Nov 2023)  
+          1st place winner in the MTQMN Quran App Design Competition representing Undip.
+          
+          • Network Engineer at SMKN 53 Jakarta (Jan 2023 until Feb 2023)  
+          Designed and configured network architecture.
+          
+          PROJECTS:
+          • OCReadEasy: A PWA OCR app using Next.js and Tesseract.js  
+          • SPCPLCPMK: Capstone project website as a front-end developer  
+          • Desa Bercak & Klikiran Blog: Village profile website using ReactJS and Tailwind  
+          • Madani: UI/UX project for the MTQMN competition
+          
+          TECH STACK:
+          • Frontend: React.js, Next.js, Tailwind CSS, Angular, HTML, CSS, JavaScript, TypeScript
+          • Mobile: Ionic, React Native  
+          • Backend: Laravel, SQL, PHP, Python
+          • Tools: GitHub, Figma, Docker,  
+          • Networking: Cisco
+          
+          CONTACT:
+          • GitHub: hafizhzikry24  
+          • LinkedIn: hafizhzikry  
+          • Instagram: hafizh.zikry  
+          • WhatsApp: +628117428555  
+          • Portfolio: https://zikkdev.vercel.app/
+
+          Education:
+          • Computer Engineering at Diponegoro University (2020 - 2024)
+          
+          If the user asks about the level or rating of a skill (e.g., "How good is the Backend Development skill?" or "Give a score for Next.js and Laravel skills"), provide a brief evaluation based on the profile and experience provided.
+
+            Respond using a clear structure like:
+
+            • Skill: Backend Development  
+            • Rating: 9/10  
+            • Explanation: Strong experience shown through multiple projects and role as Backend Developer at PT Awan Network Indonesia. Uses Laravel, builds APIs, and integrates with frontend efficiently.
+
+            Please answer questions politely, informatively, and concisely in the appropriate language (Indonesian/English).
+          
+          Important: Format your responses properly. Use separate paragraphs for each sentence or key point. If using bullet points, format them correctly with "•" instead of "*". Provide adequate spacing between paragraphs.
+          
+          Here is the previous conversation history:
+          ${conversationContext}
+          
+          Users latest question: ${question}`, // Ubah dari ${message} menjadi ${question}
+                  },
+                ],
+              },
+            ],
+          })
+          
+        },
+      )
+
+      const data = await response.json()
+      const aiResponse = data.candidates[0].content.parts[0].text
+      
+      // Start typing animation
+      const typedResponse = await typeMessage(aiResponse)
+      
+      setChatHistory(prev => [...prev, { 
+        role: "assistant", 
+        content: typedResponse 
+      }])
+    } catch (error) {
+      console.error("Error:", error)
+      const errorMessage = language === "en"
+        ? "Sorry, there was an error processing your request."
+        : "Maaf, terjadi kesalahan dalam memproses permintaan Anda."
+      
+      await typeMessage(errorMessage)
+      setChatHistory(prev => [...prev, { 
+        role: "assistant", 
+        content: errorMessage 
+      }])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-black py-28 text-white min-h-screen" id="ai-chat">
+    <section className="bg-gradient-to-br from-gray-900 to-black py-28 text-white h-[90vh] sm:h-[75vh] md:h-[75vh] lg:h-screen xl:h-screen" id="ai-chat">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
@@ -244,9 +384,25 @@ const AiChat = () => {
               )}
             </div>
 
+            {/* Suggested Questions - hanya tampilkan jika showSuggestions true */}
+            {showSuggestions && (
+              <div className="mb-6 flex flex-wrap gap-2">
+                {suggestedQuestions.map((question, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleSuggestedQuestion(question)}
+                    disabled={isLoading}
+                    className="text-sm bg-gray-700 hover:bg-gray-600 text-gray-300 py-1 px-3 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {question}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Input form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="flex gap-4">
+              <div className="flex gap-2 sm:gap-4">
                 <input
                   type="text"
                   value={message}
@@ -257,14 +413,16 @@ const AiChat = () => {
                 <button
                   type="submit"
                   disabled={isLoading || !message}
-                  className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:cursor-not-allowed px-6 py-2 rounded-lg flex items-center gap-2 transition-colors"
+                  className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:cursor-not-allowed px-3 sm:px-6 py-2 rounded-lg flex items-center gap-1 sm:gap-2 transition-colors whitespace-nowrap"
                 >
                   {isLoading ? (
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      {language === "en" ? "Send" : "Kirim"}
+                      <span className="hidden sm:inline">
+                        {language === "en" ? "Send" : "Kirim"}
+                      </span>
                     </>
                   )}
                 </button>
