@@ -8,6 +8,7 @@ import {
   MotionValue,
 } from "framer-motion";
 import { useLanguage } from "../../LanguageContext";
+import { ExternalLink } from "lucide-react";
 
 export const HeroParallax = ({
   products,
@@ -111,12 +112,14 @@ export const Header = () => {
         {language === "en"
           ? 'I"m build beautiful portofolio(i think) with the latest technologies and frameworks(React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). passionate developers and designers that love to build amazing products, Currently i"m develop my chat AI with gemini by google, please checkout my AI Project. '
           : "Saya membuat portofolio menarik (menurutku) memakai teknologi serta framework modern (React.js, Tailwind CSS, Acertiny UI & Tailblock.cc). Pengembang dan desainer yang menyukai membuat produk menarik. Kini, saya sedang mengembangkan chat AI dengan Gemini dari Google."}
-        <a
-          className="text-md text-blue-300 underline"
-          href="https://katosiboy.vercel.app/"
-        >
-          KatoSiBOY
-        </a>
+          <a
+            className="inline-flex items-center ml-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
+            href="https://katosiboy.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            KatoSiBOY <ExternalLink className="ml-1 h-4 w-4" />
+          </a>
       </p>
     </div>
   );
