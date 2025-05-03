@@ -9,18 +9,15 @@ const formatAIResponse = (text) => {
   if (!text) return ""
   
   let formattedText = text
-    // Hapus format markdown yang tidak diinginkan
-    .replace(/\*\*([^*]+)\*\*/g, "$1")  // Hapus format bold
-    .replace(/_([^_]+)_/g, "$1")        // Hapus format italic
-    .replace(/\*([^*]+)\*/g, "$1")      // Hapus format bullet dengan asterisk
-    // Perbaiki format bullet points
-    .replace(/^[•*]\s*/gm, "• ")        // Standarisasi bullet points
-    .replace(/\n\s*\n\s*\n/g, "\n\n")   // Hapus spasi berlebih
-    .replace(/^\s+/gm, "")              // Hapus spasi di awal baris
-    .replace(/\s+$/gm, "")              // Hapus spasi di akhir baris
-    // Tambahkan spasi yang konsisten
-    .replace(/\.\s+/g, ".\n\n")         // Spasi setelah titik
-    .replace(/•(.*?)(?=\n|$)/g, "• $1\n") // Spasi setelah bullet points
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/_([^_]+)_/g, "$1")      
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/^[•*]\s*/gm, "• ")
+    .replace(/\n\s*\n\s*\n/g, "\n\n")
+    .replace(/^\s+/gm, "")
+    .replace(/\s+$/gm, "")
+    .replace(/\.\s+/g, ".\n\n")
+    .replace(/•(.*?)(?=\n|$)/g, "• $1\n")
 
   return formattedText
 }
@@ -43,11 +40,27 @@ const AiChat = () => {
     for (let i = 0; i < text.length; i++) {
       await new Promise(resolve => setTimeout(resolve, typingSpeed))
       setTypingText(prev => prev + text[i])
+      
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+      }
     }
     
     setIsTyping(false)
     return text
   }
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    }
+  }, [chatHistory, isTyping])
+
+  useEffect(() => {
+    if (chatContainerRef.current && isTyping) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    }
+  }, [typingText])
 
   const [showSuggestions, setShowSuggestions] = useState(true)
 
@@ -55,7 +68,6 @@ const AiChat = () => {
     e.preventDefault()
     if (!message.trim()) return
 
-    // Sembunyikan suggestions setelah submit pertama
     setShowSuggestions(false)
 
     const userMessage = {
@@ -66,6 +78,13 @@ const AiChat = () => {
     setChatHistory(prev => [...prev, userMessage])
     setIsLoading(true)
     setMessage("")
+
+    // Scroll ke bawah setelah pesan user ditambahkan
+    setTimeout(() => {
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+      }
+    }, 100)
 
     try {
       // Create conversation context from previous messages
@@ -188,8 +207,6 @@ const AiChat = () => {
     "what's skill the developer?"
   ]
 
-
-
   // Remove the first handleSuggestedQuestion definition and keep only this one
   const handleSuggestedQuestion = async (question) => {
     if (isLoading) return
@@ -203,6 +220,12 @@ const AiChat = () => {
     setIsLoading(true)
     setMessage("")
     setShowSuggestions(false)
+
+    setTimeout(() => {
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+      }
+    }, 100)
 
     try {
       const conversationContext = chatHistory
@@ -332,7 +355,10 @@ const AiChat = () => {
 
           <div className="bg-gray-800 rounded-lg p-6 shadow-xl">
             {/* Chat history display */}
-            <div ref={chatContainerRef} className="mb-6 max-h-96 overflow-y-auto space-y-4 pr-2">
+            <div 
+              ref={chatContainerRef} 
+              className="mb-6 max-h-96 overflow-y-auto space-y-4 pr-2 scroll-smooth"
+            >
               {chatHistory.map((chat, index) => (
                 <div key={index} className={`flex items-start gap-3 ${chat.role === "user" ? "justify-end" : ""}`}>
                   {chat.role === "assistant" && <Bot className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />}
