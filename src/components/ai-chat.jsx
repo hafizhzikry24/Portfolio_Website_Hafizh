@@ -339,7 +339,7 @@ const AiChat = () => {
   }
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-black py-28 text-white h-[90vh] sm:h-[75vh] md:h-[75vh] lg:h-screen xl:h-screen" id="ai-chat">
+    <section className="bg-gradient-to-br from-gray-900 to-black py-24 text-white h-[90vh] sm:h-[75vh] md:h-[75vh] lg:h-screen xl:h-screen" id="ai-chat">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
@@ -357,7 +357,7 @@ const AiChat = () => {
             {/* Chat history display */}
             <div 
               ref={chatContainerRef} 
-              className="mb-6 max-h-96 overflow-y-auto space-y-4 pr-2 scroll-smooth"
+              className="mb-6 max-h-80 overflow-y-auto space-y-4 pr-2 scroll-smooth"
             >
               {chatHistory.map((chat, index) => (
                 <div key={index} className={`flex items-start gap-3 ${chat.role === "user" ? "justify-end" : ""}`}>
