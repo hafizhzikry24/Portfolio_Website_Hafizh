@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useLanguage } from "../LanguageContext"
-import { Send, Bot, User } from "lucide-react"
+import { Send, Bot, User, StopCircle } from "lucide-react" // Tambahkan StopCircle jika ingin ikon
 
 // Add this helper function before the AiChat component
 const formatAIResponse = (text) => {
@@ -31,15 +31,21 @@ const AiChat = () => {
   const [isTyping, setIsTyping] = useState(false)
   const chatContainerRef = useRef(null)
   const typingSpeed = 30 // kecepatan pengetikan dalam milidetik
+  const stopTypingRef = useRef(false) // 1. Tambahkan ref untuk sinyal berhenti
 
   // Fungsi untuk animasi pengetikan
-  const typeMessage = async (text) => {
+  const typeMessage = async (text) => { // 2. Modifikasi typeMessage
     setIsTyping(true)
     setTypingText("")
+    let currentTypedMessage = ""
     
     for (let i = 0; i < text.length; i++) {
+      if (stopTypingRef.current) { // Periksa sinyal berhenti
+        break
+      }
       await new Promise(resolve => setTimeout(resolve, typingSpeed))
-      setTypingText(prev => prev + text[i])
+      currentTypedMessage += text[i]
+      setTypingText(currentTypedMessage)
       
       if (chatContainerRef.current) {
         chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
@@ -47,7 +53,7 @@ const AiChat = () => {
     }
     
     setIsTyping(false)
-    return text
+    return currentTypedMessage // Kembalikan teks yang sudah diketik (bisa parsial)
   }
 
   useEffect(() => {
@@ -64,11 +70,17 @@ const AiChat = () => {
 
   const [showSuggestions, setShowSuggestions] = useState(true)
 
+  // 3. Buat fungsi handleStopGenerating
+  const handleStopGenerating = () => {
+    stopTypingRef.current = true
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!message.trim()) return
 
     setShowSuggestions(false)
+    stopTypingRef.current = false // 4. Reset sinyal berhenti
 
     const userMessage = {
       role: "user",
@@ -176,12 +188,12 @@ const AiChat = () => {
       const aiResponse = data.candidates[0].content.parts[0].text
       
       // Mulai animasi pengetikan
-      const typedResponse = await typeMessage(aiResponse)
+      const typedResponse = await typeMessage(aiResponse) // typeMessage akan mengembalikan teks (parsial jika dihentikan)
       
-      // Setelah animasi selesai, tambahkan ke chat history
+      // Setelah animasi selesai atau dihentikan, tambahkan ke chat history
       setChatHistory(prev => [...prev, { 
         role: "assistant", 
-        content: typedResponse 
+        content: typedResponse // Gunakan typedResponse
       }])
     } catch (error) {
       console.error("Error:", error)
@@ -189,10 +201,11 @@ const AiChat = () => {
         ? "Sorry, there was an error processing your request."
         : "Maaf, terjadi kesalahan dalam memproses permintaan Anda."
       
-      await typeMessage(errorMessage)
+      stopTypingRef.current = false // Reset juga untuk pesan error
+      const typedErrorMessage = await typeMessage(errorMessage)
       setChatHistory(prev => [...prev, { 
         role: "assistant", 
-        content: errorMessage 
+        content: typedErrorMessage 
       }])
     }
 
@@ -211,6 +224,8 @@ const AiChat = () => {
   const handleSuggestedQuestion = async (question) => {
     if (isLoading) return
     
+    stopTypingRef.current = false // 4. Reset sinyal berhenti
+
     const userMessage = {
       role: "user",
       content: question,
@@ -316,11 +331,11 @@ const AiChat = () => {
       const aiResponse = data.candidates[0].content.parts[0].text
       
       // Start typing animation
-      const typedResponse = await typeMessage(aiResponse)
+      const typedResponse = await typeMessage(aiResponse) 
       
       setChatHistory(prev => [...prev, { 
         role: "assistant", 
-        content: typedResponse 
+        content: typedResponse
       }])
     } catch (error) {
       console.error("Error:", error)
@@ -328,10 +343,11 @@ const AiChat = () => {
         ? "Sorry, there was an error processing your request."
         : "Maaf, terjadi kesalahan dalam memproses permintaan Anda."
       
-      await typeMessage(errorMessage)
+      stopTypingRef.current = false // Reset juga untuk pesan error
+      const typedErrorMessage = await typeMessage(errorMessage)
       setChatHistory(prev => [...prev, { 
         role: "assistant", 
-        content: errorMessage 
+        content: typedErrorMessage
       }])
     } finally {
       setIsLoading(false)
@@ -435,13 +451,25 @@ const AiChat = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={language === "en" ? "Ask something..." : "Tanyakan sesuatu..."}
                   className="flex-1 bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  disabled={isTyping} // Opsional: nonaktifkan input saat AI mengetik
                 />
+                {/* 5. Perbarui tombol aksi */}
                 <button
-                  type="submit"
-                  disabled={isLoading || !message}
-                  className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:cursor-not-allowed px-3 sm:px-6 py-2 rounded-lg flex items-center gap-1 sm:gap-2 transition-colors whitespace-nowrap"
+                  type={isTyping ? "button" : "submit"}
+                  onClick={isTyping ? handleStopGenerating : undefined}
+                  disabled={!isTyping && (isLoading || !message.trim())}
+                  className={`px-3 sm:px-6 py-2 rounded-lg flex items-center gap-1 sm:gap-2 transition-colors whitespace-nowrap ${
+                    isTyping
+                      ? "bg-red-600 hover:bg-red-700 text-white" // Gaya tombol Stop
+                      : "bg-purple-600 hover:bg-purple-700 text-white disabled:bg-purple-800 disabled:cursor-not-allowed" // Gaya tombol Kirim
+                  }`}
                 >
-                  {isLoading ? (
+                  {isTyping ? (
+                    <>
+                      <StopCircle className="w-4 h-4" /> {/* Contoh menggunakan ikon */}
+                      <span className="hidden sm:inline">Stop</span>
+                    </>
+                  ) : isLoading ? (
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                   ) : (
                     <>
