@@ -2,7 +2,7 @@
 
 import React, { useMemo, useRef } from "react";
 import porto from "../assets/SPCPLCPMK.png";
-import { useLanguage } from "../LanguageContext";
+import { useLanguage } from "../LanguageContext"; // Pastikan path ini benar
 import kkn from "../assets/13.png";
 import bercak from "../assets/Bercak.png";
 import ocr from "../assets/OCReadEasy.png";
@@ -10,6 +10,7 @@ import KP from "../assets/KP.png";
 import Madani from "../assets/Madani.png";
 import { FiArrowLeft, FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Impor Link
 
 const ProjectCard = ({ project }) => {
   const { ref, inView } = useInView({
@@ -200,15 +201,13 @@ export default function Projects() {
             </div>
           ))}
         </div>
-        <div className="flex md:hidden justify-between items-center mx-2">
-          <FiArrowLeft
-            onClick={scrollLeft}
-            className="text-2xl cursor-pointer"
-          />
-          <FiArrowRight
-            onClick={scrollRight}
-            className="text-2xl cursor-pointer"
-          />
+        <div className="text-center mt-12">
+          <Link
+            to="/our-services" // Ubah href menjadi to dan arahkan ke rute baru
+            className="inline-block bg-indigo-600 text-white font-[Poppins] py-3 px-8 rounded-lg hover:bg-indigo-500 transition-colors duration-300 text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1"
+          >
+            {language === "en" ? "Explore My Services" : "Lihat Layanan Saya"}
+          </Link>
         </div>
       </div>
     </section>
