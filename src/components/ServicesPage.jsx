@@ -1,18 +1,17 @@
 import React from 'react';
-import Header from './header'; // Sesuaikan path jika berbeda
-import Services from './Services'; // Sesuaikan path jika berbeda
-import BusinessFlow from './BusinessFlow'; // Sesuaikan path jika berbeda
-import Footer from './footer'; // Sesuaikan path jika berbeda
+
+import Services from './services'; // Sesuaikan path jika berbeda
+import BusinessFlow from './business-flow'; // Sesuaikan path jika berbeda
+import MapComponent from './map-component';
 
 const ServicesPage = () => {
   return (
     <>
-      <Header />
       <main> {/* Tambahkan tag main untuk konten utama halaman */}
-        <Services />
-        <BusinessFlow />
+      <Services/>
+      <BusinessFlow/>
+      <MapComponent/>
       </main>
-      <Footer />
     </>
   );
 };

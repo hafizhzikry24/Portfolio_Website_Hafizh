@@ -1,29 +1,37 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Impor komponen routing
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Header from './components/header';
-import Content from './components/content';
 import Footer from "./components/footer";
-import Projects from "./components/projects";
-import Comment from "./components/coment";
-import { TimelineDemo } from "./components/timeline";
-import { HeroParallaxDemo } from "./components/hero-parallax";
-import AiChat from "./components/ai-chat";
-import Services from "./components/Services"; 
-import BusinessFlow from "./components/BusinessFlow";
-import ServicesPage from "./components/ServicesPage"; // Impor halaman baru
+import ServicesPage from "./components/ServicesPage";
+import HomePage from "./components/HomePage";
+import ProjectPage from "./components/ProjectsPage";
+
+// Scroll to top component
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 // Komponen untuk Layout Halaman Utama
-const MainPageLayout = () => {
+const MainLayout = () => {
   return (
     <>
-      <Header/>
-      <HeroParallaxDemo/>
-      <Content/>
-      <TimelineDemo/>
-      <Projects/>
-      <AiChat/>
-      <Comment/>
-      <Footer/>
+      <ScrollToTop />
+      <Header />
+      <main className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/our-services" element={<ServicesPage />} />
+          <Route path="/experience" element={<ProjectPage/>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+      <Footer />
     </>
   );
 };
@@ -31,10 +39,7 @@ const MainPageLayout = () => {
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<MainPageLayout />} />
-        <Route path="/our-services" element={<ServicesPage />} />
-      </Routes>
+      <MainLayout />
     </Router>
   );
 };

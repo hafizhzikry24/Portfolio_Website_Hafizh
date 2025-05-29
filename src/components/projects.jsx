@@ -201,14 +201,6 @@ export default function Projects() {
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <Link
-            to="/our-services" // Ubah href menjadi to dan arahkan ke rute baru
-            className="inline-block bg-indigo-600 text-white font-[Poppins] py-3 px-8 rounded-lg hover:bg-indigo-500 transition-colors duration-300 text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1"
-          >
-            {language === "en" ? "Explore My Services" : "Lihat Layanan Saya"}
-          </Link>
-        </div>
       </div>
     </section>
   );

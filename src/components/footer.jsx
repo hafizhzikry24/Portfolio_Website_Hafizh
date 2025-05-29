@@ -99,7 +99,7 @@ const Footer = () => {
   return (
     <footer className="relative" id="contacts">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-t-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
 
       {/* Content */}
       <div className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8">
