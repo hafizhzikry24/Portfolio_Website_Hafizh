@@ -122,7 +122,7 @@ export default function Hero() {
       >
         <motion.h1
           variants={itemVariants}
-          className="mb-6 text-5xl text-white font-bold tracking-tighter"
+          className="mb-6 text-5xl lg:text-7xl text-white font-bold tracking-tighter"
         >
           Muhammad Hafizh Zikry
         </motion.h1>
