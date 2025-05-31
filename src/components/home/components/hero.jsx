@@ -135,13 +135,13 @@ export default function Hero() {
         </motion.div>
         <motion.h1
           variants={itemVariants}
-          className="mb-6 text-5xl lg:text-7xl text-white font-bold tracking-tighter"
+          className="mb-6 text-3xl lg:text-5xl text-white font-press font-bold tracking-tighter"
         >
           Muhammad Hafizh Zikry
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="max-w-[600px] text-lg text-gray-400 sm:text-xl"
+          className="max-w-[600px] text-lg text-gray-400 sm:text-xl font-pixel"
         >
           {language === 'en' ? 'Software Developer Enthusiast' : 'Bersemangat Mengembangkan Software'}
         </motion.p>

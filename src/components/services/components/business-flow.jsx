@@ -335,7 +335,7 @@ const BusinessFlow = ({ title, detailedContent }) => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 mb-6"
+            className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 mb-6"
           >
             {language === 'en' ? 'Development Process' : 'Proses Pengembangan'}
           </motion.h2>

@@ -127,7 +127,7 @@ const Footer = () => {
                   <h3 className="text-xl font-bold text-white">
                     Muhammad Hafizh Zikry
                   </h3>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 font-pixel text-sm">
                     © 2024 All rights reserved
                   </p>
                 </div>
@@ -258,7 +258,7 @@ const Footer = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-500 hover:to-pink-400 transition duration-300 ease-in-out transform hover:scale-[1.02] flex items-center justify-center"
+                    className="w-full py-3 bg-gradient-to-r font-slikscreen from-purple-600 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-500 hover:to-pink-400 transition duration-300 ease-in-out transform hover:scale-[1.02] flex items-center justify-center"
                   >
                     <Send className="mr-2" size={18} />
                     {language === "en" ? "Send Message" : "Kirim Pesan"}

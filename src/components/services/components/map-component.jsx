@@ -253,7 +253,7 @@ export default function MapComponent({
                   {language === 'en' ? 'Current Location' : 'Lokasi Saat Ini'}
                 </h3>
               </div>
-              <p className="text-gray-300 text-sm mb-4">{address}</p>
+              <p className="text-gray-300 font-pixel text-sm mb-4">{address}</p>
 
               <div className="flex flex-wrap gap-3">
                 <motion.button

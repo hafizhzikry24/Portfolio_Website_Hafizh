@@ -5,6 +5,9 @@ export default {
     extend: {
       fontFamily: {
         header: ['Roboto', 'sans-serif'], // Add Roboto as the custom font
+        pixel: ['"DotGothic16"', 'monospace'],
+        press: ['"Press Start 2P"', 'monospace'],
+        slikscreen: ['"Silkscreen"', 'monospace']
       },
       keyframes: {
         shimmer: {

@@ -317,7 +317,7 @@ function Comment() {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="flex items-center justify-center mx-auto text-white bg-gradient-to-r from-indigo-500 to-purple-600 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="flex items-center justify-center mx-auto font-press text-sm text-white bg-gradient-to-r from-indigo-500 to-purple-600 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {isSubmitting ? (
                   <svg
@@ -361,10 +361,10 @@ function Comment() {
                   key={index}
                   className="w-full md:w-3/4 lg:w-1/3 sm:w-2/3 p-4 border-l-8 border-indigo-500 bg-gray-50 rounded-lg shadow-md flex-shrink-0 transition-all duration-300 ease-in-out transform hover:scale-90 hover:bg-gray-100"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold font-pixel text-gray-900">
                     {feedback.name}
                   </h3>
-                  <p className="mt-2 text-gray-700">{feedback.messages}</p>
+                  <p className="mt-2 text-gray-700 font-pixel">{feedback.messages}</p>
                   <p className="mt-2 text-xs text-gray-500 flex items-center">
                     <Calendar className="h-3 w-3 mr-1" />
                     {feedback.created_at}

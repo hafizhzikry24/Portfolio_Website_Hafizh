@@ -70,7 +70,7 @@ function Content() {
             >
               <line x1="0" y1="5" x2="10" y2="5" />
             </svg>
-            <h2 className="text-xl sm:text-2xl font-light text-gray-800 uppercase ">
+            <h2 className="text-lg sm:text-xl font-press text-gray-800 uppercase ">
               {language === "en" ? "My name is" : "Nama Saya"}
             </h2>
           </div>
@@ -79,7 +79,7 @@ function Content() {
               Muhammad Hafizh Zikry
             </span>
           </h1>
-          <p className="text-md md:text-xl text-gray-900 mb-6 text-justify transition-transform transform hover:scale-110">
+          <p className="text-md md:text-xl text-gray-900 mb-6 font-pixel text-justify transition-transform transform hover:scale-110">
             {language === "en"
               ? "Hello! I am Muhammad Hafizh Zikry, a fresh graduate Computer Engineering Diponegoro University passionate about both backend and frontend development. I’m dedicated to mastering technologies and delivering impactful solutions."
               : "Halo! Saya Muhammad Hafizh Zikry, lulusan baru Teknik Komputer Universitas Diponegoro yang bersemangat dalam pengembangan backend dan frontend. Saya berdedikasi untuk menguasai teknologi dan memberikan solusi yang berdampak."}
@@ -152,7 +152,7 @@ function Content() {
               </button>
             </a> */}
             <a href='https://www.papermark.io/view/cm3zuc1h70004je9d9eib4hkw'target="_blank" >
-              <button className="transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
+              <button className="font-pixel text-base transform hover:-translate-y-1 transition duration-400 inline-flex h-11 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-1 focus:ring-offset-slate-100">
                 Download CV
               </button>
             </a>

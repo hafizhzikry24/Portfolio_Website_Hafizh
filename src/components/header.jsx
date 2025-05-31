@@ -72,19 +72,19 @@ const Header = () => {
         >
           <RouterLink
             to="/"
-            className="hover:text-purple-400 text-purple-300 ml-2 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-105"
+            className="hover:text-purple-400 text-purple-300 ml-2 cursor-pointer font-bold duration-300 font-slikscreen transition-transform transform hover:scale-105"
           >
             {language === 'en' ? 'Home' : 'Beranda'}
           </RouterLink>
           <RouterLink
             to="/our-services"
-            className="hover:text-purple-400 text-purple-300 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-105 ml-1"
+            className="hover:text-purple-400 text-purple-300 cursor-pointer font-bold duration-300 font-slikscreen transition-transform transform hover:scale-105 ml-1"
           >
             {language === 'en' ? 'Services' : 'Layanan'}
           </RouterLink>
           <RouterLink
             to="/experience"
-            className="hover:text-purple-400 text-purple-300 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-105"
+            className="hover:text-purple-400 text-purple-300 cursor-pointer font-bold duration-300 font-slikscreen transition-transform transform hover:scale-105"
           >
             {language === 'en' ? 'Journey' : 'Jelajah'}
           </RouterLink>
