@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useRef } from "react";
-import porto from "../../../assets/spcplcpmk.png";
+import porto from "../../../assets/spcplcpmk.png"
 import { useLanguage } from "../../../LanguageContext"; // Pastikan path ini benar
 import kkn from "../../../assets/13.png";
 import bercak from "../../../assets/Bercak.png";
