@@ -64,7 +64,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 whileHover={{ scale: 0.95 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsModalOpen(true)}
-                className="text-sm font-medium text-purple-600 dark:text-purple-400 flex items-center group/button"
+                className="text-sm font-slikscreen font-medium text-purple-600 dark:text-purple-400 flex items-center group/button"
               >
                 {" "}
                 {language === 'en' ? 'Learn more' : 'Pelajari lebih lanjut'}

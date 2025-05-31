@@ -395,7 +395,7 @@ const BusinessFlow = ({ title, detailedContent }) => {
                         setSelectedStep(step);
                         setIsModalOpen(true);
                       }}
-                      className="text-sm font-medium text-purple-600 flex items-center group/button"
+                      className="text-sm font-slikscreen font-medium text-purple-600 flex items-center group/button"
                     > 
                       {language === 'en' ? 'Learn more' : 'Pelajari lebih lanjut'}
                       <svg
