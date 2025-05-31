@@ -1,13 +1,13 @@
 import React from 'react';
-import Content from './content';
-import { HeroParallaxDemo } from "./hero-parallax";
-import AiChat from "./ai-chat";
+import Content from './components/content';
+import AiChat from "./components/ai-chat";
+import Hero from './components/hero';
 
 const HomePage = () => {
   return (
     <>
       <main> {/* Tambahkan tag main untuk konten utama halaman */}
-      <HeroParallaxDemo/> {/*inculude in tab Home at header*/}
+      <Hero/>
       <Content/>{/*inculude in tab Home at header*/}
       <AiChat/>{/*inculude in tab Home at header*/}
       </main>

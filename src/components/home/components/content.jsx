@@ -1,23 +1,23 @@
 import React from "react";
-import Profile from "../assets/graduated.jpg";
+import Profile from "../../../assets/graduated.jpg";
 import { BiLogoGmail } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
-import { useLanguage } from "../LanguageContext"; // Import useLanguage
-import js from "../assets/js.png";
-import reactImg from "../assets/react.png";
-import css from "../assets/css.png";
+import { useLanguage } from "../../../LanguageContext"; // Import useLanguage
+import js from "../../../assets/js.png";
+import reactImg from "../../../assets/react.png";
+import css from "../../../assets/css.png";
 import Slider from "react-slick";
-import figma from "../assets/figma.png";
-import cisco2 from "../assets/image.png";
-import html from "../assets/html .png";
-import tailwind from "../assets/tailwind.png";
-import github from "../assets/github.png";
-import laravel from "../assets/laravel.png";
-import angular from "../assets/angular.png";
-import docker from "../assets/docker.png"
-import php from "../assets/php.png"
-import python from "../assets/python.png"
-import next from "../assets/next.png"
+import figma from "../../../assets/figma.png";
+import cisco2 from "../../../assets/image.png";
+import html from "../../../assets/html .png";
+import tailwind from "../../../assets/tailwind.png";
+import github from "../../../assets/github.png";
+import laravel from "../../../assets/laravel.png";
+import angular from "../../../assets/angular.png";
+import docker from "../../../assets/docker.png"
+import php from "../../../assets/php.png"
+import python from "../../../assets/python.png"
+import next from "../../../assets/next.png"
 
 function Content() {
   const { ref: contentRef, inView: isContentVisible } = useInView({
@@ -91,7 +91,9 @@ function Content() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Kunjungi profil Instagram Hafizh Zikry"
+               title="Instagram Hafizh Zikry"
             >
+                <span className="sr-only">Instagram Hafizh Zikry</span>
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -110,8 +112,10 @@ function Content() {
               target="_blank"
               name = "LinkedIn"
               rel="noopener noreferrer"
+              title="LinkedIn Hafizh Zikry"
               aria-label="Kunjungi profil LinkedIn Muhammad Hafizh Zikry"
             >
+              <span className="sr-only">LinkedIn Hafizh Zikry</span>
               <svg
                 fill="currentColor"
                 className="w-6 h-6 text-gray-800 hover:text-purple-400 transition-transform transform hover:scale-110"
@@ -126,8 +130,10 @@ function Content() {
               name = 'github'
               target="_blank"
               rel="noopener noreferrer"
+              title="Github Hafizh Zikry"
               aria-label="Kunjungi profil GitHub Hafizh Zikry"
             >
+              <span className="sr-only">Github Hafizh Zikry</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6 text-gray-800 hover:text-purple-400 transition-transform transform hover:scale-110"

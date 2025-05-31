@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Services from './services'; // Sesuaikan path jika berbeda
-import BusinessFlow from './business-flow'; // Sesuaikan path jika berbeda
-import MapComponent from './map-component';
+import Services from './components/services'; // Sesuaikan path jika berbeda
+import BusinessFlow from './components/business-flow'; // Sesuaikan path jika berbeda
+import MapComponent from './components/map-component';
 
 const ServicesPage = () => {
   return (

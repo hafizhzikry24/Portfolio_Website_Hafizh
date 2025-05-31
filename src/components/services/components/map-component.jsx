@@ -2,29 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from 'framer-motion';
 import { MapPin, Navigation, Copy, Check } from "lucide-react";
 import { useInView } from "react-intersection-observer";
-import { useLanguage } from "../LanguageContext";
-
-declare global {
-  interface Window {
-    L: any;
-  }
-}
-
-interface MapComponentProps {
-  latitude?: number;
-  longitude?: number;
-  zoom?: number;
-}
+import { useLanguage } from '../../../LanguageContext';
 
 export default function MapComponent({
   latitude = -6.265826493092703,
   longitude = 106.80147302427031,
   zoom = 15,
-}: MapComponentProps) {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+}) {
+  const mapRef = useRef(null);
+  const mapInstanceRef = useRef(null);
   const controls = useAnimation();
-  const [address, setAddress] = useState<string>("Loading address...");
+  const [address, setAddress] = useState("Loading address...");
   const [copied, setCopied] = useState(false);
   const [isMapHovered, setIsMapHovered] = useState(false);
   const { language } = useLanguage();
@@ -36,6 +24,8 @@ export default function MapComponent({
   useEffect(() => {
     if (inView) {
       controls.start('visible');
+    } else {
+      controls.start('hidden');
     }
   }, [controls, inView]);
 
@@ -207,7 +197,7 @@ export default function MapComponent({
                 </h3>
               </div>
               <p className="text-gray-300 text-sm mb-4">{address}</p>
-              
+
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={centerMap}

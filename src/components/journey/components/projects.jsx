@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useMemo, useRef } from "react";
-import porto from "../assets/SPCPLCPMK.png";
-import { useLanguage } from "../LanguageContext"; // Pastikan path ini benar
-import kkn from "../assets/13.png";
-import bercak from "../assets/Bercak.png";
-import ocr from "../assets/OCReadEasy.png";
-import KP from "../assets/KP.png";
-import Madani from "../assets/Madani.png";
+import porto from "../../../assets/spcplcpmk.png";
+import { useLanguage } from "../../../LanguageContext"; // Pastikan path ini benar
+import kkn from "../../../assets/13.png";
+import bercak from "../../../assets/Bercak.png";
+import ocr from "../../../assets/OCReadEasy.png";
+import KP from "../../../assets/KP.png";
+import Madani from "../../../assets/Madani.png";
 import { FiArrowLeft, FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Impor Link

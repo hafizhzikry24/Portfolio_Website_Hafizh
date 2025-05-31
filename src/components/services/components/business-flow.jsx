@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../../../LanguageContext';
 import { useState } from 'react';
-import Modal from './ui/modal';
+import Modal from '../../ui/modal';
 import { MessageSquare, Settings, TrendingUp, Repeat, CheckCircle, Users } from 'lucide-react';
 
 const BusinessFlow = ({ title, detailedContent }) => {
@@ -19,6 +19,8 @@ const BusinessFlow = ({ title, detailedContent }) => {
   React.useEffect(() => {
     if (inView) {
       controls.start('visible');
+    } else {
+      controls.start('hidden');
     }
   }, [controls, inView]);
 
@@ -319,7 +321,12 @@ const BusinessFlow = ({ title, detailedContent }) => {
         className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl"
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <motion.div
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+        className="container mx-auto px-6"
+      >
         <motion.div
           initial="hidden"
           animate={controls}
@@ -417,7 +424,7 @@ const BusinessFlow = ({ title, detailedContent }) => {
           title={selectedStep?.title[language]}
           content={selectedStep?.detailedContent[language]}
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

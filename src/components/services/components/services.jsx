@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useLanguage } from '../LanguageContext';
-import { Code, Layout, Smartphone, Database, GitBranch, Server } from 'lucide-react';
-import ServiceCard from './ui/services-card';
+import { useLanguage } from '../../../LanguageContext';
+import { Code, Layout, Smartphone, Database } from 'lucide-react';
+import ServiceCard from '../../ui/services-card';
 
 const Services = () => {
   const { language } = useLanguage();

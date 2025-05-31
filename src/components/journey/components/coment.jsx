@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useInView } from "react-intersection-observer";
 import { Send, MessageSquare, User, Calendar } from "lucide-react";
-import { useLanguage } from "../LanguageContext";
+import { useLanguage } from "../../../LanguageContext";
 import Swal from "sweetalert2";
 
 // Initialize Supabase client

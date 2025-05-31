@@ -1,7 +1,7 @@
 import React from 'react';
-import { TimelineDemo } from "./timeline";
-import Projects from './Projects';
-import Comment from './coment';
+import { TimelineDemo } from "./components/timeline";
+import Projects from './components/projects';
+import Comment from './components/coment';
 const ProjectPage = () => {
   return (
     <>
