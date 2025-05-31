@@ -222,19 +222,19 @@ const Services = () => {
     <section
       ref={ref}
       id="services"
-      className="py-20 sm:py-28 relative overflow-hidden bg-gray-50 dark:bg-gray-900"
+      className="py-20 sm:py-28 relative overflow-hidden bg-gray-900"
     >
       <motion.div 
         variants={decorationVariants}
         initial="hidden"
         animate={controls}
-        className="absolute top-0 right-0 w-96 h-96 bg-purple-200/30 dark:bg-purple-900/20 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"
+        className="absolute top-0 right-0 w-96 h-96 bg-purple-900/20 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"
       />
       <motion.div 
         variants={decorationVariants}
         initial="hidden"
         animate={controls}
-        className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-200/30 dark:bg-indigo-900/20 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl"
+        className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-900/20 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl"
       />
       
       <div className="container px-4 sm:px-6 mx-auto relative z-10">
@@ -246,7 +246,7 @@ const Services = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 inline-block mb-4"
+            className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 inline-block mb-4"
           >
             {language === 'en' ? 'Services I Offer' : 'Layanan yang Saya Tawarkan'}
           </motion.h2>
@@ -258,7 +258,7 @@ const Services = () => {
           
           <motion.p 
             variants={itemVariants}
-            className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto"
+            className="text-gray-300 text-lg max-w-2xl mx-auto"
           >
             {language === 'en' 
               ? 'Delivering exceptional digital experiences through cutting-edge technologies and creative solutions.' 
