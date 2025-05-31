@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useInView } from "react-intersection-observer";
 import { Send, MessageSquare, User, Calendar } from "lucide-react";
-import { useLanguage } from "../LanguageContext";
+import { useLanguage } from "../../../LanguageContext";
 import Swal from "sweetalert2";
 
 // Initialize Supabase client
@@ -244,7 +244,7 @@ function Comment() {
   return (
     <section
       ref={contentRef}
-      className={`text-gray-600 body-font relative bg-gradient-to-br from-slate-50 to-slate-100 py-16 sm:py-20 transition-all duration-1000 ease-in-out transform ${
+      className={`text-white body-font relative bg-gradient-to-br bg-gray-900 py-16 sm:py-20 transition-all duration-1000 ease-in-out transform ${
         isContentVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-10"
@@ -255,11 +255,11 @@ function Comment() {
 
       <div className="container px-5 py-2 mx-auto relative z-10">
         <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900 tracking-tight">
+          <h1 className="sm:text-4xl text-3xl font-bold title-font mb-4 text-white tracking-tight">
             {language === "en" ? "Feedback" : "Kritik dan Saran"}
           </h1>
           <div className="h-1 w-20 bg-gradient-to-r from-purple-500 to-indigo-500 rounded mx-auto mb-4"></div>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">
             {language === "en"
               ? "Feel free to share your comments or feedback for my portfolio."
               : "Dipersilahkan teman-teman memberikan kritik dan saran kepada website portoku."}
@@ -272,7 +272,7 @@ function Comment() {
               <div className="relative">
                 <label
                   htmlFor="name"
-                  className="leading-7 text-sm font-medium text-gray-600 flex items-center gap-2"
+                  className="leading-7 text-sm font-medium text-white flex items-center gap-2"
                 >
                   <User className="h-4 w-4" />
                   {language === "en" ? "Name" : "Nama"}
@@ -288,7 +288,7 @@ function Comment() {
                   }
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-white rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-3 px-4 transition-colors duration-200 ease-in-out shadow-sm"
+                  className="w-full bg-white rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-3 px-4 transition-colors duration-200 ease-in-out shadow-sm"
                 />
               </div>
             </div>
@@ -296,7 +296,7 @@ function Comment() {
               <div className="relative">
                 <label
                   htmlFor="message"
-                  className="leading-7 text-sm font-medium text-gray-600 flex items-center gap-2"
+                  className="leading-7 text-sm font-medium text-white flex items-center gap-2"
                 >
                   <MessageSquare className="h-4 w-4" />
                   {language === "en" ? "Message" : "Pesan"}
@@ -309,7 +309,7 @@ function Comment() {
                   }
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-white rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-3 px-4 resize-none transition-colors duration-200 ease-in-out shadow-sm"
+                  className="w-full bg-white rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-900 py-3 px-4 resize-none transition-colors duration-200 ease-in-out shadow-sm"
                 />
               </div>
             </div>
@@ -350,7 +350,7 @@ function Comment() {
       </div>
 
       <div className="container px-7 mx-auto w-full py-8 sm:py-8">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-2xl font-semibold text-white mb-4">
           {language === "en" ? "Comments" : "Komentar"}{" "}
         </h2>
         <div className="overflow-x-auto">
@@ -372,7 +372,7 @@ function Comment() {
                 </div>
               ))
             ) : (
-              <p className="text-gray-600">
+              <p className="text-white">
                 {language === "en" ? "No feedback yet" : "Tidak ada feedback"}.
               </p>
             )}

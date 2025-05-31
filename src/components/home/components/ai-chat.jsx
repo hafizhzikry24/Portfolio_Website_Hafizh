@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { useLanguage } from "../LanguageContext"
+import { useLanguage } from "../../../LanguageContext"
 import { Send, Bot, User, StopCircle } from "lucide-react" // Tambahkan StopCircle jika ingin ikon
+import { useInView } from "react-intersection-observer" // Add this import
 
 // Add this helper function before the AiChat component
 const formatAIResponse = (text) => {
@@ -32,6 +33,12 @@ const AiChat = () => {
   const chatContainerRef = useRef(null)
   const typingSpeed = 30 // kecepatan pengetikan dalam milidetik
   const stopTypingRef = useRef(false) // 1. Tambahkan ref untuk sinyal berhenti
+
+  // Add useInView hook
+  const { ref: sectionRef, inView: isSectionVisible } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  })
 
   // Fungsi untuk animasi pengetikan
   const typeMessage = async (text) => { // 2. Modifikasi typeMessage
@@ -356,7 +363,12 @@ const AiChat = () => {
 
   return (
     <section className="bg-gradient-to-br from-gray-900 to-black py-24 text-white h-[90vh] sm:h-[75vh] md:h-[75vh] lg:h-screen xl:h-screen" id="ai-chat">
-      <div className="container mx-auto px-4">
+      <div 
+        ref={sectionRef}
+        className={`container mx-auto px-4 transition-all duration-1000 ease-in-out transform ${
+          isSectionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">

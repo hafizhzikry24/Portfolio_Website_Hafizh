@@ -99,7 +99,7 @@ const Footer = () => {
   return (
     <footer className="relative" id="contacts">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-t-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
 
       {/* Content */}
       <div className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8">
@@ -118,7 +118,7 @@ const Footer = () => {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center mb-6 md:mb-0">
                   <img
-                    className="w-20 sm:w-24 shadow-xl transform transition-transform duration-300 hover:scale-105"
+                    className="w-20 h-auto sm:w-24 shadow-xl transform transition-transform duration-300 hover:scale-105"
                     src={MyLogo}
                     alt="logo"
                   />
