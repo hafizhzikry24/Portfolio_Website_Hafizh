@@ -3,10 +3,12 @@
 import { useEffect, useRef } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../../../LanguageContext"; 
 
 export default function Hero() {
   const canvasRef = useRef(null)
   const controls = useAnimation();
+  const { language } = useLanguage(); // Get language
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -130,7 +132,7 @@ export default function Hero() {
           variants={itemVariants}
           className="max-w-[600px] text-lg text-gray-400 sm:text-xl"
         >
-          Software Developer Enthusiast
+          {language === 'en' ? 'Software Developer Enthusiast'  : 'Bersemangat Mengembangkan Software' }
         </motion.p>
       </motion.div>
     </div>
