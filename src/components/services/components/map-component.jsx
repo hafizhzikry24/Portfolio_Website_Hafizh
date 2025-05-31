@@ -154,6 +154,16 @@ export default function MapComponent({
   };
 
   const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -165,29 +175,76 @@ export default function MapComponent({
     },
   };
 
+  const decorationVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
   return (
     <section ref={ref} className="py-24 bg-gray-900 relative overflow-hidden">
+      <motion.div
+        variants={decorationVariants}
+        initial="hidden"
+        animate={controls}
+        className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"
+      />
+      <motion.div
+        variants={decorationVariants}
+        initial="hidden"
+        animate={controls}
+        className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl"
+      />
+
       <motion.div
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="container mx-auto px-6"
+        className="container mx-auto px-6 relative z-10"
       >
         <div className="max-w-5xl mx-auto">
-          <div className="mb-8 text-center">
-            <h2 className="text-4xl font-bold text-white mb-4">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+            className="mb-8 text-center"
+          >
+            <motion.h2 
+              variants={itemVariants}
+              className="text-4xl font-bold text-white mb-4"
+            >
               {language === 'en' ? 'Location' : 'Lokasi'}
-            </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto mb-6" />
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.div 
+              variants={itemVariants}
+              className="h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto mb-6" 
+            />
+            <motion.p 
+              variants={itemVariants}
+              className="text-gray-300 max-w-2xl mx-auto"
+            >
               {language === 'en'
                 ? 'Find us at the heart of the city, where innovation meets convenience.'
                 : 'Temukan kami di pusat kota, di mana inovasi bertemu kenyamanan.'}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
-            <div className="mb-6">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+            className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700"
+          >
+            <motion.div 
+              variants={itemVariants}
+              className="mb-6"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-indigo-500/20 rounded-lg">
                   <MapPin className="text-indigo-400" size={24} />
@@ -199,14 +256,18 @@ export default function MapComponent({
               <p className="text-gray-300 text-sm mb-4">{address}</p>
 
               <div className="flex flex-wrap gap-3">
-                <button
+                <motion.button
+                  whileHover={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={centerMap}
                   className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-all duration-300"
                 >
                   <Navigation size={18} />
                   {language === 'en' ? 'Center Map' : 'Pusatkan Peta'}
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={copyCoordinates}
                   className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all duration-300"
                 >
@@ -214,11 +275,14 @@ export default function MapComponent({
                   {copied
                     ? (language === 'en' ? 'Copied!' : 'Tersalin!')
                     : (language === 'en' ? 'Copy Coordinates' : 'Salin Koordinat')}
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative">
+            <motion.div 
+              variants={itemVariants}
+              className="relative"
+            >
               <div
                 ref={mapRef}
                 onMouseEnter={() => setIsMapHovered(true)}
@@ -229,8 +293,8 @@ export default function MapComponent({
                   opacity: isMapHovered ? 1 : 0.8,
                 }}
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

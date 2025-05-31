@@ -184,16 +184,26 @@ const Services = () => {
     },
   ];
 
-  const headerVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
   };
 
   const decorationVariants = {
@@ -229,36 +239,54 @@ const Services = () => {
       
       <div className="container px-4 sm:px-6 mx-auto relative z-10">
         <motion.div 
-          variants={headerVariants}
+          variants={containerVariants}
           initial="hidden"
           animate={controls}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 inline-block mb-4">
+          <motion.h2 
+            variants={itemVariants}
+            className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 inline-block mb-4"
+          >
             {language === 'en' ? 'Services I Offer' : 'Layanan yang Saya Tawarkan'}
-          </h2>
+          </motion.h2>
           
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mx-auto mb-6"></div>
+          <motion.div 
+            variants={itemVariants}
+            className="h-1 w-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mx-auto mb-6"
+          />
           
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <motion.p 
+            variants={itemVariants}
+            className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto"
+          >
             {language === 'en' 
               ? 'Delivering exceptional digital experiences through cutting-edge technologies and creative solutions.' 
               : 'Memberikan pengalaman digital luar biasa melalui teknologi mutakhir dan solusi kreatif.'}
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+          className="grid md:grid-cols-2 gap-8"
+        >
           {servicesData.map((service, index) => (
-            <ServiceCard
+            <motion.div
               key={index}
-              index={index}
-              icon={service.icon}
-              title={service.title[language]}
-              description={service.description[language]}
-              detailedContent={service.detailedContent[language]}
-            />
+              variants={itemVariants}
+            >
+              <ServiceCard
+                index={index}
+                icon={service.icon}
+                title={service.title[language]}
+                description={service.description[language]}
+                detailedContent={service.detailedContent[language]}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
