@@ -33,6 +33,7 @@ export default defineConfig({
     sitemap({
       siteUrl: 'https://zikkdev.vercel.app',
       changefreq: 'daily',
+      generateRobotsTxt: false,
       priority: 0.7,
     }),
   ],
