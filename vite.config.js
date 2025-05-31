@@ -14,8 +14,22 @@ export default defineConfig({
         if (!fs.existsSync(distPath)) {
           fs.mkdirSync(distPath);
         }
+    
+        const robotsPath = path.join(distPath, 'robots.txt');
+        if (!fs.existsSync(robotsPath)) {
+          // Jika kamu punya versi asli di public/, salin dari sana
+          const publicRobotsPath = path.resolve(__dirname, 'public', 'robots.txt');
+          if (fs.existsSync(publicRobotsPath)) {
+            const content = fs.readFileSync(publicRobotsPath);
+            fs.writeFileSync(robotsPath, content);
+          } else {
+            // Atau tulis default
+            fs.writeFileSync(robotsPath, 'User-agent: *\nDisallow:');
+          }
+        }
       },
     },
+    
     sitemap({
       siteUrl: 'https://zikkdev.vercel.app',
       changefreq: 'daily',
