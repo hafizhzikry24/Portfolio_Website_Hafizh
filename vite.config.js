@@ -35,9 +35,26 @@ export default defineConfig({
       changefreq: 'daily',
       generateRobotsTxt: false,
       priority: 0.7,
+      dynamicRoutes: [
+        '/',
+        '/our-services',
+        '/experience'
+      ]
     }),
   ],
   build: {
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          framer: ['framer-motion'],
+          icons: ['lucide-react']
+        }
+      }
+    }
   },
+  server: {
+    historyApiFallback: true
+  }
 });
