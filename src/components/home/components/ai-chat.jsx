@@ -31,7 +31,9 @@ const AiChat = () => {
   const [typingText, setTypingText] = useState("")
   const [isTyping, setIsTyping] = useState(false)
   const chatContainerRef = useRef(null)
-  const typingSpeed = 30 // kecepatan pengetikan dalam milidetik
+  const geminiApiKey = import.meta.env.VITE_GEMINI_KEY;
+  const geminiApiModel = import.meta.env.VITE_GEMINI_MODEL;
+  const typingSpeed = 20 // kecepatan pengetikan dalam milidetik
   const stopTypingRef = useRef(false) // 1. Tambahkan ref untuk sinyal berhenti
 
   // Add useInView hook
@@ -111,13 +113,11 @@ const AiChat = () => {
         .map((msg) => `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`)
         .join("\n\n")
 
-      const response = await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
-        {
+      const response = await fetch(geminiApiModel,{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "x-goog-api-key": "AIzaSyAdYsf7vUD3EBeguddvkUqoMh3bpcjgkdI",
+            "x-goog-api-key": geminiApiKey,
           },
           body: JSON.stringify({
             contents: [
@@ -254,13 +254,11 @@ const AiChat = () => {
         .map((msg) => `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`)
         .join("\n\n")
 
-      const response = await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
-        {
+      const response = await fetch( geminiApiModel, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "x-goog-api-key": "AIzaSyAdYsf7vUD3EBeguddvkUqoMh3bpcjgkdI",
+            "x-goog-api-key": geminiApiKey,
           },
           body: JSON.stringify({
             contents: [

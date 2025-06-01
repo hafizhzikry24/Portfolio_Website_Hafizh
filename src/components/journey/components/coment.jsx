@@ -8,9 +8,8 @@ import { useLanguage } from "../../../LanguageContext";
 import Swal from "sweetalert2";
 
 // Initialize Supabase client
-const supabaseUrl = "https://mnwjnvmlgusuwjxtwczy.supabase.co";
-const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2pudm1sZ3VzdXdqeHR3Y3p5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ5MjE3NDUsImV4cCI6MjA0MDQ5Nzc0NX0.bU8kMSYnWaxcz47M5F-5pkkYl44PlzD58fL90IzjEGw";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_API;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 function Comment() {
