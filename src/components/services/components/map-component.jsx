@@ -144,7 +144,7 @@ export default function MapComponent() {
 
   const copyCoordinates = async () => {
     try {
-      await navigator.clipboard.writeText(`${latitude}, ${longitude}`);
+      await navigator.clipboard.writeText(`${address}`);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -273,7 +273,7 @@ export default function MapComponent() {
                   {copied ? <Check size={18} /> : <Copy size={18} />}
                   {copied
                     ? (language === 'en' ? 'Copied!' : 'Tersalin!')
-                    : (language === 'en' ? 'Copy Coordinates' : 'Salin Koordinat')}
+                    : (language === 'en' ? 'Copy Address' : 'Salin Alamat')}
                 </motion.button>
               </div>
             </motion.div>
