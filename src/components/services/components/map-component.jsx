@@ -4,12 +4,11 @@ import { MapPin, Navigation, Copy, Check } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from '../../../LanguageContext';
 
-export default function MapComponent({
-  latitude = -6.265826493092703,
-  longitude = 106.80147302427031,
-  zoom = 15,
-}) {
+export default function MapComponent() {
   const mapRef = useRef(null);
+  const latitude = import.meta.env.VITE_LATITUDE;
+  const longitude = import.meta.env.VITE_LONGITUDE;
+  const zoom = 15;
   const mapInstanceRef = useRef(null);
   const controls = useAnimation();
   const [address, setAddress] = useState("Loading address...");
