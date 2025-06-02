@@ -110,7 +110,7 @@ export default function Projects() {
         language === "en"
           ? "Created website SPCPLCPMK for Capstone, my role front-end developer."
           : "Membuat website SPCPLCPMK untuk Capstone, dan role saya adalah front-end.",
-      link: "https://test1.spcplcpmk.com/login",
+      link: "https://evaluasi-cpl.ce.undip.ac.id",
     },
     {
       src: bercak,
