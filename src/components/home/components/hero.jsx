@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../../../LanguageContext";
 import AnimatedGreeting from "../../ui/animated-greeting";
-import Profile from "../../../assets/bg-hero.jpg";
+import Profile from "../../../assets/bg-profile.jpg";
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -139,9 +139,9 @@ export default function Hero() {
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center"
+        className="relative z-10 flex mt-3 h-full flex-col items-center justify-center px-4 text-center"
       >
-        <motion.div variants={itemVariants} className="mb-2">
+        <motion.div variants={itemVariants} className="mb-4">
           <AnimatedGreeting greetings={greetings} />
         </motion.div>
         <motion.h1
