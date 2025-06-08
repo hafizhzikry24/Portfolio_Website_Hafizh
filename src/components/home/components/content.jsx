@@ -3,6 +3,7 @@ import Profile from "../../../assets/graduated.jpg";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../../../LanguageContext"; // Import useLanguage
 import js from "../../../assets/js.png";
+import ts from "../../../assets/typescript.png";
 import reactImg from "../../../assets/react.png";
 import css from "../../../assets/css.png";
 import Slider from "react-slick";
@@ -169,6 +170,7 @@ function Content() {
       <Slider className="overflow-x-hidden"  {...settings}>
           {[
             js,
+            ts,
             css,
             html,
             php,
@@ -190,6 +192,8 @@ function Content() {
               alt={
                 icon.includes("js")
                   ? "JavaScript Icon"
+                  : icon.includes("ts")
+                  ? "Typescript Icon"
                   : icon.includes("css")
                   ? "CSS Icon"
                   : icon.includes("html")

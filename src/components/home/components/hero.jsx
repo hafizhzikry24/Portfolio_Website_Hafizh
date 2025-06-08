@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useLanguage } from "../../../LanguageContext"; 
+import { useLanguage } from "../../../LanguageContext";
 import AnimatedGreeting from "../../ui/animated-greeting";
 import Profile from "../../../assets/bg-hero.jpg";
 
@@ -20,14 +20,14 @@ export default function Hero() {
     "Halo",
     "你好",
     "Bonjour!",
-    "こんにちは"
+    "こんにちは",
   ];
 
   useEffect(() => {
     if (inView) {
-      controls.start('visible');
+      controls.start("visible");
     } else {
-      controls.start('hidden');
+      controls.start("hidden");
     }
   }, [controls, inView]);
 
@@ -117,18 +117,25 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 1.6,
-        ease: [0.50, 1.2, 0.46, 1.5],
+        ease: [0.5, 1.2, 0.46, 1.5],
       },
     },
   };
 
   return (
     <div ref={ref} className="relative h-screen w-full overflow-hidden">
-    <div
-      className="absolute inset-0 h-full w-full bg-cover bg-center bg-fixed opacity-95"
-      style={{ backgroundImage: `url(${Profile})` }}
-    />
-          <motion.div 
+      {/* Background Image (Desktop only) */}
+      <div
+        className="absolute inset-0 hidden md:block h-full w-full bg-cover bg-center bg-fixed opacity-95"
+        style={{ backgroundImage: `url(${Profile})` }}
+      />
+
+      {/* Canvas Background (Mobile/Tablet only) */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 block md:hidden h-full w-full bg-black"
+      />
+      <motion.div
         initial="hidden"
         animate={controls}
         variants={containerVariants}
@@ -139,15 +146,17 @@ export default function Hero() {
         </motion.div>
         <motion.h1
           variants={itemVariants}
-          className="mb-6 text-3xl lg:text-5xl text-slate-900  font-press font-bold tracking-tighter"
+          className="mb-6 text-3xl lg:text-5xl text-white md:text-slate-900 font-press lg:font-bold tracking-tighter"
         >
           Muhammad Hafizh Zikry
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="max-w-[600px] text-xl text-gray-100 sm:text-xl font-bold font-pixel"
+          className="max-w-[600px] text-lg lg:text-xl text-gray-100 sm:text-xl font-medium lg:font-bold font-pixel"
         >
-          {language === 'en' ? 'Software Developer Enthusiast' : 'Bersemangat Mengembangkan Software'}
+          {language === "en"
+            ? "Software Developer Enthusiast"
+            : "Bersemangat Mengembangkan Software"}
         </motion.p>
       </motion.div>
     </div>
