@@ -11,7 +11,8 @@ import figma from "../../../assets/figma.png";
 import cisco2 from "../../../assets/image.png";
 import html from "../../../assets/html .png";
 import tailwind from "../../../assets/tailwind.png";
-import github from "../../../assets/github.png";
+// import github from "../../../assets/github.png";
+import git from "../../../assets/git.png";
 import laravel from "../../../assets/laravel.png";
 import angular from "../../../assets/angular.png";
 import docker from "../../../assets/docker.png"
@@ -174,14 +175,14 @@ function Content() {
             css,
             html,
             php,
+            laravel,
             python,
             figma,
             reactImg,
             next,
             angular,
             tailwind,
-            laravel,
-            github,
+            git,
             cisco2,
             docker
           ].map((icon, index) => (
@@ -200,6 +201,8 @@ function Content() {
                   ? "HTML Icon"
                   : icon.includes("php")
                   ? "PHP Icon"
+                  : icon.includes("laravel")
+                  ? "Laravel Icon"
                   : icon.includes("python")
                   ? "Python Icon"
                   : icon.includes("figma")
@@ -212,10 +215,8 @@ function Content() {
                   ? "Angular Icon"
                   : icon.includes("tailwind")
                   ? "Tailwind CSS Icon"
-                  : icon.includes("laravel")
-                  ? "Laravel Icon"
-                  : icon.includes("github")
-                  ? "GitHub Icon"
+                  : icon.includes("git")
+                  ? "Git Icon"
                   : icon.includes("cisco")
                   ? "Cisco Icon"
                   : icon.includes("docker")
