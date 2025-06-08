@@ -126,14 +126,14 @@ export default function Hero() {
     <div ref={ref} className="relative h-screen w-full overflow-hidden">
       {/* Background Image (Desktop only) */}
       <div
-        className="absolute inset-0 hidden md:block h-full w-full bg-cover bg-center bg-fixed opacity-95"
+        className="absolute inset-0 hidden lg:block h-full w-full bg-cover bg-center bg-fixed opacity-95"
         style={{ backgroundImage: `url(${Profile})` }}
       />
 
       {/* Canvas Background (Mobile/Tablet only) */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 block md:hidden h-full w-full bg-black"
+        className="absolute inset-0 block lg:hidden h-full w-full bg-black"
       />
       <motion.div
         initial="hidden"
@@ -146,7 +146,7 @@ export default function Hero() {
         </motion.div>
         <motion.h1
           variants={itemVariants}
-          className="mb-6 text-3xl lg:text-5xl text-white md:text-slate-900 font-press lg:font-bold tracking-tighter"
+          className="mb-6 text-3xl lg:text-5xl text-white lg:text-slate-900 font-press lg:font-bold tracking-tighter"
         >
           Muhammad Hafizh Zikry
         </motion.h1>
