@@ -1,6 +1,5 @@
 import React from "react";
 import Profile from "../../../assets/graduated.jpg";
-import { BiLogoGmail } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../../../LanguageContext"; // Import useLanguage
 import js from "../../../assets/js.png";

@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../../../LanguageContext"; 
 import AnimatedGreeting from "../../ui/animated-greeting";
+import Profile from "../../../assets/bg-hero.jpg";
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -123,8 +124,11 @@ export default function Hero() {
 
   return (
     <div ref={ref} className="relative h-screen w-full overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full bg-black" />
-      <motion.div 
+    <div
+      className="absolute inset-0 h-full w-full bg-cover bg-center bg-fixed opacity-95"
+      style={{ backgroundImage: `url(${Profile})` }}
+    />
+          <motion.div 
         initial="hidden"
         animate={controls}
         variants={containerVariants}
@@ -135,13 +139,13 @@ export default function Hero() {
         </motion.div>
         <motion.h1
           variants={itemVariants}
-          className="mb-6 text-3xl lg:text-5xl text-white font-press font-bold tracking-tighter"
+          className="mb-6 text-3xl lg:text-5xl text-slate-900  font-press font-bold tracking-tighter"
         >
           Muhammad Hafizh Zikry
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="max-w-[600px] text-lg text-gray-400 sm:text-xl font-pixel"
+          className="max-w-[600px] text-xl text-gray-100 sm:text-xl font-bold font-pixel"
         >
           {language === 'en' ? 'Software Developer Enthusiast' : 'Bersemangat Mengembangkan Software'}
         </motion.p>
