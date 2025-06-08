@@ -8,9 +8,8 @@ import bercak from "../../../assets/Bercak.png";
 import ocr from "../../../assets/OCReadEasy.png";
 import KP from "../../../assets/KP.png";
 import Madani from "../../../assets/Madani.png";
-import { FiArrowLeft, FiArrowRight, FiExternalLink } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Impor Link
 
 const ProjectCard = ({ project }) => {
   const { ref, inView } = useInView({

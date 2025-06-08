@@ -2,12 +2,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FlipWords } from "../../ui/flip-words";
 import { motion, useAnimation } from "framer-motion";
+import { useLanguage } from "../../../LanguageContext";
 
 export function HeroService() {
-  const words = ["professional", "responsive", "beautiful", "modern"];
+  const words = {
+    en: ["professional", "responsive", "beautiful", "modern"],
+    id: ["profesional", "responsif", "indah", "modern"]
+  };
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
   const controls = useAnimation();
+  const { language } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,6 +47,17 @@ export function HeroService() {
     };
   }, [controls]);
 
+  const text = {
+    en: {
+      build: "Build",
+      websites: "websites with ZikkDev"
+    },
+    id: {
+      build: "Jadikan",
+      websites: "website dengan ZikkDev"
+    }
+  };
+
   return (
     <div className="h-screen bg-black flex justify-center items-center px-4">
       <motion.div
@@ -54,9 +70,9 @@ export function HeroService() {
         }}
         className="lg:text-6xl text-4xl mx-auto font-normal text-neutral-300"
       >
-        Build
-        <FlipWords words={words} isVisible={isVisible} /> <br />
-        websites with ZikkDev
+        {text[language].build}{" "}
+        <FlipWords words={words[language]} isVisible={isVisible} /> <br />
+        {text[language].websites}
       </motion.div>
     </div>
   );
