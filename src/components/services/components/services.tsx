@@ -43,8 +43,8 @@ const Services: React.FC<ServicesProps> = () => {
       title: language === "en" ? "Web Development" : "Pengembangan Web",
       description:
         language === "en"
-          ? "Crafting exceptional digital experiences with cutting-edge technologies and meticulous attention to detail."
-          : "Menciptakan pengalaman digital yang luar biasa dengan teknologi terkini dan perhatian yang teliti terhadap detail.",
+          ? "Crafting exceptional digital experiences with new technologies and meticulous attention detail."
+          : "Menciptakan pengalaman digital hebat dengan teknologi terkini dan perhatian di setiap detail.",
       features:
         language === "en"
           ? [
