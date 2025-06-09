@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../../../LanguageContext";
 import AnimatedGreeting from "../../ui/animated-greeting";
 import Profile from "../../../assets/bg-profile.jpg";
+import Beams from "../../../../Reactbits/Beams/Beams";
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -131,17 +132,25 @@ export default function Hero() {
       />
 
       {/* Canvas Background (Mobile/Tablet only) */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 block lg:hidden h-full w-full bg-black"
-      />
+      <div className="lg:hidden h-screen w-full absolute inset-0">
+        <Beams
+          beamWidth={2}
+          beamHeight={15}
+          beamNumber={12}
+          lightColor="#ffffff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={0}
+        />
+      </div>
       <motion.div
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="relative z-10 flex mt-3 h-full flex-col items-center justify-center px-4 text-center"
+        className="relative z-20 flex h-full flex-col items-center justify-center px-4 text-center"
       >
-        <motion.div variants={itemVariants} className="mb-4">
+        <motion.div variants={itemVariants} className="mb-4 ">
           <AnimatedGreeting greetings={greetings} />
         </motion.div>
         <motion.h1
@@ -152,7 +161,7 @@ export default function Hero() {
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="max-w-[600px] text-lg lg:text-xl text-gray-100 sm:text-xl font-medium lg:font-bold font-pixel"
+          className="max-w-[600px] text-lg lg:text-xl text-gray-400 sm:text-xl font-medium lg:font-bold font-pixel"
         >
           {language === "en"
             ? "Software Developer Enthusiast"

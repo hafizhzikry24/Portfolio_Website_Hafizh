@@ -59,7 +59,7 @@ const AnimatedGreeting: React.FC<AnimatedGreetingProps> = ({ greetings, classNam
       animate={{ opacity: 1 }}
       className={`min-h-[40px] flex items-center justify-center ${className}`}
     >
-      <span className="text-2xl md:text-3xl lg:text-4xl text-white opacity-90 font-semibold font-pixel">
+      <span className="text-2xl md:text-3xl lg:text-4xl text-gray-300 lg:text-white opacity-90 font-semibold font-pixel">
         {displayedText}
       </span>
     </motion.div>
