@@ -252,7 +252,7 @@ const HorizontalScrollProjects: React.FC = () => {
                   alt={project.title}
                   className="w-full h-48 md:h-96 object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:scale-105 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex space-x-4">
                     <a
                       href={project.link}
