@@ -227,7 +227,7 @@ const HorizontalScrollProjects: React.FC = () => {
 
       {/* Header */}
       <div className="absolute top-4 md:top-8 left-4 md:left-8 z-40 max-w-[80%] md:max-w-md">
-        <h2 className="text-4xl lg:text-5xl mt-5 lg:mt-0 font-bold text-gray-800 mb-4">
+        <h2 className="text-4xl md:text-3xl lg:text-5xl mt-5 lg:mt-0 font-bold text-gray-800 mb-4">
           {language === "en" ? "My " : "Proyek "}
           <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             {language === "en" ? "Projects" : "Saya"}
@@ -236,7 +236,7 @@ const HorizontalScrollProjects: React.FC = () => {
       </div>
 
       {/* Horizontal Scrolling Container */}
-      <div ref={sectionsRef} className="flex h-full items-center">
+      <div ref={sectionsRef} className="flex h-full items-center mt-5">
         {projects.map((project, index) => (
           <div
             key={project.id}
