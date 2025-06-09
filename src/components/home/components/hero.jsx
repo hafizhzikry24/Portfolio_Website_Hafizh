@@ -148,7 +148,7 @@ export default function Hero() {
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="relative z-20 flex h-full flex-col items-center justify-center px-4 text-center"
+        className="relative z-20 flex lg:mt-3 -mt-12 h-full flex-col items-center justify-center px-4 text-center"
       >
         <motion.div variants={itemVariants} className="mb-4 ">
           <AnimatedGreeting greetings={greetings} />
