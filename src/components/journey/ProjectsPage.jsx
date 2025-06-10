@@ -3,6 +3,7 @@ import {HeroHighlightJourney} from "./components/hero-journey"
 import HorizontalScrollProjects from './components/HorizontalScrollProjects'; 
 import { TimelineDemo } from "./components/timeline";
 import Projects from './components/projects';
+import ProjectCard from './components/sentence';
 
 const ProjectPage = () => {
   return (
@@ -12,6 +13,7 @@ const ProjectPage = () => {
       <TimelineDemo/>
       {/* <Projects/> */}
       <HorizontalScrollProjects/>
+      <ProjectCard/>
       </main>
     </>
   );
