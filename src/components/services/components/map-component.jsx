@@ -114,13 +114,46 @@ export default function MapComponent() {
         }).addTo(map);
 
         marker.bindPopup(`
-          <div style="background: #1f2937; color: #f9fafb; padding: 12px; border-radius: 8px; min-width: 200px;">
-            <h3 style="font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #f9fafb;">📍 Location</h3>
-            <p style="font-size: 12px; color: #d1d5db; margin-bottom: 8px;">
-              ${address.length > 50 ? address.substring(0, 50) + "..." : address}
-            </p>
+          <div>
+            <style>
+              @media (max-width: 640px) {
+                .popup-content {
+                  max-width: 55vw !important;
+                }
+              }
+              @media (min-width: 641px) {
+                .popup-content {
+                  max-width: 100vw !important;
+                }
+              }
+            </style>
+            <div class="popup-content" style="
+              background: #1f2937;
+              color: #f9fafb;
+              padding: 12px;
+              border-radius: 8px;
+              box-sizing: border-box;
+              font-size: 14px;
+              word-break: break-word;
+            ">
+              <h3 style="
+                font-weight: 600;
+                font-size: 16px;
+                margin-bottom: 8px;
+                color: #f9fafb;
+              ">📍 Location</h3>
+              <p style="
+                font-size: 12px;
+                color: #d1d5db;
+                margin-bottom: 8px;
+                word-break: break-word;
+              ">
+                ${address.length > 50 ? address.substring(0, 50) + "..." : address}
+              </p>
+            </div>
           </div>
         `);
+        
 
         mapInstanceRef.current = map;
       }
