@@ -7,7 +7,7 @@ import Comment from './components/coment';
 const HomePage = () => {
   return (
     <>
-      <main> {/* Tambahkan tag main untuk konten utama halaman */}
+      <main>
       <Hero/>
       <Content/>{/*inculude in tab Home at header*/}
       <AiChat/>{/*inculude in tab Home at header*/}
