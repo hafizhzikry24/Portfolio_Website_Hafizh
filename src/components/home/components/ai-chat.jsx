@@ -32,7 +32,7 @@ const AiChat = () => {
   const [isTyping, setIsTyping] = useState(false)
   const chatContainerRef = useRef(null)
   const geminiApiKey = import.meta.env.VITE_GEMINI_KEY;
-  const geminiApiModel = import.meta.env.VITE_GEMINI_MODEL;
+  const geminiApiModel = import.meta.env.VITE_GEMINI_API;
   const typingSpeed = 20 // kecepatan pengetikan dalam milidetik
   const stopTypingRef = useRef(false) // 1. Tambahkan ref untuk sinyal berhenti
 
