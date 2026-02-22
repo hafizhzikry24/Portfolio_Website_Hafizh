@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 // Lazy load pages
 const HomePage = lazy(() => import("./components/home/HomePage"));
 const ServicesPage = lazy(() => import("./components/services/ServicesPage"));
+const ProductsPage = lazy(() => import("./components/products/ProductPage"));
 const ProjectPage = lazy(() => import("./components/journey/ProjectsPage"));
 
 // Loading component
@@ -37,7 +38,8 @@ const MainLayout = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/our-services" element={<ServicesPage />} />
-            <Route path="/experience" element={<ProjectPage/>} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/experience" element={<ProjectPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

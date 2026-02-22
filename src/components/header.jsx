@@ -83,6 +83,12 @@ const Header = () => {
             {language === 'en' ? 'Services' : 'Layanan'}
           </RouterLink>
           <RouterLink
+            to="/products"
+            className="hover:text-purple-400 text-purple-300 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-105 ml-1"
+          >
+            {language === 'en' ? 'Products' : 'Produk'}
+          </RouterLink>
+          <RouterLink
             to="/experience"
             className="hover:text-purple-400 text-purple-300 cursor-pointer font-bold duration-300 font-mono transition-transform transform hover:scale-105"
           >

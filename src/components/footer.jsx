@@ -105,11 +105,10 @@ const Footer = () => {
       <div className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div
           ref={contentRef}
-          className={`container mx-auto transition-all duration-1000 ease-in-out transform ${
-            isContentVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
+          className={`container mx-auto transition-all duration-1000 ease-in-out transform ${isContentVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+            }`}
         >
           {/* Main footer content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
@@ -155,7 +154,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 <a
                   href="https://wa.me/628117428555?text=Halo%20saya%20tertarik%20untuk%20menghubungi%20Anda"
                   className="inline-flex items-center px-5 py-3 rounded-full bg-green-600 text-white font-medium hover:bg-green-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-600/20"
@@ -165,7 +164,7 @@ const Footer = () => {
                   <BsWhatsapp className="mr-2 text-xl" />
                   {language === "en" ? "WhatsApp Me" : "WA saya"}
                 </a>
-              </div>
+              </div> */}
             </div>
 
             {/* Right side - Contact form */}
@@ -187,7 +186,7 @@ const Footer = () => {
                 <input
                   type="hidden"
                   name="subject"
-                  value="New Submission from your Website"
+                  value="ZikkDev Contact"
                 />
                 <input
                   type="checkbox"
