@@ -13,6 +13,9 @@ import {
   X,
 } from "lucide-react"
 import { useLanguage } from "../../../LanguageContext"
+import HorizontalFeatureReveal, {
+  type FeatureRevealProperty,
+} from "../../ui/horizontal-feature-reveal"
 
 type Language = "en" | "id"
 
@@ -211,6 +214,24 @@ const Services: React.FC = () => {
   const copy = COPY[language] ?? COPY.en
   const services = buildServices(language)
 
+  const revealFeatures: FeatureRevealProperty[] = services.map((service, i) => ({
+    no: i + 1,
+    title: service.title,
+    titleClass: "text-slate-100",
+    contentClass: "text-slate-400",
+    paragraphs: [
+      service.description,
+      `${copy.technologies}: ${service.technologies.join(", ")}`,
+    ],
+    visual: (
+      <div
+        className={`flex h-56 w-56 items-center justify-center rounded-3xl bg-gradient-to-br ${service.accent} sm:h-72 sm:w-72 [&>svg]:!h-20 [&>svg]:!w-20 [&>svg]:text-white sm:[&>svg]:!h-28 sm:[&>svg]:!w-28`}
+      >
+        {service.icon}
+      </div>
+    ),
+  }))
+
   const [selectedService, setSelectedService] = useState<Service | null>(null)
   const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.2 })
   const [gridRef, gridInView] = useInView({ triggerOnce: true, threshold: 0.1 })
@@ -285,7 +306,17 @@ const Services: React.FC = () => {
             {copy.description}
           </motion.p>
         </motion.div>
+      </div>
 
+      {/* Horizontal scroll-driven story — one pinned panel per service */}
+      <div className="relative mt-14 sm:mt-16">
+        <HorizontalFeatureReveal
+          aria-label="Services story"
+          features={revealFeatures}
+        />
+      </div>
+
+      {/* <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={gridRef}
           initial="hidden"
@@ -331,7 +362,7 @@ const Services: React.FC = () => {
             </motion.article>
           ))}
         </motion.div>
-      </div>
+      </div> */}
 
       <AnimatePresence>
         {selectedService && (

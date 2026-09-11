@@ -13,7 +13,7 @@ const ProjectPage = () => {
       <TimelineDemo/>
       {/* <Projects/> */}
       <HorizontalScrollProjects/>
-      <ProjectCard/>
+      {/* <ProjectCard/> */}
       </main>
     </>
   );

@@ -15,6 +15,10 @@ import {
 } from "lucide-react"
 import { useLanguage } from "../../../LanguageContext"
 import Modal from "../ui/modal"
+import HowItWorks, {
+  type Step as HowItWorksStep,
+  type StepPosition,
+} from "../../ui/how-it-works"
 
 type Language = "en" | "id"
 
@@ -258,10 +262,40 @@ const itemVariants = {
   },
 }
 
+// Zig-zag pinned positions for 6 steps (the ui component ships defaults for
+// 5), mirroring the original's alternating left/right, tight-pair-then-jump
+// rhythm.
+const HOW_IT_WORKS_POSITIONS: StepPosition[] = [
+  { className: "md:absolute md:top-0 md:left-[15%]", rotate: "rotate-8" },
+  { className: "md:absolute md:top-[150px] md:right-[15%]", rotate: "-rotate-8" },
+  { className: "md:absolute md:top-[430px] md:left-[15%]", rotate: "rotate-8" },
+  { className: "md:absolute md:top-[580px] md:right-[10%]", rotate: "-rotate-8" },
+  { className: "md:absolute md:top-[860px] md:left-[15%]", rotate: "rotate-8" },
+  { className: "md:absolute md:top-[1010px] md:right-[15%]", rotate: "-rotate-8" },
+]
+
+// The ui component only knows 3 preset palettes; cycle them for variety
+// rather than trying to hue-match each step's own accent gradient.
+const HOW_IT_WORKS_THEMES: Array<"purple" | "blue" | "orange"> = [
+  "purple",
+  "blue",
+  "orange",
+]
+
 const BusinessFlow: React.FC = () => {
   const { language } = useLanguage() as { language: Language }
   const copy = COPY[language] ?? COPY.en
   const flowSteps = useMemo(() => buildSteps(language), [language])
+
+  const howItWorksSteps: HowItWorksStep[] = useMemo(
+    () =>
+      flowSteps.map((step, index) => ({
+        title: step.title,
+        description: step.description,
+        colorTheme: HOW_IT_WORKS_THEMES[index % HOW_IT_WORKS_THEMES.length],
+      })),
+    [flowSteps],
+  )
 
   const controls = useAnimation()
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
@@ -277,10 +311,7 @@ const BusinessFlow: React.FC = () => {
       aria-labelledby="business-flow-heading"
       className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-20 sm:py-24 lg:py-32"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute right-0 top-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-violet-200/40 blur-3xl sm:h-96 sm:w-96" />
-        <div className="absolute left-0 bottom-0 h-72 w-72 -translate-x-1/3 translate-y-1/3 rounded-full bg-blue-200/40 blur-3xl sm:h-96 sm:w-96" />
-      </div>
+
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -315,7 +346,14 @@ const BusinessFlow: React.FC = () => {
             {copy.description}
           </motion.p>
         </motion.div>
+      </div>
 
+      {/* Visual step-by-step overview */}
+      <div className="relative mt-10 sm:mt-14">
+        <HowItWorks features={howItWorksSteps} stepPositions={HOW_IT_WORKS_POSITIONS} />
+      </div>
+
+      {/* <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.ol
           initial="hidden"
           animate={controls}
@@ -364,9 +402,9 @@ const BusinessFlow: React.FC = () => {
             </motion.li>
           ))}
         </motion.ol>
-      </div>
+      </div> */}
 
-      <Modal
+      {/* <Modal
         isOpen={Boolean(selectedStep)}
         onClose={() => setSelectedStep(null)}
         title={selectedStep?.title}
@@ -397,7 +435,7 @@ const BusinessFlow: React.FC = () => {
             </div>
           ) : null
         }
-      />
+      /> */}
     </section>
   )
 }

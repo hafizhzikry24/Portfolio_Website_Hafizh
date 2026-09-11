@@ -16,6 +16,7 @@ import notarySystemImg from "../../assets/notary-sytem.png";
 import companyProfileImg from "../../assets/company-profile.png";
 
 import ProductIntro from "./ProductIntro";
+import FlowArt, { FlowSection } from "../ui/story-scroll";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -48,6 +49,8 @@ interface Product {
   features: string[];
   accent: AccentKey;
   imagePosition: ImagePosition;
+  /** Short, stacked headline used in the scroll-story intro (FlowArt) */
+  headlineLines: string[];
 }
 
 // ─── Accent Config ────────────────────────────────────────────────────────────
@@ -76,6 +79,9 @@ const ACCENTS: Record<AccentKey, AccentConfig> = {
   },
 };
 
+// Backgrounds for the FlowArt story slides, cycled per product: black, purple, pink
+const FLOW_BACKGROUNDS = ["#000000", "#3b0764", "#500724"];
+
 // ─── Product Data ─────────────────────────────────────────────────────────────
 
 const PRODUCTS: Product[] = [
@@ -83,7 +89,7 @@ const PRODUCTS: Product[] = [
     id: "pos",
     index: 0,
     title: "Point of Sale (POS) Application",
-    subtitle: "Full-stack Business Management System",
+    subtitle: "Point of Sale (POS) Application",
     description:
       "A comprehensive POS system designed for small to medium businesses. Features a responsive cashier interface for fast transaction processing and a full-featured admin portal for managing products, inventory, employees, and sales reports — all in real time.",
     images: [
@@ -105,12 +111,13 @@ const PRODUCTS: Product[] = [
     ],
     accent: "amber",
     imagePosition: "right",
+    headlineLines: ["Point of Sale", "Application"],
   },
   {
     id: "notary",
     index: 1,
     title: "Notary Information System",
-    subtitle: "Document & Client Management Platform",
+    subtitle: "Notary Information System",
     description:
       "A web-based information system tailored for notary offices. Streamlines management of client data, legal documents, deed records, and appointment scheduling. Role-based access for admins and staff ensures data security and workflow efficiency.",
     images: [{ src: notarySystemImg, label: "MAIN DASHBOARD" }],
@@ -127,12 +134,13 @@ const PRODUCTS: Product[] = [
     ],
     accent: "cyan",
     imagePosition: "left",
+    headlineLines: ["Notary Information", "System"],
   },
   {
     id: "company",
     index: 2,
     title: "Company or Blog Profile Website",
-    subtitle: "Online Presence & Brand Building",
+    subtitle: "Company or Blog Profile Website",
     description:
       "A modern, responsive company or blog profile website presenting business information, services, team members, portfolios, and articles in a structured way — strengthening online presence and brand credibility.",
     images: [{ src: companyProfileImg, label: "LANDING PAGE" }],
@@ -151,6 +159,7 @@ const PRODUCTS: Product[] = [
     ],
     accent: "violet",
     imagePosition: "right",
+    headlineLines: ["Company or Blog Profile", "Profile Website"],
   },
 ];
 
@@ -579,8 +588,73 @@ const ProductsPage: React.FC = () => {
           </div>
         </div>
 
+        {/* Scroll-driven story intro — one pinned, rotating slide per product */}
+        <FlowArt aria-label="Product catalog story">
+          {PRODUCTS.map((product) => {
+            const cfg = ACCENTS[product.accent];
+            const numStr = String(product.index + 1).padStart(2, "0");
+            const flowBg = FLOW_BACKGROUNDS[product.index % FLOW_BACKGROUNDS.length];
+
+            return (
+              <FlowSection
+                key={product.id}
+                aria-label={product.title}
+                style={{ backgroundColor: flowBg, color: "#fff" }}
+              >
+                <p
+                  className="font-mono text-xs font-bold uppercase tracking-[0.2em]"
+                  style={{ color: cfg.hex }}
+                >
+                  {numStr} — {cfg.tag}
+                </p>
+                <hr
+                  className="my-[2vw] border-none border-t"
+                  style={{ borderColor: `${cfg.hex}33` }}
+                />
+                <div>
+                  <h2 className="text-[clamp(2.5rem,9vw,9rem)] font-black uppercase leading-[0.92] tracking-tight text-white">
+                    {product.headlineLines.map((line, i) => (
+                      <React.Fragment key={line}>
+                        {line}
+                        {i < product.headlineLines.length - 1 && <br />}
+                      </React.Fragment>
+                    ))}
+                  </h2>
+                </div>
+                <hr
+                  className="my-[2vw] border-none border-t"
+                  style={{ borderColor: `${cfg.hex}33` }}
+                />
+                <p className="mt-auto max-w-[60ch] font-mono text-[clamp(0.95rem,2vw,1.4rem)] leading-relaxed text-neutral-500">
+                  {product.description}
+                </p>
+                <hr
+                  className="my-[2vw] border-none border-t"
+                  style={{ borderColor: `${cfg.hex}33` }}
+                />
+                <div className="flex flex-wrap gap-[3vw]">
+                  {product.features.slice(0, 3).map((feat) => (
+                    <div key={feat} className="min-w-[180px] flex-1">
+                      <p
+                        className="mb-2 font-mono text-sm font-bold"
+                        style={{ color: cfg.hex }}
+                        aria-hidden="true"
+                      >
+                        ►
+                      </p>
+                      <p className="font-mono text-sm leading-relaxed text-neutral-500">
+                        {feat}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </FlowSection>
+            );
+          })}
+        </FlowArt>
+
         {/* Cards */}
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        {/* <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <motion.div
             ref={catalogRef}
             variants={catalogContainerVariants}
@@ -592,7 +666,7 @@ const ProductsPage: React.FC = () => {
               <ProductCard key={product.id} product={product} />
             ))}
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Bottom CTA */}
         <div className="border-t-2 border-neutral-800 bg-[#0d0d0d] px-4 py-10 sm:px-6 lg:px-8">
