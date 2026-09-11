@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useLanguage } from "../../LanguageContext";
 
 import ScrollExpandMedia from "../ui/scroll-expansion-hero";
+import GiftReveal from "./GiftReveal";
 
 import armoPhoto from "../../assets/armo/sample1.jpg";
 import armoVideo from "../../assets/armo/sample2.mp4";
@@ -70,6 +71,8 @@ const ArmoPage = () => {
           </p>
         </div>
       </ScrollExpandMedia>
+
+      <GiftReveal />
     </div>
   );
 };
