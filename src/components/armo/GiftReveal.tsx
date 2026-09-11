@@ -483,7 +483,8 @@ const GiftReveal: React.FC = () => {
         @media (max-width: 640px) {
           .gr-title-main { font-size: 30px; }
           .gr-title-sub { font-size: 22px; }
-          .gr-photo-grid { grid-template-columns: repeat(2, 1fr); }
+          .gr-photo-grid { grid-template-columns: repeat(4, 0.5fr); gap: 6px; }
+          .gr-photo-caption { font-size: 11px; }
           .gr-playlist-grid { gap: 10px; }
           .gr-music-widget { left: 50%; transform: translateX(-50%); width: 88%; max-width: 300px; }
         }
