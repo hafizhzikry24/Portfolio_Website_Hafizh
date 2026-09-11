@@ -7,7 +7,9 @@ export default {
         header: ['Roboto', 'sans-serif'], // Add Roboto as the custom font
         pixel: ['"DotGothic16"', 'monospace'],
         press: ['"Press Start 2P"', 'monospace'],
-        slikscreen: ['"Silkscreen"', 'monospace']
+        slikscreen: ['"Silkscreen"', 'monospace'],
+        romantic: ['"Dancing Script"', 'cursive'],
+        elegant: ['"Playfair Display"', 'serif']
       },
       keyframes: {
         shimmer: {

@@ -8,6 +8,7 @@ const HomePage = lazy(() => import("./components/home/HomePage"));
 const ServicesPage = lazy(() => import("./components/services/ServicesPage"));
 const ProductsPage = lazy(() => import("./components/products/ProductPage"));
 const ProjectPage = lazy(() => import("./components/journey/ProjectsPage"));
+const ArmoPage = lazy(() => import("./components/armo/ArmoPage"));
 
 // Loading component
 const LoadingFallback = () => (
@@ -27,11 +28,10 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Komponen untuk Layout Halaman Utama
+// Komponen untuk Layout Halaman Utama (pakai Header & Footer)
 const MainLayout = () => {
   return (
     <>
-      <ScrollToTop />
       <Header />
       <main className="min-h-screen">
         <Suspense fallback={<LoadingFallback />}>
@@ -52,7 +52,13 @@ const MainLayout = () => {
 const App = () => {
   return (
     <Router>
-      <MainLayout />
+      <ScrollToTop />
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/for-beloved-gf" element={<ArmoPage />} />
+          <Route path="/*" element={<MainLayout />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };
