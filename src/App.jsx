@@ -55,7 +55,7 @@ const App = () => {
       <ScrollToTop />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
-          <Route path="/for-beloved-gf" element={<ArmoPage />} />
+          <Route path="/keisha" element={<ArmoPage />} />
           <Route path="/*" element={<MainLayout />} />
         </Routes>
       </Suspense>

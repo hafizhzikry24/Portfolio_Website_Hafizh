@@ -316,10 +316,11 @@ const GiftReveal: React.FC = () => {
           justify-content: center;
           align-items: center;
           text-align: center;
-          padding: 60px 20px;
+          padding: 60px 20px 170px;
           max-width: 680px;
           margin: 0 auto;
           height: 100%;
+          box-sizing: border-box;
           overflow-y: auto;
           position: relative;
         }
