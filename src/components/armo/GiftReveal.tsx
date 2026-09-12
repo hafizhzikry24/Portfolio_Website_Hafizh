@@ -31,10 +31,10 @@ interface Song {
 
 // TODO: swap in the real title/artist for each track — placeholders for now.
 const PLAYLIST: Song[] = [
+  { src: song4, title: "Transform (feat. Charlotte Day Wilson)", artist: "Daniel Caesar", cover: cover4 },
   { src: song1, title: "Karolina", artist: "Sore Ze Band", cover: cover1 },
   { src: song2, title: "The Art Of Chasing You", artist: "Magnolia Celebration", cover: cover2 },
   { src: song3, title: "One Less Lonely Girl", artist: "Justin Bieber", cover: cover3 },
-  { src: song4, title: "Transform (feat. Charlotte Day Wilson)", artist: "Daniel Caesar", cover: cover4 },
 ];
 
 const PHOTOS = [
